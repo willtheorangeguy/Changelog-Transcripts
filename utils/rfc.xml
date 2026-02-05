@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:psc="http://podlove.org/simple-chapters">
+  <channel>
+    <title>Request For Commits</title>
+    <copyright>All rights reserved</copyright>
+    <link>https://changelog.com/rfc</link>
+    <atom:link type="application/rss+xml" rel="self" href="https://changelog.com/rfc/feed"/>
+    <atom:link type="text/html" rel="alternate" href="https://changelog.com/rfc"/>
+    <language>en-us</language>
+    <description>Request For Commits explored different perspectives in open source sustainability (retired). Hosts Nadia Eghbal and Mikeal Rogers dive deep into the trials and tribulations of being an open source maintainer, building communities, and navigating the business side of software. Common topics include software licensing, copyright, documentation, governance models, funding platforms such as Open Collective, Kickstarter, etc., measuring success, and more.</description>
+    <itunes:summary>Request For Commits explored different perspectives in open source sustainability (retired). Hosts Nadia Eghbal and Mikeal Rogers dive deep into the trials and tribulations of being an open source maintainer, building communities, and navigating the business side of software. Common topics include software licensing, copyright, documentation, governance models, funding platforms such as Open Collective, Kickstarter, etc., measuring success, and more.</itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+    <itunes:author>Changelog Media</itunes:author>
+    <itunes:owner>
+      <itunes:name>Changelog Media</itunes:name>
+      <itunes:email>editors@changelog.com</itunes:email>
+    </itunes:owner>
+    <itunes:keywords>changelog, open source, sustainability, software, community, oss, </itunes:keywords>
+    <itunes:category text="Technology"/>
+    <podcast:funding url="https://changelog.com/++">Support our work by joining Changelog++</podcast:funding>
+    <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+    <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+    <item>
+      <title>Finale, thank you!</title>
+      <guid isPermaLink="false">changelog.com/3/495</guid>
+      <link>https://changelog.com/rfc/20</link>
+      <pubDate>Wed, 21 Mar 2018 15:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="61529704" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/20/request-for-commits-20.mp3"/>
+      <description>In this finale episode of Request For Commits – we regroup to discuss how we got here, lessons learned, community impact, and where the conversations around open source sustainability are taking place now and in the future. This might be the end of this podcast, but the conversation will continue on The Changelog. You should subscribe if you&apos;re not already.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>42:31</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="host" img="https://cdn.changelog.com/uploads/avatars/people/Qo/avatar_large.jpg?v=63760280419" href="https://changelog.com/person/adamstac">Adam Stacoviak</podcast:person>
+      <podcast:person role="host" img="https://cdn.changelog.com/uploads/avatars/people/z4/avatar_large.jpeg?v=63760071650" href="https://changelog.com/person/jerodsanto">Jerod Santo</podcast:person>
+
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/20/transcript"/>
+      <content:encoded><![CDATA[<p>In this finale episode of Request For Commits – we regroup to discuss how we got here, lessons learned, community impact, and where the conversations around open source sustainability are taking place now and in the future. This might be the end of this podcast, but the conversation will continue on The Changelog. You should subscribe if you’re not already.</p>
+<p><a href="https://changelog.com/rfc/20/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://www.fastly.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Fastly</a> – <strong>Our bandwidth partner.</strong> Fastly powers fast, secure, and scalable digital experiences. Move beyond your content delivery network to their powerful edge cloud platform. Learn more at <a href="https://www.fastly.com/?utm_source=changelog&amp;utm_medium=podcast&amp;utm_campaign=changelog-sponsorship">fastly.com</a>.
+</li>
+<li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Deploy a fast, efficient, native SSD cloud server for only $5/month. Get 4 months free using the code <code>changelog2018</code>. Start your server - head to <a href="https://linode.com/changelog">linode.com/changelog</a>
+</li>
+<li><a href="https://rollbar.com/changelog">Rollbar</a> – <strong>Our error monitoring partner.</strong> Rollbar provides real-time error monitoring, alerting, and analytics to help us resolve production errors in minutes. To start deploying with confidence - head to <a href="https://rollbar.com/changelog">rollbar.com/changelog</a>
+</li>
+</ul></p><p>Featuring:</p><ul><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li><li>Adam Stacoviak &ndash; <a href="https://adamstacoviak.com/" rel="external ugc">Website</a>, <a href="https://github.com/adamstac" rel="external ugc">GitHub</a>, <a href="https://www.linkedin.com/in/adamstacoviak" rel="external ugc">LinkedIn</a>, <a href="https://changelog.social/@adam" rel="external ugc">Mastodon</a>, <a href="https://x.com/adamstac" rel="external ugc">X</a></li><li>Jerod Santo &ndash; <a href="https://github.com/jerodsanto" rel="external ugc">GitHub</a>, <a href="https://www.linkedin.com/in/jerodsanto" rel="external ugc">LinkedIn</a>, <a href="https://changelog.social/@jerod" rel="external ugc">Mastodon</a>, <a href="https://x.com/jerodsanto" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://changelog.com/podcast">Listen and subscribe to The Changelog</a></li>
+<li><a href="https://changelog.com/podcast/193">The Changelog #193: Funding and Sustaining Open Source with Nadia Eghbal</a></li>
+<li><a href="https://changelog.com/podcast/252">The Changelog #252 GitHub’s Open Source Survey (2017) with Frannie Zlotnick &amp; Nadia Eghbal</a></li>
+<li><a href="https://tinyletter.com/nayafia">Subscribe to Nadia’s infrequent newsletter</a></li>
+<li><a href="https://medium.com/@nayafia/how-i-stumbled-upon-the-internet-s-biggest-blind-spot-b9aa23618c58#.e09jv418s">How I Stumbled Upon The Internet’s Biggest Blind Spot</a></li>
+<li><a href="https://medium.com/@nayafia/open-source-was-worth-at-least-143m-of-instagram-s-1b-acquisition-808bb85e4681#.89yt4315x">Open source was worth at least $143M of Instagram’s $1B acquisition</a></li>
+<li><a href="https://medium.com/@nayafia/open-source-infrastructure-the-q-a-a44615861944#.m4fxrks9f">Open source infrastructure Q&amp;A</a></li>
+<li><a href="https://nadiaeghbal.com/facebook-nonprofit">What if Facebook were a nonprofit?</a></li>
+<li><a href="https://sustainoss.org/">Sustain</a> - a one day conversation for open source software sustainers</li>
+<li><a href="https://maintainerati.org/">Maintainerati</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-20.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Design, software, and open source</title>
+      <guid isPermaLink="false">changelog.com/3/475</guid>
+      <link>https://changelog.com/rfc/19</link>
+      <pubDate>Fri, 19 Jan 2018 22:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="101458503" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/19/request-for-commits-19.mp3"/>
+      <description>Lauren McCarthy joined Nadia and Mikeal to discuss her work on p5.js, contributions and culture, her before and after take on open source, her path to becoming a maintainer, how p5.js gets new contributors, how they keep them around, and why design isn&apos;t better represented in open source.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:10:17</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/rAMr/avatar_large.jpg?v=63683736165" href="https://changelog.com/person/laurmccarthy">Lauren McCarthy</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/19/transcript"/>
+      <content:encoded><![CDATA[<p>Lauren McCarthy joined Nadia and Mikeal to discuss her work on p5.js, contributions and culture, her before and after take on open source, her path to becoming a maintainer, how p5.js gets new contributors, how they keep them around, and why design isn’t better represented in open source.</p>
+<p><a href="https://changelog.com/rfc/19/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://www.gocd.org/changelog">GoCD</a> – GoCD is an on-premise open source continuous delivery server created by ThoughtWorks that lets you automate and streamline your build-test-release cycle for reliable, continuous delivery of your product.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Lauren McCarthy &ndash; <a href="http://lauren-mccarthy.com/" rel="external ugc">Website</a>, <a href="https://github.com/lmccart" rel="external ugc">GitHub</a>, <a href="https://x.com/laurmccarthy" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://p5js.org/">p5.js</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-19.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Maintaining a popular project and sponsored time</title>
+      <guid isPermaLink="false">changelog.com/3/474</guid>
+      <link>https://changelog.com/rfc/18</link>
+      <pubDate>Fri, 19 Jan 2018 21:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="89822430" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/18/request-for-commits-18.mp3"/>
+      <description>Henry Zhu joined Nadia and Mikeal to discuss his work on Babel, how he became and accidental maintainer, why he thinks maintainers aren&apos;t special, paid open source work, the Babel brand, and building community.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:02:12</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/9Ngm/avatar_large.jpg?v=63690818069" href="https://changelog.com/person/hzoo">Henry Zhu</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/18/transcript"/>
+      <content:encoded><![CDATA[<p>Henry Zhu joined Nadia and Mikeal to discuss his work on Babel, how he became and accidental maintainer, why he thinks maintainers aren’t special, paid open source work, the Babel brand, and building community.</p>
+<p><a href="https://changelog.com/rfc/18/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://www.gocd.org/changelog">GoCD</a> – GoCD is an on-premise open source continuous delivery server created by ThoughtWorks that lets you automate and streamline your build-test-release cycle for reliable, continuous delivery of your product.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Henry Zhu &ndash; <a href="http://henryzoo.com" rel="external ugc">Website</a>, <a href="https://github.com/hzoo" rel="external ugc">GitHub</a>, <a href="https://x.com/left_pad" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://babeljs.io/">babel js editor</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-18.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Experiments and the Economics of Open Source</title>
+      <guid isPermaLink="false">changelog.com/3/473</guid>
+      <link>https://changelog.com/rfc/17</link>
+      <pubDate>Fri, 19 Jan 2018 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="104897132" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/17/request-for-commits-17.mp3"/>
+      <description>Daniel Bachhuber joined Nadia and Mikeal to discuss his work on wp-cli, the economics, origins, staying productive as a maintainer, fund raising, and the state of wp-cli today.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:12:41</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/a304ad0084a78fe52f6b93e00871754e.jpg?s=600&amp;d=mm" href="https://changelog.com/person/danielbachhuber">Daniel Bachhuber</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/17/transcript"/>
+      <content:encoded><![CDATA[<p>Daniel Bachhuber joined Nadia and Mikeal to discuss his work on wp-cli, the economics, origins, staying productive as a maintainer, fund raising, and the state of wp-cli today.</p>
+<p><a href="https://changelog.com/rfc/17/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://www.gocd.org/changelog">GoCD</a> – GoCD is an on-premise open source continuous delivery server created by ThoughtWorks that lets you automate and streamline your build-test-release cycle for reliable, continuous delivery of your product.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Daniel Bachhuber &ndash; <a href="https://danielbachhuber.com/" rel="external ugc">Website</a>, <a href="https://github.com/danielbachhuber" rel="external ugc">GitHub</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://wp-cli.org/">WP-CLI: Command line interface for WordPress</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-17.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Open Source History, Foundations, Sustainability</title>
+      <guid isPermaLink="false">changelog.com/3/462</guid>
+      <link>https://changelog.com/rfc/16</link>
+      <pubDate>Wed, 22 Nov 2017 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="114778569" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/16/request-for-commits-16.mp3"/>
+      <description>Danese Cooper joined Nadia and Mikeal to discuss the history of open source, how the term became a thing via Tim O&apos;Reilly, feeling empowered as an open source contributor, companies’ relationship to open source, foundations and their role (or not) in governance and sustainability.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:19:33</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/O3Ea/avatar_large.jpg?v=63678636412" href="https://changelog.com/person/danese">Danese Cooper</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/16/transcript"/>
+      <content:encoded><![CDATA[<p>Danese Cooper joined Nadia and Mikeal to discuss the history of open source, how the term became a thing via Tim O’Reilly, feeling empowered as an open source contributor, companies’ relationship to open source, foundations and their role (or not) in governance and sustainability.</p>
+<p><a href="https://changelog.com/rfc/16/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://hired.com/changelog">Hired</a> – Get hired. It’s free — in fact, they pay you to get hired. Our listeners get a double hiring bonus of $600.
+</li>
+<li><a href="https://www.bugsnag.com/changelog">Bugsnag</a> – Mission control for software quality! Monitor website or mobile app errors that impact your customers. Our listeners can try all the features <strong>free for 60 days</strong> ($118 value).
+</li>
+<li><a href="https://www.fastly.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Fastly</a> – <strong>Our bandwidth partner.</strong> Fastly powers fast, secure, and scalable digital experiences. Move beyond your content delivery network to their powerful edge cloud platform.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Danese Cooper &ndash; <a href="http://danesecooper.blogs.com/" rel="external ugc">Website</a>, <a href="https://github.com/danese" rel="external ugc">GitHub</a>, <a href="https://x.com/DivaDanese" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://www.oreilly.com/tim/bio.html">Tim O’Reilly: Official Bio</a></li>
+<li><a href="https://www.fsf.org/">Free Software Foundation</a> - working together for free software</li>
+<li><a href="https://conferences.oreilly.com/oscon">OSCON</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-16.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Maintaining a Popular Project and Managing Burnout</title>
+      <guid isPermaLink="false">changelog.com/3/454</guid>
+      <link>https://changelog.com/rfc/15</link>
+      <pubDate>Wed, 01 Nov 2017 19:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="84840098" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/15/request-for-commits-15.mp3"/>
+      <description>Christopher Hiller joined Nadia and Mikeal to discuss the ups and downs of maintaining Mocha - a JavaScript test framework that runs on Node.js and in the browser. Discussions included maintaining a popular project, getting funding, the challenges of having money, raising the profile of a project, focusing on the needs of a community, and managing burnout.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>58:44</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/kZ4/avatar_large.png?v=63707702787" href="https://changelog.com/person/boneskull">Christopher Hiller</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/15/transcript"/>
+      <content:encoded><![CDATA[<p>Christopher Hiller joined Nadia and Mikeal to discuss the ups and downs of maintaining Mocha - a JavaScript test framework that runs on Node.js and in the browser. Discussions included maintaining a popular project, getting funding, the challenges of having money, raising the profile of a project, focusing on the needs of a community, and managing burnout.</p>
+<p><a href="https://changelog.com/rfc/15/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://hired.com/changelog">Hired</a> – Get hired. It’s free — in fact, they pay you to get hired. Our listeners get a double hiring bonus of $600.
+</li>
+<li><a href="https://www.bugsnag.com/changelog">Bugsnag</a> – Mission control for software quality! Monitor website or mobile app errors that impact your customers. Our listeners can try all the features <strong>free for 60 days</strong> ($118 value).
+</li>
+<li><a href="https://www.fastly.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Fastly</a> – <strong>Our bandwidth partner.</strong> Fastly powers fast, secure, and scalable digital experiences. Move beyond your content delivery network to their powerful edge cloud platform.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Christopher Hiller &ndash; <a href="https://boneskull.com" rel="external ugc">Website</a>, <a href="https://github.com/boneskull" rel="external ugc">GitHub</a>, <a href="https://fosstodon.org/@boneskull" rel="external ugc">Mastodon</a>, <a href="https://x.com/b0neskull" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://mochajs.org/">Mocha</a> - the fun, simple, flexible JavaScript test framework</li>
+<li><a href="https://github.com/mochajs/mocha">mochajs/mocha on GitHub</a></li>
+<li><a href="https://github.com/mochajs">Mocha on GitHub</a></li>
+<li><a href="https://opencollective.com/mochajs">Mocha on Open Collective</a></li>
+<li><a href="https://www.npmjs.com/package/mocha">Mocha on npm</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-15.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Documentation and Quitting Open Source</title>
+      <guid isPermaLink="false">changelog.com/3/447</guid>
+      <link>https://changelog.com/rfc/14</link>
+      <pubDate>Fri, 20 Oct 2017 19:30:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="94245125" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/14/request-for-commits-14.mp3"/>
+      <description>Ryan Bigg joined the show to talk about his open source work on the documentation of Ruby on Rails, fund raising, crowd sourcing, departure, handing off, not quitting, making the right decision, getting paid, sustaining, and more.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:05:16</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/be66f1ccc28a6a3dfb248454b8513b17.jpg?s=600&amp;d=mm" href="https://changelog.com/person/ryanbigg">Ryan Bigg</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/14/transcript"/>
+      <content:encoded><![CDATA[<p>Ryan Bigg joined the show to talk about his open source work on the documentation of Ruby on Rails, fund raising, crowd sourcing, departure, handing off, not quitting, making the right decision, getting paid, sustaining, and more.</p>
+<p><a href="https://changelog.com/rfc/14/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://hired.com/changelog">Hired</a> – Get hired. It’s free — in fact, they pay you to get hired. Our listeners get a double hiring bonus of $600.
+</li>
+<li><a href="https://www.bugsnag.com/changelog">Bugsnag</a> – Mission control for software quality! Monitor website or mobile app errors that impact your customers. Our listeners can try all the features <strong>free for 60 days</strong> ($118 value).
+</li>
+<li><a href="https://www.fastly.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Fastly</a> – <strong>Our bandwidth partner.</strong> Fastly powers fast, secure, and scalable digital experiences. Move beyond your content delivery network to their powerful edge cloud platform.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Ryan Bigg &ndash; <a href="http://ryanbigg.com/" rel="external ugc">Website</a>, <a href="https://github.com/radar" rel="external ugc">GitHub</a>, <a href="https://x.com/ryanbigg" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://guides.rubyonrails.org/asset_pipeline.html">The Asset Pipeline Guide</a></li>
+<li><a href="https://theinitialcommit.com/2017/02/14/ryan-bigg/">Ryan Bigg on _theInitialCommit</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-14.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Open source and supercomputers (Spack)</title>
+      <guid isPermaLink="false">changelog.com/3/423</guid>
+      <link>https://changelog.com/rfc/13</link>
+      <pubDate>Wed, 12 Jul 2017 14:45:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="91876216" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/13/request-for-commits-13.mp3"/>
+      <description>Todd Gamblin – a computer scientist at Lawrence Livermore National Lab – tells Nadia and Mikeal all about bringing open source to his peers in the national labs. They discuss what it’s like to open source a project inside the government, how Todd found contributors for Spack, why he got involved with NumFOCUS, and much more.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:03:37</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/6e1a571029d39cd8b961d11e4259f340.jpg?s=600&amp;d=mm" href="https://changelog.com/person/tgamblin">Todd Gamblin</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/13/transcript"/>
+      <content:encoded><![CDATA[<p>Todd Gamblin – a computer scientist at Lawrence Livermore National Lab – tells Nadia and Mikeal all about bringing open source to his peers in the national labs. They discuss what it’s like to open source a project inside the government, how Todd found contributors for Spack, why he got involved with NumFOCUS, and much more.</p>
+<p><a href="https://changelog.com/rfc/13/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice.</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://hired.com/changelog">Hired</a> – Get hired. It’s free — in fact, they pay you to get hired. Our listeners get a double hiring bonus of $600.
+</li>
+<li><a href="https://www.fastly.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Fastly</a> – <strong>Our bandwidth partner.</strong> Fastly powers fast, secure, and scalable digital experiences. Move beyond your content delivery network to their powerful edge cloud platform.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Todd Gamblin &ndash; <a href="https://github.com/tgamblin" rel="external ugc">GitHub</a>, <a href="https://x.com/tgamblin" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://www.llnl.gov/">LLNL’s Website</a></li>
+<li><a href="https://github.com/llnl">LLNL on GitHub</a></li>
+<li><a href="https://spack.io">Spack</a></li>
+<li><a href="https://www.exascaleproject.org/">Exascale</a></li>
+<li><a href="https://numfocus.org">NumFOCUS</a></li>
+<li><a href="https://hpc.llnl.gov/">Livermore Computing</a></li>
+<li><a href="https://www.energy.gov/national-laboratories">DOE National Laboratories</a></li>
+<li><a href="https://web.archive.org/web/20170701020153/https://nnsa.energy.gov/aboutus/ourprograms/defenseprograms/futurescienceandtechnologyprograms/asc">ASC program</a></li>
+<li><a href="https://www.lanl.gov/projects/ldrd-tri-lab/">LDRD</a></li>
+<li><a href="https://www.sbir.gov/">SBIR</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-13.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Crowdfunding Open Source (Vue.js)</title>
+      <guid isPermaLink="false">changelog.com/3/415</guid>
+      <link>https://changelog.com/rfc/12</link>
+      <pubDate>Thu, 15 Jun 2017 15:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="88686239" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/12/request-for-commits-12.mp3"/>
+      <description>Evan You joined the show to talk about his work on Vue.js. We learn how Evan found users and got Vue.js off the ground, the details behind their crowdfunding on Patreon, whether or not crowdfunding is a viable method of sustaining open source, finding balance in life and work, and plans for funding beyond the Patreon campaign.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:01:24</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/QRk/avatar_large.jpg?v=63664718875" href="https://changelog.com/person/youyuxi">Evan You</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/12/transcript"/>
+      <content:encoded><![CDATA[<p>Evan You joined the show to talk about his work on Vue.js. We learn how Evan found users and got Vue.js off the ground, the details behind their crowdfunding on Patreon, whether or not crowdfunding is a viable method of sustaining open source, finding balance in life and work, and plans for funding beyond the Patreon campaign.</p>
+<p><a href="https://changelog.com/rfc/12/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice!</strong> Get one of the fastest, most efficient SSD cloud servers for only $5/mo. Use the code <code>changelog2017</code> to get 4 months free!
+</li>
+<li><a href="https://hired.com/changelog">Hired</a> – Get hired. It’s free — in fact, they pay you to get hired. Our listeners get a double hiring bonus of $600.
+</li>
+<li><a href="https://www.fastly.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Fastly</a> – <strong>Our bandwidth partner!</strong> Fastly powers fast, secure, and scalable digital experiences. Move beyond your content delivery network to their powerful edge cloud platform.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Evan You &ndash; <a href="http://evanyou.me" rel="external ugc">Website</a>, <a href="https://github.com/yyx990803" rel="external ugc">GitHub</a>, <a href="https://x.com/youyuxi" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Season 2 has begun! Evan You is the creator of Vue, a popular progressive JavaScript framework. He works on Vue full time with the funding from its Patreon campaign. He previously worked at Google and Meteor.</p>
+<hr />
+<ul>
+<li><a href="https://vuejs.org/">Vue.js</a> - The progressive JavaScript framework</li>
+<li><a href="https://conf.vuejs.org/">VueConf</a> - The first official Vue.js conference in the world!</li>
+<li><a href="https://www.patreon.com/evanyou">Vue.js on Patreon</a></li>
+<li><a href="https://babeljs.io/">Babel</a> - Use next generation JavaScript, today.</li>
+<li><a href="https://github.com/hzoo">Henry Zhu</a> - Stay tuned to hear from Henry later on in season 2</li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-12.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>BONUS – Behind the Scenes of Season 1 and 2</title>
+      <guid isPermaLink="false">changelog.com/3/340</guid>
+      <link>https://changelog.com/rfc/behind-season-one</link>
+      <pubDate>Thu, 22 Dec 2016 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="46759133" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/behind-season-one/request-for-commits-behind-season-one.mp3"/>
+      <description>In this special episode of Request For Commits we close out the first season with a look behind the scenes of the show. We talked about how the show was formed, who&apos;s involved and why, how we approach producing this show, our theme music, as well as our plans and timing for season 2.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>48:24</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="host" img="https://cdn.changelog.com/uploads/avatars/people/Qo/avatar_large.jpg?v=63760280419" href="https://changelog.com/person/adamstac">Adam Stacoviak</podcast:person>
+      <podcast:person role="host" img="https://cdn.changelog.com/uploads/avatars/people/z4/avatar_large.jpeg?v=63760071650" href="https://changelog.com/person/jerodsanto">Jerod Santo</podcast:person>
+
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/behind-season-one/transcript"/>
+      <content:encoded><![CDATA[<p>In this special episode of Request For Commits we close out the first season with a look behind the scenes of the show. We talked about how the show was formed, who’s involved and why, how we approach producing this show, our theme music, as well as our plans and timing for season 2.</p>
+<p><a href="https://changelog.com/rfc/behind-season-one/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Featuring:</p><ul><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li><li>Adam Stacoviak &ndash; <a href="https://adamstacoviak.com/" rel="external ugc">Website</a>, <a href="https://github.com/adamstac" rel="external ugc">GitHub</a>, <a href="https://www.linkedin.com/in/adamstacoviak" rel="external ugc">LinkedIn</a>, <a href="https://changelog.social/@adam" rel="external ugc">Mastodon</a>, <a href="https://x.com/adamstac" rel="external ugc">X</a></li><li>Jerod Santo &ndash; <a href="https://github.com/jerodsanto" rel="external ugc">GitHub</a>, <a href="https://www.linkedin.com/in/jerodsanto" rel="external ugc">LinkedIn</a>, <a href="https://changelog.social/@jerod" rel="external ugc">Mastodon</a>, <a href="https://x.com/jerodsanto" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>We will begin production of season 2 in Q1 of 2017 and release in Q2. <a href="https://changelog.com/master">Subscribe to the master feed</a> to get all Changelog podcasts and <a href="https://changelog.com/weekly">Changelog Weekly</a> so you don’t skip a beat.</p>
+<hr />
+<ul>
+<li>The theme music for RFC was created by <a href="https://soundcloud.com/breakmaster-cylinder">Breakmaster Cylinder</a> — <a href="https://breakmastercylinder.bandcamp.com/track/rfc-theme">Listen to it on Bandcamp</a></li>
+<li><a href="https://changelog.com/podcast/193">The Changelog #193: Funding and Sustaining Open Source with Nadia Eghbal</a></li>
+<li>If you haven’t yet, read Karl Fogel’s book — <a href="https://producingoss.com/">Producing Open Source Software</a></li>
+<li>Open Source, Then and Now  with Karl Fogel (author of Producing Open Source Software) — <a href="https://changelog.com/rfc/1">Part 1</a> and <a href="https://changelog.com/rfc/2">Part 2</a></li>
+<li><a href="https://changelog.com/rfc/6">Grant Funding: What Happens When You Pay for Open Source Work? with Max Ogden, creator of Dat</a></li>
+<li><a href="https://changelog.com/rfc/11">Funding the Web with Brendan Eich</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-behind-season-one.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Funding the Web</title>
+      <guid isPermaLink="false">changelog.com/3/312</guid>
+      <link>https://changelog.com/rfc/11</link>
+      <pubDate>Tue, 22 Nov 2016 14:15:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="71662757" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/11/request-for-commits-11.mp3"/>
+      <description>Brendan Eich, founder of Brave and creator of JavaScript, joined the show to talk about the history of the web, how it has been funded, and the backstory on the early browser wars and emerging monetization models. We also talked about why big problems are hard to solve for the Internet and the tradeoffs between centralization and distribution.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:14:24</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/zgk/avatar_large.jpg?v=63647018663" href="https://changelog.com/person/brendaneich">Brendan Eich</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/11/transcript"/>
+      <content:encoded><![CDATA[<p>Brendan Eich, founder of Brave and creator of JavaScript, joined the show to talk about the history of the web, how it has been funded, and the backstory on the early browser wars and emerging monetization models. We also talked about why big problems are hard to solve for the Internet and the tradeoffs between centralization and distribution.</p>
+<p><a href="https://changelog.com/rfc/11/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="http://www.toptal.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at <code>adam@changelog.com</code> for a personal introduction to Toptal.
+</li>
+<li><a href="https://www.minio.io/">Minio</a> – Minio is an Amazon S3 compatible object storage server built for cloud application developers and devops. It’s also open source!
+</li>
+</ul></p><p>Featuring:</p><ul><li>Brendan Eich &ndash; <a href="https://brendaneich.com/" rel="external ugc">Website</a>, <a href="https://github.com/brendaneich" rel="external ugc">GitHub</a>, <a href="https://x.com/brendaneich" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li>Check out <a href="https://en.wikipedia.org/wiki/Exploit_kit">exploit kits</a> like <a href="https://www.google.com/search?q=Angler+Exploit+Kit">Angler Exploit Kit</a></li>
+<li><a href="https://brave.com/">Brave</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-11.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Finding New Contributors</title>
+      <guid isPermaLink="false">changelog.com/3/327</guid>
+      <link>https://changelog.com/rfc/10</link>
+      <pubDate>Tue, 15 Nov 2016 14:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="64926991" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/10/request-for-commits-10.mp3"/>
+      <description>Charlotte Spencer joined the show to talk about making open source more approachable, Your First PR, helping people make their first open source contribution, attracting new contributors, and what projects can do to bring in, retain, and communicate with new people.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:07:23</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/32bcfd9c8556109197b5f975afddb25f.jpg?s=600&amp;d=mm" href="https://changelog.com/person/charlotteis">Charlotte Spencer</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/10/transcript"/>
+      <content:encoded><![CDATA[<p>Charlotte Spencer joined the show to talk about making open source more approachable, Your First PR, helping people make their first open source contribution, attracting new contributors, and what projects can do to bring in, retain, and communicate with new people.</p>
+<p><a href="https://changelog.com/rfc/10/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/rfc">Linode</a> – <strong>Our cloud server of choice!</strong> Get one of the fastest, most efficient SSD cloud servers for only $10/mo. We host everything we do on Linode servers. Use the code <code>rfc20</code> to get 2 months free!
+</li>
+<li><a href="http://www.toptal.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at <code>adam@changelog.com</code> for a personal introduction to Toptal.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Charlotte Spencer &ndash; <a href="http://www.charlotteis.co.uk/" rel="external ugc">Website</a>, <a href="https://github.com/charlotteis" rel="external ugc">GitHub</a>, <a href="https://x.com/charlotteis" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Charlotte Spencer is a software developer who’s done a lot of notable work around making open source more approachable and is a core member of the Hoodie project.</p>
+<hr />
+<ul>
+<li><a href="https://firstpr.me/">First Pull Request</a> — What was the first pull request you sent on GitHub?</li>
+<li><a href="http://yourfirstpr.github.io/">Your First PR</a></li>
+<li><a href="https://web.archive.org/web/20171028170042/http://www.charlotteis.co.uk/making-your-first-pull-request/">Making Your First Pull Request</a></li>
+<li><a href="https://web.archive.org/web/20161218232816/http://www.charlotteis.co.uk/open-open-source/">Open Open Source</a></li>
+<li><a href="http://hood.ie/">Hoodie</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-10.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Open source and licensing</title>
+      <guid isPermaLink="false">changelog.com/3/301</guid>
+      <link>https://changelog.com/rfc/9</link>
+      <pubDate>Fri, 04 Nov 2016 14:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="65715116" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/9/request-for-commits-9.mp3"/>
+      <description>Heather Meeker joined the show to talk about open source licensing, why open source licenses are historically significant, how much developers really need to know, and how much developers think they know. We also talk about mixing commercial and open source licenses, and how lawyers keep up with an ever-changing landscape.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:08:12</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/1O6/avatar_large.jpg?v=63645533219" href="https://changelog.com/person/heathermeeker">Heather Meeker</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/9/transcript"/>
+      <content:encoded><![CDATA[<p>Heather Meeker joined the show to talk about open source licensing, why open source licenses are historically significant, how much developers really need to know, and how much developers think they know. We also talk about mixing commercial and open source licenses, and how lawyers keep up with an ever-changing landscape.</p>
+<p><a href="https://changelog.com/rfc/9/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="http://www.toptal.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at <code>adam@changelog.com</code> for a personal introduction to Toptal.
+</li>
+<li><a href="https://linode.com/rfc">Linode</a> – <strong>Our cloud server of choice!</strong> Get one of the fastest, most efficient SSD cloud servers for only $10/mo. We host everything we do on Linode servers. Use the code <code>rfc20</code> to get 2 months free!
+</li>
+</ul></p><p>Featuring:</p><ul><li>Heather Meeker &ndash; <a href="https://heathermeeker.com/" rel="external ugc">Website</a>, <a href="https://x.com/heathermeeker4" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Heather has spent over twenty years on legal matters related to open source, and has published several books on open source software licensing.</p>
+<hr />
+<ul>
+<li><a href="https://www.amazon.com/exec/obidos/ASIN/1511617772/chlg-20">Open Source for Business: A Practical Guide to Open Source Software Licensing</a></li>
+<li><a href="https://www.americanbar.org/products/inv/book/215440/">Technology Licensing: A Practitioner’s Guide</a></li>
+<li><a href="https://heathermeeker.com/links/">Checkout these useful links</a> on Heather’s site about licenses and the legal side of open source</li>
+<li><a href="https://www.omm.com/">O’Melveny &amp; Myers</a></li>
+<li><a href="https://www.omm.com/professionals/heather-j-meeker/">Heather Meekers on O’Melveny &amp; Myers</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-9.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Open Source and Business</title>
+      <guid isPermaLink="false">changelog.com/3/317</guid>
+      <link>https://changelog.com/rfc/8</link>
+      <pubDate>Tue, 18 Oct 2016 09:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="58971829" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/8/request-for-commits-8.mp3"/>
+      <description>David Cramer (CEO of Sentry) and Isaac Schlueter (CEO of npm) joined the show to talk about building businesses in open source, why they decided to turn their side projects into full-time work, how they experimented with finding steady sources of revenue, raising venture capital, working with investors and with community, and different company approaches to developing open source projects.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:01:09</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/6cf1fc954c2bf35ec6a4b6033d9b45c1.jpg?s=600&amp;d=mm" href="https://changelog.com/person/dcramer">David Cramer</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/dk8/avatar_large.jpg?v=63715607426" href="https://changelog.com/person/isaacs">Isaac Schlueter</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/8/transcript"/>
+      <content:encoded><![CDATA[<p>David Cramer (CEO of Sentry) and Isaac Schlueter (CEO of npm) joined the show to talk about building businesses in open source, why they decided to turn their side projects into full-time work, how they experimented with finding steady sources of revenue, raising venture capital, working with investors and with community, and different company approaches to developing open source projects.</p>
+<p><a href="https://changelog.com/rfc/8/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/rfc">Linode</a> – <strong>Our cloud server of choice!</strong> Get one of the fastest, most efficient SSD cloud servers for only $10/mo. We host everything we do on Linode servers. Use the code <code>rfc20</code> to get 2 months free!
+</li>
+<li><a href="http://www.toptal.com/?utm_source=changelog&utm_medium=podcast&utm_campaign=changelog-sponsorship">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at <code>adam@changelog.com</code> for a personal introduction to Toptal.
+</li>
+</ul></p><p>Featuring:</p><ul><li>David Cramer &ndash; <a href="https://sentry.io/" rel="external ugc">Website</a>, <a href="https://github.com/dcramer" rel="external ugc">GitHub</a>, <a href="https://x.com/zeeg" rel="external ugc">X</a></li><li>Isaac Schlueter &ndash; <a href="https://izs.me/" rel="external ugc">Website</a>, <a href="https://github.com/isaacs" rel="external ugc">GitHub</a>, <a href="https://x.com/izs" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Sentry is a developer tool for detecting application errors, and npm is the default package manager for Node.js. Both started as open source projects, which David and Isaac have built into businesses.</p>
+<ul>
+<li><a href="https://sentry.io/">Sentry</a></li>
+<li><a href="https://www.npmjs.com/">npm</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-8.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Liberal Contribution and Governance Models</title>
+      <guid isPermaLink="false">C670EE09-A1E2-4D70-9E79-0BA7DA2087E1</guid>
+      <link>https://changelog.com/rfc/7</link>
+      <pubDate>Thu, 08 Sep 2016 14:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="75361174" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/7/request-for-commits-7.mp3"/>
+      <description>On today’s show Nadia and Mikeal talk with Rod Vagg, Chief Node Officer at NodeSource, about liberal contribution agreements and the underlying mechanics of liberal contribution management, how to level up casual contributors, how projects transition into a liberal contribution mindset and whether there is a place for BDFLs in the future of project governance.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:18:16</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://cdn.changelog.com/uploads/avatars/people/WRO/avatar_large.jpg?v=63642404876" href="https://changelog.com/person/rvagg">Rod Vagg</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/7/transcript"/>
+      <content:encoded><![CDATA[<p>On today’s show Nadia and Mikeal talk with Rod Vagg, Chief Node Officer at NodeSource, about liberal contribution agreements and the underlying mechanics of liberal contribution management, how to level up casual contributors, how projects transition into a liberal contribution mindset and whether there is a place for BDFLs in the future of project governance.</p>
+<p><a href="https://changelog.com/rfc/7/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="http://www.toptal.com/?utm_source=changelog">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at adam@changelog.com for a personal introduction to Toptal.
+</li>
+<li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice!</strong> We host everything we do on Linode servers. Use the code <code>rfc20</code> to get 2 months free!
+</li>
+</ul></p><p>Featuring:</p><ul><li>Rod Vagg &ndash; <a href="https://r.va.gg" rel="external ugc">Website</a>, <a href="https://github.com/rvagg" rel="external ugc">GitHub</a>, <a href="https://x.com/rvagg" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://nodesource.com/">Nodesource</a></li>
+<li><a href="https://nodesource.com/blog/was-this-trip-really-necessary/">Was This Trip Really Necessary?</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-7.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Grant Funding: What Happens When You Pay for Open Source Work?</title>
+      <guid isPermaLink="false">5F57CBF0-9572-443D-AD14-24AB5E3D0955</guid>
+      <link>https://changelog.com/rfc/6</link>
+      <pubDate>Thu, 01 Sep 2016 14:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="71492269" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/6/request-for-commits-6.mp3"/>
+      <description>On today&apos;s show Nadia and Mikeal talk with Max Ogden, creator of Dat, an open source, decentralized tool for distributing data sets. Max has also done a lot of work in the Node.js ecosystem, including helping start NodeSchool and publishing hundreds of modules to npm. He was also one of the first Code for America fellows.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:14:14</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/fcc9bbfe2a31c5a6225cc287ed7ae2a6.jpg?s=600&amp;d=mm" href="https://changelog.com/person/maxogden">Max Ogden</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/6/transcript"/>
+      <content:encoded><![CDATA[<p>On today’s show Nadia and Mikeal talk with Max Ogden, creator of Dat, an open source, decentralized tool for distributing data sets. Max has also done a lot of work in the Node.js ecosystem, including helping start NodeSchool and publishing hundreds of modules to npm. He was also one of the first Code for America fellows.</p>
+<p><a href="https://changelog.com/rfc/6/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="http://www.toptal.com/?utm_source=changelog">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at adam@changelog.com for a personal introduction to Toptal.
+</li>
+<li><a href="https://linode.com/changelog">Linode</a> – <strong>Our cloud server of choice!</strong> We host everything we do on Linode servers. Use the code <code>rfc20</code> to get 2 months free!
+</li>
+</ul></p><p>Featuring:</p><ul><li>Max Ogden &ndash; <a href="http://maxogden.com" rel="external ugc">Website</a>, <a href="https://github.com/maxogden" rel="external ugc">GitHub</a>, <a href="https://x.com/denormalize" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>We talked about how he figured out grants were right for developing Dat, and how he managed to find his first funders. We also got into the mechanics of grant funding. Max shared what it’s like to work with grant funders, and how to build those early relationships if you’re looking for grants yourself.</p>
+<hr />
+<ul>
+<li><a href="https://dat.foundation/">dat</a></li>
+<li><a href="https://www.knightfoundation.org/funding-initiatives/knight-prototype-fund/">Knight Prototype Fund - Knight Foundation</a></li>
+<li><a href="https://sloan.org/">Alfred P. Sloan Foundation</a></li>
+<li><a href="https://substance.io/consortium/">Substance Consortium</a></li>
+<li><a href="https://github.com/codeforscience/sciencefair-openscienceprize">Submission to openscienceprize.org</a></li>
+<li><a href="https://www.mozillafestival.org/">MozFest 2016</a></li>
+<li><a href="https://nodeschool.io/">NodeSchool</a></li>
+<li><a href="https://usopendata.org/">U.S. Open Data</a></li>
+<li><a href="https://ben.balter.com/2015/04/22/the-difference-between-18f-and-usds/">The difference between 18F and USDS</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-6.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Documentation and the Value of Non-Code Contributions</title>
+      <guid isPermaLink="false">A8D38EEC-573D-4F38-991B-B65B4384FAD0</guid>
+      <link>https://changelog.com/rfc/5</link>
+      <pubDate>Thu, 25 Aug 2016 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="64382830" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/5/request-for-commits-5.mp3"/>
+      <description>On today’s show Nadia and Mikeal are joined by Eric Holscher to discuss non-code contributions, how they are regarded in open source culture, their value, and how to incentivize this type of work. They also talked about how Read the Docs grew a documentation community, contribution guides, and why this work matters.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:06:48</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/a985c35d6be3c88a87d92b92b0d3756f.jpg?s=600&amp;d=mm" href="https://changelog.com/person/ericholscher">Eric Holscher</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/5/transcript"/>
+      <content:encoded><![CDATA[<p>On today’s show Nadia and Mikeal are joined by Eric Holscher to discuss non-code contributions, how they are regarded in open source culture, their value, and how to incentivize this type of work. They also talked about how Read the Docs grew a documentation community, contribution guides, and why this work matters.</p>
+<p><a href="https://changelog.com/rfc/5/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/gotime">Linode</a> – <em>Our cloud server of choice!</em> This is what we built our new CMS on. Use the code <code>rfc20</code> to get 2 months free!
+</li>
+</ul></p><p>Featuring:</p><ul><li>Eric Holscher &ndash; <a href="http://ericholscher.com" rel="external ugc">Website</a>, <a href="https://github.com/ericholscher" rel="external ugc">GitHub</a>, <a href="https://x.com/ericholscher" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="https://readthedocs.org/">Read the Docs</a></li>
+<li><a href="http://www.writethedocs.org/">Write the Docs</a></li>
+<li><a href="https://jacobian.org/tags/great-documentation/">Writing Great Documenation</a></li>
+<li><a href="http://www2.ljworld.com/">Lawrence Journal-World</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-5.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Building Communities</title>
+      <guid isPermaLink="false">53BDD3A9-1CE8-47D2-9D55-C4734C8503C5</guid>
+      <link>https://changelog.com/rfc/4</link>
+      <pubDate>Thu, 18 Aug 2016 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="57054029" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/4/request-for-commits-4.mp3"/>
+      <description>On today’s show Nadia and Mikeal are joined by Jan Lehnardt to discuss the value of building communities to reduce burden on maintainers and create sustainable projects, how communities help grow a project, and contributor models.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>59:09</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/2af516fdc33afea661fb3b32c769c9cc.jpg?s=600&amp;d=mm" href="https://changelog.com/person/janl">Jan Lehnardt</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/4/transcript"/>
+      <content:encoded><![CDATA[<p>On today’s show Nadia and Mikeal are joined by Jan Lehnardt to discuss the value of building communities to reduce burden on maintainers and create sustainable projects, how communities help grow a project, and contributor models.</p>
+<p><a href="https://changelog.com/rfc/4/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="http://www.toptal.com/?utm_source=changelog">Toptal</a> – Scale your team and hire the top 3% of developers and designers at Toptal. Email Adam at <code>adam@changelog.com</code> for a personal introduction to Toptal.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Jan Lehnardt &ndash; <a href="http://writing.jan.io" rel="external ugc">Website</a>, <a href="https://github.com/janl" rel="external ugc">GitHub</a>, <a href="https://x.com/janl" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><ul>
+<li><a href="http://hood.ie/">Hoodie</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-4.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Measuring Success in Open Source</title>
+      <guid isPermaLink="false">D60E29A0-81BC-46D1-9859-75A5632AAE65</guid>
+      <link>https://changelog.com/rfc/3</link>
+      <pubDate>Thu, 11 Aug 2016 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="70669516" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/3/request-for-commits-3.mp3"/>
+      <description>On today’s show Nadia and Mikeal are joined by Andrew Nesbitt and Arfon Smith to talk about open source metrics, and how to interpret data around dependencies and usage. They talked about what we currently can, and can not measure in today’s open source ecosystem. They also talked about individual project metrics, how we can measure success, what maintainers should be paying attention to, and whether or not GitHub stars really matter.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:13:22</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/8ddbf811da78bb0daeeb3cacd7cf743f.jpg?s=600&amp;d=mm" href="https://changelog.com/person/andrewnesbitt">Andrew Nesbitt</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/f2472a96417bb35593d5d3cec48c5d63.jpg?s=600&amp;d=mm" href="https://changelog.com/person/arfon">Arfon Smith</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/3/transcript"/>
+      <content:encoded><![CDATA[<p>On today’s show Nadia and Mikeal are joined by Andrew Nesbitt and Arfon Smith to talk about open source metrics, and how to interpret data around dependencies and usage. They talked about what we currently can, and can not measure in today’s open source ecosystem. They also talked about individual project metrics, how we can measure success, what maintainers should be paying attention to, and whether or not GitHub stars really matter.</p>
+<p><a href="https://changelog.com/rfc/3/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/gotime">Linode</a> – <em>Our cloud server of choice!</em> This is what we built our new CMS on. Use the code rfc20 to get 2 months free!
+</li>
+<li><a href="https://rollbar.com/changelog">Rollbar</a> – Put errors in their place! Full-stack error tracking for all apps in any language. Get the Bootstrap plan free for 90 days. That’s nearly 300,000 errors tracked totally free. Members can get an extra $200 in credit.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Andrew Nesbitt &ndash; <a href="http://nesbitt.io/" rel="external ugc">Website</a>, <a href="https://github.com/andrew" rel="external ugc">GitHub</a>, <a href="https://x.com/teabass" rel="external ugc">X</a></li><li>Arfon Smith &ndash; <a href="https://arfon.org" rel="external ugc">Website</a>, <a href="https://github.com/arfon" rel="external ugc">GitHub</a>, <a href="https://x.com/arfon" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Andrew Nesbitt is the creator of Libraries.io, and Arfon Smith heads up open source data at GitHub. Andrew’s project, Libraries.io, helps people discover and track open source libraries, which was informed by his work on GitHub Explore. Arfon works to make GitHub data more accessible to the public. Previously, he worked on science initiatives at GitHub and elsewhere, including a popular citizen science platform called Zooniverse.</p>
+<ul>
+<li><a href="https://help.github.com/articles/about-stars/">GitHub Stars</a></li>
+<li><a href="https://libraries.io/">Libraries.io</a></li>
+<li><a href="https://www.zooniverse.org/">Zooniverse</a></li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-3.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Open Source, Then and Now (Part 2)</title>
+      <guid isPermaLink="false">0B407610-CAFB-4FBE-9FF7-92CB47854499</guid>
+      <link>https://changelog.com/rfc/2</link>
+      <pubDate>Thu, 04 Aug 2016 21:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="62293638" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/2/request-for-commits-2.mp3"/>
+      <description>Nadia Eghbal and Mikeal Rogers kick off Season 1 of Request For Commits with a two part conversation with Karl Fogel — a software developer who has been active in open source since its inception.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:04:38</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/1f81267123b2a1688fb0430857c8de39.jpg?s=600&amp;d=mm" href="https://changelog.com/person/kfogel">Karl Fogel</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/2/transcript"/>
+      <content:encoded><![CDATA[<p>Nadia Eghbal and Mikeal Rogers kick off Season 1 of Request For Commits with a two part conversation with Karl Fogel — a software developer who has been active in open source since its inception.</p>
+<p><a href="https://changelog.com/rfc/2/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/gotime">Linode</a> – <em>Our cloud server of choice!</em> This is what we built our new CMS on. Use the code rfc20 to get 2 months free!
+</li>
+<li><a href="https://rollbar.com/changelog">Rollbar</a> – Put errors in their place! Full-stack error tracking for all apps in any language. Get the Bootstrap plan free for 90 days. That’s nearly 300,000 errors tracked totally free. Members can get an extra $200 in credit.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Karl Fogel &ndash; <a href="http://www.red-bean.com/kfogel/" rel="external ugc">Website</a>, <a href="https://github.com/kfogel" rel="external ugc">GitHub</a>, <a href="https://x.com/kfogel" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Karl served on the board of the Open Source Initiative, which coined the term “open source”, and helped write Subversion, a popular version control system that predates Git. Karl also wrote a popular book on managing open source projects called Producing Open Source Software. He’s currently a partner at Open Tech Strategies, a firm that helps major organizations use open source to achieve their goals.</p>
+<ul>
+<li>Read Karl Fogel’s book — <a href="https://producingoss.com/">Producing Open Source Software</a></li>
+<li>Make sure you start with <a href="https://changelog.com/rfc/1">part 1 with Karl Fogel</a> where we kick off this conversation.</li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-2.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+    <item>
+      <title>Open Source, Then and Now (Part 1)</title>
+      <guid isPermaLink="false">4FBCEC5C-7947-454E-A564-925ED4FB2B7B</guid>
+      <link>https://changelog.com/rfc/1</link>
+      <pubDate>Thu, 04 Aug 2016 20:00:00 +0000</pubDate>
+      <enclosure type="audio/mpeg" length="73688580" url="https://op3.dev/e/https://cdn.changelog.com/uploads/rfc/1/request-for-commits-1.mp3"/>
+      <description>Nadia Eghbal and Mikeal Rogers kick off Season 1 of Request For Commits with a two part conversation with Karl Fogel — a software developer who has been active in open source since its inception.</description>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:image href="https://cdn.changelog.com/uploads/covers/request-for-commits-original.png?v=63725770400"/>
+      <itunes:duration>1:16:31</itunes:duration>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d6b14ecb00f9b97ceeb66443a40879fa.jpg?s=600&amp;d=mm" href="https://changelog.com/person/nayafia">Nadia Eghbal</podcast:person>
+      <podcast:person role="host" img="https://secure.gravatar.com/avatar/d8eba8dd0e89a0580ec4157681121a79.jpg?s=600&amp;d=mm" href="https://changelog.com/person/mikeal">Mikeal Rogers</podcast:person>
+      <podcast:person role="guest" img="https://secure.gravatar.com/avatar/1f81267123b2a1688fb0430857c8de39.jpg?s=600&amp;d=mm" href="https://changelog.com/person/kfogel">Karl Fogel</podcast:person>
+      <podcast:transcript type="text/html" url="https://changelog.com/rfc/1/transcript"/>
+      <content:encoded><![CDATA[<p>Nadia Eghbal and Mikeal Rogers kick off Season 1 of Request For Commits with a two part conversation with Karl Fogel — a software developer who has been active in open source since its inception.</p>
+<p><a href="https://changelog.com/rfc/1/discuss">Join the discussion</a></p><p><a href="https://changelog.com/++" rel="payment">Changelog++</a> members support our work, get closer to the metal, and make the ads disappear. Join today!</p><p>Sponsors:</p><p><ul><li><a href="https://linode.com/gotime">Linode</a> – <em>Our cloud server of choice!</em> This is what we built our new CMS on. Use the code rfc20 to get 2 months free!
+</li>
+<li><a href="https://rollbar.com/changelog">Rollbar</a> – Put errors in their place! Full-stack error tracking for all apps in any language. Get the Bootstrap plan free for 90 days. That’s nearly 300,000 errors tracked totally free. Members can get an extra $200 in credit.
+</li>
+</ul></p><p>Featuring:</p><ul><li>Karl Fogel &ndash; <a href="http://www.red-bean.com/kfogel/" rel="external ugc">Website</a>, <a href="https://github.com/kfogel" rel="external ugc">GitHub</a>, <a href="https://x.com/kfogel" rel="external ugc">X</a></li><li>Nadia Eghbal &ndash; <a href="https://github.com/nayafia" rel="external ugc">GitHub</a>, <a href="https://x.com/nayafia" rel="external ugc">X</a></li><li>Mikeal Rogers &ndash; <a href="https://github.com/mikeal" rel="external ugc">GitHub</a>, <a href="https://x.com/mikeal" rel="external ugc">X</a></li></ul></p><p>Show Notes:</p><p><p>Karl served on the board of the Open Source Initiative, which coined the term “open source”, and helped write Subversion, a popular version control system that predates Git. Karl also wrote a popular book on managing open source projects called Producing Open Source Software. He’s currently a partner at Open Tech Strategies, a firm that helps major organizations use open source to achieve their goals.</p>
+<ul>
+<li>Read Karl Fogel’s book — <a href="https://producingoss.com/">Producing Open Source Software</a></li>
+<li>Listen to <a href="https://changelog.com/rfc/2">part 2 with Karl Fogel</a> as we continue this conversation.</li>
+</ul>
+</p><p>Something missing or broken? <a href="https://github.com/thechangelog/show-notes/blob/master/rfc/request-for-commits-1.md">PRs welcome!</a></p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
