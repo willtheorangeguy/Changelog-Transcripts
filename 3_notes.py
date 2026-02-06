@@ -6,8 +6,11 @@ and saves them locally with proper naming based on the XML feed data.
 import sys
 import os
 import xml.etree.ElementTree as ET
-import requests
 import re
+import requests
+
+# Log file name
+LOG_FILENAME = "notes.log"
 
 # Mapping of command-line arguments to local folder names
 PODCAST_FOLDERS = {
@@ -251,7 +254,7 @@ def process_podcast(podcast_key):
     print(f"Processing {local_folder} podcast...")
     
     # Set up the log file path
-    log_path = os.path.join(local_folder, 'notes.log')
+    log_path = os.path.join(local_folder, LOG_FILENAME)
     
     # Load previously downloaded episodes
     downloaded_episodes = load_download_log(log_path)
@@ -303,10 +306,5 @@ def process_podcast(podcast_key):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 3_notes.py <podcast>")
-        print("\nAvailable podcasts:")
-        for key in sorted(PODCAST_FOLDERS.keys()):
-            print(f"  - {key}")
-        sys.exit(1)
-    
     podcast_key = sys.argv[1]
     process_podcast(podcast_key)

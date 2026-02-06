@@ -6,8 +6,12 @@ and saves them locally with proper naming based on the XML feed data.
 import sys
 import os
 import xml.etree.ElementTree as ET
-import requests
 import re
+import requests
+import whisper
+
+# Log file name
+LOG_FILENAME = "transcripts.log"
 
 # Mapping of command-line arguments to local folder names
 PODCAST_FOLDERS = {
@@ -76,6 +80,49 @@ XML_FEED_URLS = {
     "podcast": "https://changelog.com/podcast/feed",
     "friends": "https://changelog.com/friends/feed"
 }
+
+# Check for PyTorch
+import torch
+print("Is CUDA enabled? " + str(torch.cuda.is_available()))
+print("Current CUDA GPU: " + str(torch.cuda.get_device_name(0)))
+
+def transcribe(file_path):
+    """Transcribes a single audio file using Whisper and saves the output with timestamps.
+    Returns True if successful."""
+    try:
+        print("Loading model...")
+        model = whisper.load_model("turbo")
+
+        print(f"Transcribing: {file_path}")
+        result = model.transcribe(file_path, language="en", verbose=True)
+
+        # Create output file name
+        base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file_path)[0])
+        output_path = f"{base_name}_transcript"
+
+        # Save timestamped + punctuated transcription as .txt
+        with open(output_path + ".txt", "w", encoding="utf-8") as f:
+            for segment in result["segments"]:
+                start = segment["start"]
+                end = segment["end"]
+                text = segment["text"]
+                f.write(f"[{start:.2f} --> {end:.2f}] {text}\n")
+
+        # Save timestamped + punctuated transcription as .md
+        with open(output_path + ".md", "w", encoding="utf-8") as f:
+            for segment in result["segments"]:
+                start = segment["start"]
+                end = segment["end"]
+                text = segment["text"]
+                f.write(f"[{start:.2f} --> {end:.2f}] {text}\n")
+
+        # User feedback
+        print(f"Transcription saved to: {output_path}.txt and {output_path}.md")
+        return True
+    # Catch any exceptions and report failure
+    except Exception as e:
+        print(f"Failed to transcribe {file_path}: {e}")
+        return False
 
 def sanitize_filename(filename):
     """
@@ -204,6 +251,7 @@ def download_transcript(github_folder, filename_prefix, episode_id):
 def save_transcript(content, local_folder, year, title):
     """
     Save the transcript to the local folder with proper naming.
+    Replaces any existing Whisper-generated transcript if found.
     """
     # Sanitize the title for use as a filename
     safe_title = sanitize_filename(title)
@@ -220,6 +268,19 @@ def save_transcript(content, local_folder, year, title):
     
     file_path = os.path.join(folder_path, transcript_filename)
     
+    # Check if transcript already exists (from previous Whisper generation)
+    if os.path.exists(file_path):
+        print(f"  🔄 Replacing existing transcript")
+        # Delete both .md and .txt versions
+        try:
+            if os.path.exists(file_path):
+                os.remove(file_path)
+            txt_path = file_path.replace('.md', '.txt')
+            if os.path.exists(txt_path):
+                os.remove(txt_path)
+        except Exception as e:
+            print(f"  Warning: Could not delete old transcript: {e}")
+    
     # Write the transcript as a .md and .txt file
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
@@ -228,6 +289,54 @@ def save_transcript(content, local_folder, year, title):
     
     print(f"  Saved to: {file_path} and {file_path.replace('.md', '.txt')}")
     return file_path
+
+def find_audio_file(local_folder, year, title):
+    """
+    Find the audio file for a given episode.
+    Returns the path to the audio file if found, None otherwise.
+    """
+    # Sanitize the title for use as a filename
+    safe_title = sanitize_filename(title)
+    
+    # Construct the folder path
+    if year:
+        folder_path = os.path.join(local_folder, year)
+    else:
+        folder_path = local_folder
+    
+    # Check if folder exists
+    if not os.path.exists(folder_path):
+        return None
+    
+    # Look for audio files with the title in the name
+    # Common patterns: title.mp3, title [something].mp3
+    for file in os.listdir(folder_path):
+        if file.endswith('.mp3'):
+            # Check if the sanitized title is in the filename
+            file_without_ext = os.path.splitext(file)[0]
+            # Remove any bracketed content for comparison
+            file_base = re.sub(r'\s*\[.*?\]', '', file_without_ext)
+            if safe_title in file or file_base == safe_title:
+                return os.path.join(folder_path, file)
+    
+    return None
+
+def generate_transcript_with_whisper(audio_file_path, local_folder, year, title):
+    """
+    Generate a transcript using Whisper for the given audio file.
+    Returns True if successful, False otherwise.
+    """
+    print(f"  🎤 Transcript not found on GitHub, generating with Whisper...")
+    
+    # Use the existing transcribe function
+    success = transcribe(audio_file_path)
+    
+    if success:
+        print(f"  ✅ Whisper transcription completed successfully")
+        return True
+    else:
+        print(f"  ❌ Whisper transcription failed")
+        return False
 
 def process_podcast(podcast_key):
     """
@@ -251,7 +360,7 @@ def process_podcast(podcast_key):
     print(f"Processing {local_folder} podcast...")
     
     # Set up the log file path
-    log_path = os.path.join(local_folder, 'transcriber.log')
+    log_path = os.path.join(local_folder, LOG_FILENAME)
     
     # Load previously downloaded episodes
     downloaded_episodes = load_download_log(log_path)
@@ -271,14 +380,24 @@ def process_podcast(podcast_key):
     success_count = 0
     not_found_count = 0
     skipped_count = 0
+    updated_count = 0
     
     for episode in episodes:
         episode_id = episode['episode_id']
         
         # Check if already downloaded
         if episode_id in downloaded_episodes:
-            print(f"\nSkipping Episode {episode_id}: {episode['title']} (already downloaded)")
-            skipped_count += 1
+            # Check if a GitHub transcript is now available (to replace Whisper-generated one)
+            transcript_content = download_transcript(github_folder, filename_prefix, episode_id)
+            
+            if transcript_content:
+                print(f"\nUpdating Episode {episode_id}: {episode['title']} (GitHub transcript now available)")
+                # Save the transcript (will replace existing Whisper transcript)
+                save_transcript(transcript_content, local_folder, episode['year'], episode['title'])
+                updated_count += 1
+            else:
+                print(f"\nSkipping Episode {episode_id}: {episode['title']} (already downloaded)")
+                skipped_count += 1
             continue
         
         print(f"\nProcessing Episode {episode_id}: {episode['title']}")
@@ -293,20 +412,33 @@ def process_podcast(podcast_key):
             append_to_download_log(log_path, episode_id, episode['title'])
             success_count += 1
         else:
-            not_found_count += 1
+            # Transcript not found on GitHub, try to generate with Whisper
+            audio_file_path = find_audio_file(local_folder, episode['year'], episode['title'])
+            
+            if audio_file_path:
+                print(f"  Found audio file: {audio_file_path}")
+                whisper_success = generate_transcript_with_whisper(
+                    audio_file_path, local_folder, episode['year'], episode['title']
+                )
+                
+                if whisper_success:
+                    # Add to log
+                    append_to_download_log(log_path, episode_id, episode['title'])
+                    success_count += 1
+                else:
+                    not_found_count += 1
+            else:
+                print(f"  ⚠️ No audio file found to transcribe")
+                not_found_count += 1
     
     print(f"Processing show {local_folder} complete!")
     print(f"Successfully downloaded: {success_count}")
+    print(f"Updated (replaced Whisper with GitHub): {updated_count}")
     print(f"Skipped (already downloaded): {skipped_count}")
     print(f"Not found: {not_found_count}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 2_transcripts.py <podcast>")
-        print("\nAvailable podcasts:")
-        for key in sorted(PODCAST_FOLDERS.keys()):
-            print(f"  - {key}")
-        sys.exit(1)
-    
     podcast_key = sys.argv[1]
     process_podcast(podcast_key)
