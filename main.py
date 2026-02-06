@@ -11,9 +11,10 @@ import subprocess
 scripts = [
     "1_download.py",
     "2_transcripts.py",
-    "3_notes.py",
-    "4_summarizer.py",
-    "5_cleanup.py"
+    "3_transcriber.py",
+    "4_notes.py",
+    "5_summarizer.py",
+    "6_cleanup.py"
 ]
 
 # List of podcasts

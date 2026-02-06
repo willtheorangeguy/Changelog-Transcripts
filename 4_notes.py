@@ -317,6 +317,6 @@ def process_podcast(podcast_key):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python 3_notes.py <podcast>")
+        print("Usage: python 4_notes.py <podcast>")
     podcast_key = sys.argv[1]
     process_podcast(podcast_key)

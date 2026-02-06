@@ -166,6 +166,6 @@ def clean_text_file(file_path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python 5_cleanup.py <podcast>")
+        print("Usage: python 6_cleanup.py <podcast>")
     podcast_key = sys.argv[1]
     clean_text_file(podcast_key)

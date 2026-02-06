@@ -140,6 +140,6 @@ def summarize_transcripts(file_path, model="llama3.1:8b"):
 # When script is run, summarize all transcripts in the current directory
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python 4_summarizer.py <podcast>")
+        print("Usage: python 5_summarizer.py <podcast>")
     podcast_key = sys.argv[1]
     summarize_transcripts(podcast_key)
