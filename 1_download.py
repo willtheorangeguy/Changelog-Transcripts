@@ -93,6 +93,9 @@ if __name__ == "__main__":
     elif sys.argv[1] == "podcast":
         playlist_url = "https://changelog.com/interviews/feed"
         output_path = "Changelog Interviews"
+    elif sys.argv[1] == "interviews":
+        playlist_url = "https://changelog.com/interviews/feed"
+        output_path = "Changelog Interviews"
     elif sys.argv[1] == "friends":
         playlist_url = "https://changelog.com/friends/feed"
         output_path = "Changelog and Friends"
