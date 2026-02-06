@@ -9,7 +9,7 @@ import subprocess
 
 # List of numbered scripts in order
 scripts = [
-    "1_download.py",
+    #"1_download.py",
     "2_transcripts.py",
     "3_transcriber.py",
     "4_notes.py",

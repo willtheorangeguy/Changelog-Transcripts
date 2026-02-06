@@ -88,12 +88,18 @@ def transcribe(file_path):
         print(f"Transcribing: {file_path}")
         result = model.transcribe(file_path, language="en", verbose=True)
 
-        # Create output file name
-        base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file_path)[0])
+        # Get the directory and filename separately
+        dir_path = os.path.dirname(file_path)
+        file_name = os.path.basename(file_path)
+        
+        # Create base name from just the filename
+        base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file_name)[0])
         # Remove Windows-incompatible characters
         for char in INVALID_CHARS:
             base_name = base_name.replace(char, "")
-        output_path = f"{base_name}_transcript"
+        
+        # Construct output path in the same directory as the source file
+        output_path = os.path.join(dir_path, f"{base_name}_transcript")
 
         # Save timestamped + punctuated transcription as .txt
         with open(output_path + ".txt", "w", encoding="utf-8") as f:
