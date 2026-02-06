@@ -110,7 +110,7 @@ def all():
 
 if __name__ == "__main__":
     if sys.argv[1] == "practicalai":
-        playlist_url = "https://changelog.com/practicalai/feed"
+        playlist_url = "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm"
         output_path = "Practical AI"
     elif sys.argv[1] == "jsparty":
         playlist_url = "https://changelog.com/jsparty/feed"

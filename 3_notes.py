@@ -68,7 +68,7 @@ GITHUB_FILENAME_PREFIXES = {
 
 # Mapping of command-line arguments to XML feed URLs
 XML_FEED_URLS = {
-    "practicalai": "https://changelog.com/practicalai/feed",
+    "practicalai": "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
     "jsparty": "https://changelog.com/jsparty/feed",
     "shipit": "https://changelog.com/shipit/feed",
     "founderstalk": "https://changelog.com/founderstalk/feed",
