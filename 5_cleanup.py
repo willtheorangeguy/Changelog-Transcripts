@@ -126,7 +126,7 @@ def clean_text_file(file_path):
             ):
                 # Skip already cleaned files
                 if file in cleaned_files:
-                    print(f"⏭️ Skipping (already cleaned): {file}")
+                    print(f"Skipping (already cleaned): {file}")
                     continue
                 full_path = os.path.join(file_path, file)
                 print(f"Processing {full_path}...")
@@ -144,9 +144,9 @@ def clean_text_file(file_path):
                         corrected_path = full_path.replace(".txt", "_corrected.txt").replace(".md", "_corrected.md")
                         with open(corrected_path, "w", encoding="utf-8") as f:
                             f.write(corrected_content)
-                        print(f"  Saved corrected version to {os.path.basename(corrected_path)}\n")
+                        print(f"Saved corrected version to {os.path.basename(corrected_path)}\n")
                     else:
-                        print(f"  No corrections needed for {file}.\n")
+                        print(f"No corrections needed for {file}.\n")
                     
                     # Log this file as cleaned
                     log_file.write(file + "\n")

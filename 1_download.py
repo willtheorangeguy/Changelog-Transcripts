@@ -99,6 +99,47 @@ if __name__ == "__main__":
     elif sys.argv[1] == "friends":
         playlist_url = "https://changelog.com/friends/feed"
         output_path = "Changelog and Friends"
+    elif sys.argv[1] == "all":
+        playlist_url = [ # We hardcode all the feed URLs here for the "all" option
+            "https://changelog.com/practicalai/feed",
+            "https://changelog.com/jsparty/feed",
+            "https://changelog.com/shipit/feed",
+            "https://changelog.com/founderstalk/feed",
+            "https://changelog.com/gotime/feed",
+            "https://changelog.com/rfc/feed",
+            "https://changelog.com/brainscience/feed",
+            "https://changelog.com/spotlight/feed",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/1/backstage-1.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/2/backstage-2.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/3/backstage-3.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/4/backstage-4.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/5/backstage-5.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/6/backstage-6.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/7/backstage-7.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/8/backstage-8.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/9/backstage-9.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/10/backstage-10.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/11/backstage-11.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/12/backstage-12.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/13/backstage-13.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/14/backstage-14.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/15/backstage-15.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/16/backstage-16.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/17/backstage-17.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/18/backstage-18.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/19/backstage-19.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/20/backstage-20.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/21/backstage-21.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/22/backstage-22.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/23/backstage-23.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/24/backstage-24.mp3",
+            "https://op3.dev/e/https://cdn.changelog.com/uploads/backstage/25/backstage-25.mp3",
+            "https://changelog.com/afk/feed",
+            "https://changelog.com/news/feed",
+            "https://changelog.com/interviews/feed",
+            "https://changelog.com/friends/feed"
+        ]
+        sys.exit(0)
     else:
         print("Usage: python 1_download.py <podcast>")
         sys.exit(1)

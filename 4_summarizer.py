@@ -135,7 +135,7 @@ def summarize_transcripts(file_path, model="llama3.1:8b"):
                 log_file.write(file + "\n")
                 log_file.flush()
         if file in processed_files:
-            print(f"⏭️ Skipping (already summarized): {file}")
+            print(f"Skipping (already summarized): {file}")
             
 # When script is run, summarize all transcripts in the current directory
 if __name__ == "__main__":

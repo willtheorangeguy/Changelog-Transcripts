@@ -101,9 +101,11 @@ def load_download_log(log_path):
     Load the log file containing previously downloaded episode IDs.
     Returns a set of episode IDs.
     """
+    # If the log file doesn't exist, return an empty set
     if not os.path.exists(log_path):
         return set()
-    
+
+    # Read the log file and extract episode IDs
     downloaded_episodes = set()
     try:
         with open(log_path, 'r', encoding='utf-8') as f:
@@ -124,6 +126,7 @@ def append_to_download_log(log_path, episode_id, title):
     """
     Append an episode to the download log.
     """
+    # Write the episode ID and title to the log file
     try:
         with open(log_path, 'a', encoding='utf-8') as f:
             f.write(f"{episode_id}|{title}\n")
@@ -135,6 +138,7 @@ def download_xml_feed(feed_url):
     Download the XML feed from the given URL.
     Returns the XML content as a string, or None if download fails.
     """
+    # Check if feed URL is provided
     print(f"Downloading XML feed from: {feed_url}")
     try:
         response = requests.get(feed_url, timeout=30)
@@ -152,23 +156,24 @@ def parse_xml_feed(xml_content):
     Parse the XML feed content and extract episode information.
     Returns a list of dictionaries with title, episode_id, and year.
     """
+    # Parse the XML content
     root = ET.fromstring(xml_content)
-    
+    # Extract episode information from the feed
     episodes = []
-    
+
     # Iterate through all <item> elements
     for item in root.findall('.//item'):
         title_elem = item.find('title')
         link_elem = item.find('link')
         pub_date_elem = item.find('pubDate')
-        
+
         if title_elem is not None and link_elem is not None:
             title = title_elem.text
             link = link_elem.text
-            
+
             # Extract episode ID from link (e.g., https://changelog.com/afk/12 -> 12)
             episode_id = link.rstrip('/').split('/')[-1]
-            
+
             # Extract year from pubDate if available
             year = None
             if pub_date_elem is not None:
@@ -177,7 +182,8 @@ def parse_xml_feed(xml_content):
                 year_match = re.search(r'\b(\d{4})\b', pub_date)
                 if year_match:
                     year = year_match.group(1)
-            
+
+            # Append episode info to the list
             episodes.append({
                 'title': title,
                 'episode_id': episode_id,
@@ -194,18 +200,19 @@ def download_notes(github_folder, filename_prefix, episode_id):
     # Construct the GitHub raw URL
     notes_filename = f"{filename_prefix}-{episode_id}.md"
     github_url = f"https://raw.githubusercontent.com/thechangelog/show-notes/refs/heads/master/{github_folder}/{notes_filename}"
-    
-    print(f"  Attempting to download: {github_url}")
-    
+
+    print(f"Attempting to download: {github_url}")
+
+    # Download the notes content
     try:
         response = requests.get(github_url, timeout=10)
         if response.status_code == 200:
             return response.text
         else:
-            print(f"  Notes not found (HTTP {response.status_code})")
+            print(f"Notes not found (HTTP {response.status_code})")
             return None
     except Exception as e:
-        print(f"  Error downloading notes: {e}")
+        print(f"Error downloading notes: {e}")
         return None
 
 def save_notes(content, local_folder, year, title):
@@ -233,7 +240,7 @@ def save_notes(content, local_folder, year, title):
     with open(file_path.replace('.md', '.txt'), 'w', encoding='utf-8') as f:
         f.write(content)
     
-    print(f"  Saved to: {file_path} and {file_path.replace('.md', '.txt')}")
+    print(f"Saved to: {file_path} and {file_path.replace('.md', '.txt')}")
     return file_path
 
 def process_podcast(podcast_key):
@@ -245,14 +252,15 @@ def process_podcast(podcast_key):
     github_folder = GITHUB_FOLDERS.get(podcast_key)
     filename_prefix = GITHUB_FILENAME_PREFIXES.get(podcast_key)
     xml_feed_url = XML_FEED_URLS.get(podcast_key)
-    
+
+    # Validate mappings
     if not local_folder or not github_folder or not filename_prefix:
         print(f"Error: Unknown podcast key '{podcast_key}'")
         return
-    
+
+    # Backstage doesn't have an XML feed, so we skip the feed processing for it
     if not xml_feed_url:
         print(f"Error: No XML feed URL available for '{podcast_key}'")
-        print("Please add the feed URL to the XML_FEED_URLS dictionary.")
         return
     
     print(f"Processing {local_folder} podcast...")
