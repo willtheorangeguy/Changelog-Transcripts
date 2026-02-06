@@ -84,19 +84,6 @@ XML_FEED_URLS = {
     "friends": "https://changelog.com/friends/feed"
 }
 
-def sanitize_filename(filename):
-    """
-    Remove or replace characters that are invalid in Windows filenames.
-    """
-    # Replace invalid characters with underscores
-    invalid_chars = '<>:"/\\|?*'
-    for char in invalid_chars:
-        filename = filename.replace(char, '_')
-
-    # Remove trailing dots and spaces (Windows doesn't allow these)
-    filename = filename.rstrip('. ')
-    return filename
-
 def load_download_log(log_path):
     """
     Load the log file containing previously downloaded episode IDs.
@@ -151,6 +138,23 @@ def download_xml_feed(feed_url):
     except Exception as e:
         print(f"Error downloading XML feed: {e}")
         return None
+
+def assign_practicalai_episode_numbers(episodes):
+    """
+    Assign sequential episode numbers to Practical AI episodes.
+    RSS feeds are newest-first, so we reverse to assign numbers from oldest to newest.
+    Returns the episodes list with updated episode_id values.
+    """
+    # Reverse the list so oldest episodes come first
+    reversed_episodes = list(reversed(episodes))
+    
+    # Assign sequential numbers starting from 1
+    for i, episode in enumerate(reversed_episodes, start=1):
+        episode['original_id'] = episode['episode_id']
+        episode['episode_id'] = str(i)
+    
+    # Return in original order (newest first) for consistency
+    return list(reversed(reversed_episodes))
 
 def parse_xml_feed(xml_content):
     """
@@ -221,9 +225,7 @@ def save_transcript(content, local_folder, year, title):
     Save the transcript to the local folder with proper naming.
     Replaces any existing transcript if found.
     """
-    # Sanitize the title for use as a filename
-    safe_title = sanitize_filename(title)
-    transcript_filename = f"{safe_title}_transcript.md"
+    transcript_filename = title.rstrip('. ')
     
     # Construct the full path
     if year:
@@ -297,28 +299,25 @@ def process_podcast(podcast_key):
     episodes = parse_xml_feed(xml_content)
     print(f"Found {len(episodes)} episodes in feed")
     
+    # Special handling for Practical AI: use sequential episode numbers
+    if podcast_key == "practicalai":
+        print("Applying sequential episode numbering for Practical AI...")
+        episodes = assign_practicalai_episode_numbers(episodes)
+    
     # Process each episode
     success_count = 0
     not_found_count = 0
     skipped_count = 0
-    updated_count = 0
     
     for episode in episodes:
         episode_id = episode['episode_id']
+        # Use original_id for log tracking if available (for Practical AI)
+        log_id = episode.get('original_id', episode_id)
         
         # Check if already downloaded
-        if episode_id in downloaded_episodes:
-            # Check if a GitHub transcript is now available
-            transcript_content = download_transcript(github_folder, filename_prefix, episode_id)
-            
-            if transcript_content:
-                print(f"Updating Episode {episode_id}: {episode['title']} (GitHub transcript now available)")
-                # Save the transcript (will replace existing transcript)
-                save_transcript(transcript_content, local_folder, episode['year'], episode['title'])
-                updated_count += 1
-            else:
-                print(f"Skipping Episode {episode_id}: {episode['title']} (already downloaded)")
-                skipped_count += 1
+        if log_id in downloaded_episodes:
+            print(f"Skipping Episode {episode_id}: {episode['title']} (already downloaded)")
+            skipped_count += 1
             continue
         
         print(f"\nProcessing Episode {episode_id}: {episode['title']}")
@@ -329,8 +328,8 @@ def process_podcast(podcast_key):
         if transcript_content:
             # Save the transcript
             save_transcript(transcript_content, local_folder, episode['year'], episode['title'])
-            # Add to log
-            append_to_download_log(log_path, episode_id, episode['title'])
+            # Add to log (use original_id for tracking)
+            append_to_download_log(log_path, log_id, episode['title'])
             success_count += 1
         else:
             # Transcript not found on GitHub
@@ -339,7 +338,6 @@ def process_podcast(podcast_key):
     
     print(f"Processing show {local_folder} complete!")
     print(f"Successfully downloaded: {success_count}")
-    print(f"Updated: {updated_count}")
     print(f"Skipped (already downloaded): {skipped_count}")
     print(f"Not found: {not_found_count}")
 

@@ -35,9 +35,9 @@ print("Is CUDA enabled? " + str(torch.cuda.is_available()))
 print("Current CUDA GPU: " + str(torch.cuda.get_device_name(0)))
 
 def transcribe_audio(folder_path):
-    """Transcribes only .mp3 files in the specified directory using Whisper.
+    """Transcribes only .mp3 files in the specified directory and subdirectories using Whisper.
     Skips files that already have a transcript file (either .md or .txt)."""
-    # Path to the log file
+    # Path to the log file in the podcast folder
     log_path = os.path.join(folder_path, LOG_FILENAME)
 
     # Read already transcribed files from log
@@ -49,26 +49,28 @@ def transcribe_audio(folder_path):
 
     # Open log file for appending
     with open(log_path, "a", encoding="utf-8") as log_file:
-        for file in os.listdir(folder_path):
-            if file.endswith(".mp3"):
-                # Check if transcript file already exists
-                base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file)[0])
-                transcript_md = os.path.join(folder_path, f"{base_name}_transcript.md")
-                transcript_txt = os.path.join(folder_path, f"{base_name}_transcript.txt")
-                
-                if os.path.exists(transcript_md) or os.path.exists(transcript_txt):
-                    print(f"⏭️ Skipping (transcript already exists): {file}")
-                    continue
-                
-                if file in transcribed_files:
-                    print(f"⏭️ Skipping (already transcribed): {file}")
-                    continue
-                
-                full_path = os.path.join(folder_path, file)
-                success = transcribe(full_path)
-                if success:
-                    log_file.write(file + "\n")
-                    log_file.flush()
+        # Walk through all subdirectories
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if file.endswith(".mp3"):
+                    # Check if transcript file already exists
+                    base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file)[0])
+                    transcript_md = os.path.join(root, f"{base_name}_transcript.md")
+                    transcript_txt = os.path.join(root, f"{base_name}_transcript.txt")
+                    
+                    if os.path.exists(transcript_md) or os.path.exists(transcript_txt):
+                        print(f"Skipping (transcript already exists): {file}")
+                        continue
+                    
+                    if file in transcribed_files:
+                        print(f"Skipping (already transcribed): {file}")
+                        continue
+                    
+                    full_path = os.path.join(root, file)
+                    success = transcribe(full_path)
+                    if success:
+                        log_file.write(file + "\n")
+                        log_file.flush()
 
 def transcribe(file_path):
     """Transcribes a single audio file using Whisper and saves the output with timestamps.
