@@ -89,6 +89,40 @@ def sanitize_filename(filename):
     filename = filename.rstrip('. ')
     return filename
 
+def load_download_log(log_path):
+    """
+    Load the log file containing previously downloaded episode IDs.
+    Returns a set of episode IDs.
+    """
+    if not os.path.exists(log_path):
+        return set()
+    
+    downloaded_episodes = set()
+    try:
+        with open(log_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):
+                    # Parse the episode ID from the log line
+                    # Format: episode_id|title
+                    parts = line.split('|')
+                    if parts:
+                        downloaded_episodes.add(parts[0])
+    except Exception as e:
+        print(f"Warning: Could not read log file: {e}")
+    
+    return downloaded_episodes
+
+def append_to_download_log(log_path, episode_id, title):
+    """
+    Append an episode to the download log.
+    """
+    try:
+        with open(log_path, 'a', encoding='utf-8') as f:
+            f.write(f"{episode_id}|{title}\n")
+    except Exception as e:
+        print(f"Warning: Could not write to log file: {e}")
+
 def download_xml_feed(feed_url):
     """
     Download the XML feed from the given URL.
@@ -186,11 +220,13 @@ def save_transcript(content, local_folder, year, title):
     
     file_path = os.path.join(folder_path, transcript_filename)
     
-    # Write the transcript
+    # Write the transcript as a .md and .txt file
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(content)
+    with open(file_path.replace('.md', '.txt'), 'w', encoding='utf-8') as f:
+        f.write(content)
     
-    print(f"  Saved to: {file_path}")
+    print(f"  Saved to: {file_path} and {file_path.replace('.md', '.txt')}")
     return file_path
 
 def process_podcast(podcast_key):
@@ -214,6 +250,13 @@ def process_podcast(podcast_key):
     
     print(f"Processing {local_folder} podcast...")
     
+    # Set up the log file path
+    log_path = os.path.join(local_folder, 'transcriber.log')
+    
+    # Load previously downloaded episodes
+    downloaded_episodes = load_download_log(log_path)
+    print(f"Found {len(downloaded_episodes)} previously downloaded episodes in log")
+    
     # Download the XML feed
     xml_content = download_xml_feed(xml_feed_url)
     if not xml_content:
@@ -227,27 +270,39 @@ def process_podcast(podcast_key):
     # Process each episode
     success_count = 0
     not_found_count = 0
+    skipped_count = 0
     
     for episode in episodes:
-        print(f"\nProcessing Episode {episode['episode_id']}: {episode['title']}")
+        episode_id = episode['episode_id']
+        
+        # Check if already downloaded
+        if episode_id in downloaded_episodes:
+            print(f"\nSkipping Episode {episode_id}: {episode['title']} (already downloaded)")
+            skipped_count += 1
+            continue
+        
+        print(f"\nProcessing Episode {episode_id}: {episode['title']}")
         
         # Download the transcript
-        transcript_content = download_transcript(github_folder, filename_prefix, episode['episode_id'])
+        transcript_content = download_transcript(github_folder, filename_prefix, episode_id)
         
         if transcript_content:
             # Save the transcript
             save_transcript(transcript_content, local_folder, episode['year'], episode['title'])
+            # Add to log
+            append_to_download_log(log_path, episode_id, episode['title'])
             success_count += 1
         else:
             not_found_count += 1
     
     print(f"Processing show {local_folder} complete!")
     print(f"Successfully downloaded: {success_count}")
+    print(f"Skipped (already downloaded): {skipped_count}")
     print(f"Not found: {not_found_count}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python new_transcriber.py <podcast>")
+        print("Usage: python 2_transcripts.py <podcast>")
         print("\nAvailable podcasts:")
         for key in sorted(PODCAST_FOLDERS.keys()):
             print(f"  - {key}")
