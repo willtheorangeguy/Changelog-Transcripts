@@ -84,6 +84,19 @@ XML_FEED_URLS = {
     "friends": "https://changelog.com/friends/feed"
 }
 
+def sanitize_filename(filename):
+    """
+    Remove or replace characters that are invalid in Windows filenames.
+    """
+    # Replace invalid characters with nothing (remove them)
+    invalid_chars = '<>:"/\\|?*'
+    for char in invalid_chars:
+        filename = filename.replace(char, '')
+
+    # Remove trailing dots and spaces (Windows doesn't allow these)
+    filename = filename.rstrip('. ')
+    return filename
+
 def load_download_log(log_path):
     """
     Load the log file containing previously downloaded episode IDs.
@@ -225,7 +238,9 @@ def save_transcript(content, local_folder, year, title):
     Save the transcript to the local folder with proper naming.
     Replaces any existing transcript if found.
     """
-    transcript_filename = title.rstrip('. ')
+    # Sanitize the title for use as a filename
+    safe_title = sanitize_filename(title)
+    transcript_filename = f"{safe_title}_transcript.md"
     
     # Construct the full path
     if year:

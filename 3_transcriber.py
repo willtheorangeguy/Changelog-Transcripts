@@ -34,6 +34,9 @@ import torch
 print("Is CUDA enabled? " + str(torch.cuda.is_available()))
 print("Current CUDA GPU: " + str(torch.cuda.get_device_name(0)))
 
+# Windows-incompatible characters to remove from file names
+INVALID_CHARS = '<>:"/\\|?*'
+
 def transcribe_audio(folder_path):
     """Transcribes only .mp3 files in the specified directory and subdirectories using Whisper.
     Skips files that already have a transcript file (either .md or .txt)."""
@@ -55,6 +58,9 @@ def transcribe_audio(folder_path):
                 if file.endswith(".mp3"):
                     # Check if transcript file already exists
                     base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file)[0])
+                    # Remove Windows-incompatible characters
+                    for char in INVALID_CHARS:
+                        base_name = base_name.replace(char, "")
                     transcript_md = os.path.join(root, f"{base_name}_transcript.md")
                     transcript_txt = os.path.join(root, f"{base_name}_transcript.txt")
                     
@@ -84,6 +90,9 @@ def transcribe(file_path):
 
         # Create output file name
         base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file_path)[0])
+        # Remove Windows-incompatible characters
+        for char in INVALID_CHARS:
+            base_name = base_name.replace(char, "")
         output_path = f"{base_name}_transcript"
 
         # Save timestamped + punctuated transcription as .txt
