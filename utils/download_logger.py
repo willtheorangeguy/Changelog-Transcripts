@@ -10,8 +10,7 @@ def get_playlist_video_ids(url):
     a list of podcasts in that feed."""
     ydl_opts = {
         "quiet": True,
-        "skip_download": True,
-        "extract_flat": True,  # Don't resolve each video fully
+        "skip_download": True
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
