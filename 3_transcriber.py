@@ -57,6 +57,23 @@ def transcribe_audio(folder_path):
             for file in files:
                 if file.endswith(".mp3") and file not in transcribed_files:
                     full_path = os.path.join(root, file)
+                    
+                    # Check if transcript files already exist
+                    dir_path = os.path.dirname(full_path)
+                    file_name = os.path.basename(full_path)
+                    base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file_name)[0])
+                    # Remove Windows-incompatible characters
+                    for char in INVALID_CHARS:
+                        base_name = base_name.replace(char, "")
+                    
+                    transcript_txt = os.path.join(dir_path, f"{base_name}_transcript.txt")
+                    transcript_md = os.path.join(dir_path, f"{base_name}_transcript.md")
+                    
+                    # Skip if either transcript file exists
+                    if os.path.exists(transcript_txt) or os.path.exists(transcript_md):
+                        print(f"Skipping {file} - transcript already exists")
+                        continue
+                    
                     success = transcribe(full_path)
                     if success:
                         log_file.write(file + "\n")
