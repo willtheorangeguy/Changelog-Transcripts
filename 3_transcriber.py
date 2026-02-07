@@ -53,7 +53,7 @@ def transcribe_audio(folder_path):
     # Open log file for appending
     with open(log_path, "a", encoding="utf-8") as log_file:
         # Loop through all subdirectories
-        for root, files in os.walk(folder_path):
+        for root, dirs, files in os.walk(folder_path):
             for file in files:
                 if file.endswith(".mp3"):
                     full_path = os.path.join(root, file)
