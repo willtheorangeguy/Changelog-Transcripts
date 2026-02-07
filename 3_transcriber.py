@@ -55,7 +55,7 @@ def transcribe_audio(folder_path):
         # Loop through all subdirectories
         for root, dirs, files in os.walk(folder_path):
             for file in files:
-                if file.endswith(".mp3"):
+                if file.endswith(".mp3") and file not in transcribed_files:
                     full_path = os.path.join(root, file)
                     success = transcribe(full_path)
                     if success:
