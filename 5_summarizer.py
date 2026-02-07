@@ -109,37 +109,54 @@ def summarize_transcript(full_path, model):
     print(f"Summary saved to: {summary_path_txt} and {summary_path_md}")
 
 def summarize_transcripts(file_path, model="llama3.1:8b"):
-    """Loops through all .txt files in the specified directory,
-    skipping already processed files and summary files."""\
+    """Loops through all year folders and .txt files in the specified directory,
+    skipping already processed files and summary files."""
 
     # Get the local folder name based on the command-line argument
-    file_path = PODCAST_FOLDERS.get(file_path)
+    podcast_folder = PODCAST_FOLDERS.get(file_path)
 
-    # Create a log file to track processed files
-    log_path = os.path.join(file_path, LOG_FILENAME)
-    processed_files = set()
+    # Check if podcast folder exists
+    if not os.path.exists(podcast_folder):
+        print(f"Error: Podcast folder '{podcast_folder}' does not exist.")
+        return
 
-    # Load already processed files from log
-    if os.path.exists(log_path):
-        with open(log_path, "r", encoding="utf-8") as log_file:
-            processed_files = set(line.strip() for line in log_file if line.strip())
+    # Loop through all subdirectories (year folders) in the podcast folder
+    for year_folder in os.listdir(podcast_folder):
+        year_path = os.path.join(podcast_folder, year_folder)
+        
+        # Skip if not a directory
+        if not os.path.isdir(year_path):
+            continue
+        
+        print(f"Processing year folder: {year_folder}")
+        
+        # Create a log file to track processed files for this year
+        log_path = os.path.join(year_path, LOG_FILENAME)
+        processed_files = set()
 
-    # Loop through all .txt files in the directory
-    for file in os.listdir(file_path):
-        full_path = os.path.join(file_path, file)
-        # Skip summary files and already processed files
-        if file.endswith(".txt") and not file.endswith("_summary.txt") and not file.endswith("corrected.txt") and not file.endswith("_notes.txt") and not file.endswith("_summary.md") and not file.endswith("corrected.md") and not file.endswith("_notes.md") and file not in processed_files:
-            print(f"Processing {file}...")
-            summarize_transcript(full_path, model)
-            with open(log_path, "a", encoding="utf-8") as log_file:
-                log_file.write(file + "\n")
-                log_file.flush()
-        if file in processed_files:
-            print(f"Skipping (already summarized): {file}")
+        # Load already processed files from log
+        if os.path.exists(log_path):
+            with open(log_path, "r", encoding="utf-8") as log_file:
+                processed_files = set(line.strip() for line in log_file if line.strip())
+
+        # Loop through all .txt files in the year directory
+        for file in os.listdir(year_path):
+            full_path = os.path.join(year_path, file)
+            # Skip summary files and already processed files
+            if file.endswith(".txt") and not file.endswith("_summary.txt") and not file.endswith("corrected.txt") and not file.endswith("_notes.txt") and not file.endswith("_summary.md") and not file.endswith("corrected.md") and not file.endswith("_notes.md") and file not in processed_files:
+                print(f"Processing {file}...")
+                summarize_transcript(full_path, model)
+                with open(log_path, "a", encoding="utf-8") as log_file:
+                    log_file.write(file + "\n")
+                    log_file.flush()
+            elif file in processed_files:
+                print(f"Skipping (already summarized): {file}")
             
 # When script is run, summarize all transcripts in the current directory
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 5_summarizer.py <podcast>")
+        sys.exit(1)
     podcast_key = sys.argv[1]
-    summarize_transcripts(podcast_key)
+    folder_path = PODCAST_FOLDERS.get(podcast_key)
+    summarize_transcripts(folder_path)

@@ -52,26 +52,10 @@ def transcribe_audio(folder_path):
 
     # Open log file for appending
     with open(log_path, "a", encoding="utf-8") as log_file:
-        # Walk through all subdirectories
-        for root, dirs, files in os.walk(folder_path):
+        # Loop through all subdirectories
+        for root, files in os.walk(folder_path):
             for file in files:
                 if file.endswith(".mp3"):
-                    # Check if transcript file already exists
-                    base_name = re.sub(r"\s*\[.*?\]", "", os.path.splitext(file)[0])
-                    # Remove Windows-incompatible characters
-                    for char in INVALID_CHARS:
-                        base_name = base_name.replace(char, "")
-                    transcript_md = os.path.join(root, f"{base_name}_transcript.md")
-                    transcript_txt = os.path.join(root, f"{base_name}_transcript.txt")
-                    
-                    if os.path.exists(transcript_md) or os.path.exists(transcript_txt):
-                        print(f"Skipping (transcript already exists): {file}")
-                        continue
-                    
-                    if file in transcribed_files:
-                        print(f"Skipping (already transcribed): {file}")
-                        continue
-                    
                     full_path = os.path.join(root, file)
                     success = transcribe(full_path)
                     if success:

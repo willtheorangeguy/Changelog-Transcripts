@@ -14,7 +14,6 @@ LOG_FILENAME = "notes.log"
 
 # Mapping of command-line arguments to local folder names
 PODCAST_FOLDERS = {
-    "practicalai": "Practical AI",
     "jsparty": "JS Party",
     "shipit": "Ship It",
     "founderstalk": "Founders Talk",
@@ -32,7 +31,6 @@ PODCAST_FOLDERS = {
 
 # Mapping of command-line arguments to GitHub transcript folder names
 GITHUB_FOLDERS = {
-    "practicalai": "practicalai",
     "jsparty": "jsparty",
     "shipit": "shipit",
     "founderstalk": "founderstalk",
@@ -50,7 +48,6 @@ GITHUB_FOLDERS = {
 
 # Mapping of command-line arguments to GitHub transcript filename prefixes
 GITHUB_FILENAME_PREFIXES = {
-    "practicalai": "practical-ai",
     "jsparty": "js-party",
     "shipit": "ship-it",
     "founderstalk": "founders-talk",
@@ -68,7 +65,6 @@ GITHUB_FILENAME_PREFIXES = {
 
 # Mapping of command-line arguments to XML feed URLs
 XML_FEED_URLS = {
-    "practicalai": "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
     "jsparty": "https://changelog.com/jsparty/feed",
     "shipit": "https://changelog.com/shipit/feed",
     "founderstalk": "https://changelog.com/founderstalk/feed",
@@ -152,23 +148,6 @@ def download_xml_feed(feed_url):
         print(f"Error downloading XML feed: {e}")
         return None
 
-def assign_practicalai_episode_numbers(episodes):
-    """
-    Assign sequential episode numbers to Practical AI episodes.
-    RSS feeds are newest-first, so we reverse to assign numbers from oldest to newest.
-    Returns the episodes list with updated episode_id values.
-    """
-    # Reverse the list so oldest episodes come first
-    reversed_episodes = list(reversed(episodes))
-    
-    # Assign sequential numbers starting from 1
-    for i, episode in enumerate(reversed_episodes, start=1):
-        episode['original_id'] = episode['episode_id']
-        episode['episode_id'] = str(i)
-    
-    # Return in original order (newest first) for consistency
-    return list(reversed(reversed_episodes))
-
 def parse_xml_feed(xml_content):
     """
     Parse the XML feed content and extract episode information.
@@ -189,14 +168,14 @@ def parse_xml_feed(xml_content):
             title = title_elem.text
             link = link_elem.text
 
-            # Extract episode ID from link (e.g., https://changelog.com/afk/12 -> 12)
+            # Extract episode ID from link
             episode_id = link.rstrip('/').split('/')[-1]
 
             # Extract year from pubDate if available
             year = None
             if pub_date_elem is not None:
                 pub_date = pub_date_elem.text
-                # Parse year from date string like "Fri, 24 Mar 2023 17:00:00 +0000"
+                # Parse year from date string
                 year_match = re.search(r'\b(\d{4})\b', pub_date)
                 if year_match:
                     year = year_match.group(1)
@@ -300,11 +279,6 @@ def process_podcast(podcast_key):
     episodes = parse_xml_feed(xml_content)
     print(f"Found {len(episodes)} episodes in feed")
     
-    # Special handling for Practical AI: use sequential episode numbers
-    if podcast_key == "practicalai":
-        print("Applying sequential episode numbering for Practical AI...")
-        episodes = assign_practicalai_episode_numbers(episodes)
-    
     # Process each episode
     success_count = 0
     not_found_count = 0
@@ -343,5 +317,8 @@ def process_podcast(podcast_key):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 4_notes.py <podcast>")
+    if sys.argv[1] == 'practicalai':
+        print("Practical AI must be run from main.py.")
+        sys.exit(1)
     podcast_key = sys.argv[1]
     process_podcast(podcast_key)

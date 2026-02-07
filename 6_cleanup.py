@@ -104,32 +104,49 @@ def clean_text_file(file_path):
     and spelling errors using LanguageTool, with logging."""
 
     # Get the local folder name based on the command-line argument
-    file_path = PODCAST_FOLDERS.get(file_path)
+    podcast_folder = PODCAST_FOLDERS.get(file_path)
 
-    # Path to log file
-    log_path = os.path.join(file_path, LOG_FILENAME)
-    cleaned_files = set()
+    # Check if podcast folder exists
+    if not os.path.exists(podcast_folder):
+        print(f"Error: Podcast folder '{podcast_folder}' does not exist.")
+        return
 
-    # Load already cleaned files from log
-    if os.path.exists(log_path):
-        with open(log_path, "r", encoding="utf-8") as log_file:
-            for line in log_file:
-                cleaned_files.add(line.strip())
+    # Loop through all subdirectories (year folders) in the podcast folder
+    for year_folder in os.listdir(podcast_folder):
+        year_path = os.path.join(podcast_folder, year_folder)
+        
+        # Skip if not a directory
+        if not os.path.isdir(year_path):
+            continue
+        
+        print(f"Processing year folder: {year_folder}")
+        
+        # Create a log file to track processed files for this year
+        log_path = os.path.join(year_path, LOG_FILENAME)
+        cleaned_files = set()
 
-    with open(log_path, "a", encoding="utf-8") as log_file:
-        # Loop through all .txt and .md files in the directory
-        for file in os.listdir(file_path):
+        # Load already cleaned files from log
+        if os.path.exists(log_path):
+            with open(log_path, "r", encoding="utf-8") as log_file:
+                cleaned_files = set(line.strip() for line in log_file if line.strip())
+
+        # Loop through all .txt and .md files in the year directory
+        for file in os.listdir(year_path):
             if (
                 (file.endswith(".txt") or file.endswith(".md"))
                 and not file.endswith("_corrected.txt")
                 and not file.endswith("_corrected.md")
+                and not file.endswith("_summary.txt")
+                and not file.endswith("_summary.md")
+                and not file.endswith("_notes.txt")
+                and not file.endswith("_notes.md")
             ):
                 # Skip already cleaned files
                 if file in cleaned_files:
                     print(f"Skipping (already cleaned): {file}")
                     continue
-                full_path = os.path.join(file_path, file)
-                print(f"Processing {full_path}...")
+                full_path = os.path.join(year_path, file)
+                print(f"Processing {file}...")
 
                 # Read file content
                 try:
@@ -140,7 +157,7 @@ def clean_text_file(file_path):
                     corrected_content, total_corrections = correct_text_in_chunks(content)
                     
                     if total_corrections > 0:
-                        print(f"  Total: {total_corrections} correction(s) made in {file}")
+                        print(f"Total: {total_corrections} correction(s) made in {file}")
                         corrected_path = full_path.replace(".txt", "_corrected.txt").replace(".md", "_corrected.md")
                         with open(corrected_path, "w", encoding="utf-8") as f:
                             f.write(corrected_content)
@@ -149,8 +166,9 @@ def clean_text_file(file_path):
                         print(f"No corrections needed for {file}.\n")
                     
                     # Log this file as cleaned
-                    log_file.write(file + "\n")
-                    log_file.flush()
+                    with open(log_path, "a", encoding="utf-8") as log_file:
+                        log_file.write(file + "\n")
+                        log_file.flush()
                 
                 # Handle specific file read/write errors
                 except (FileNotFoundError, PermissionError, UnicodeDecodeError, OSError) as e:
@@ -167,5 +185,7 @@ def clean_text_file(file_path):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 6_cleanup.py <podcast>")
+        sys.exit(1)
     podcast_key = sys.argv[1]
-    clean_text_file(podcast_key)
+    folder_path = PODCAST_FOLDERS.get(podcast_key)
+    clean_text_file(folder_path)

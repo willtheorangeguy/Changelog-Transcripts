@@ -7,7 +7,7 @@ and runs each script sequentially.
 import sys
 import subprocess
 
-# List of numbered scripts in order
+# Scripts for Changelog Universe podcasts
 scripts = [
     "1_download.py",
     "2_transcripts.py",
@@ -17,9 +17,16 @@ scripts = [
     "6_cleanup.py"
 ]
 
-# List of podcasts
+# Scripts for Practical AI podcast
+practical_ai_scripts = [
+    "1_download.py",
+    "3_transcriber.py",
+    "5_summarizer.py",
+    "6_cleanup.py"
+]
+
+# List of Changelog Universe podcasts
 pods = [
-    "practicalai",
     "jsparty",
     "shipit",
     "founderstalk",
@@ -38,6 +45,9 @@ def all():
     """Runs all scripts for all podcasts."""
     for podcast in pods:
         main(podcast, podcast)
+
+def practical_ai():
+    main("Practical AI", "practicalai")
 
 def main(output_path, podcast_key):
     """Main function to run the scripts in order."""
