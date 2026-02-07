@@ -47,7 +47,16 @@ def all():
         main(podcast, podcast)
 
 def practical_ai():
-    main("Practical AI", "practicalai")
+    """Main function to run the scripts in order."""
+    print(f"Running scripts for podcast: Practical AI")
+
+    for script in practical_ai_scripts:
+        print(f"Running {script} for podcast practicalai...")
+        result = subprocess.run([sys.executable, script, "practicalai"], check=False)
+        if result.returncode != 0:
+            print(f"Error: {script} failed with exit code {result.returncode}")
+            sys.exit(result.returncode)
+    print("All scripts completed successfully.")
 
 def main(output_path, podcast_key):
     """Main function to run the scripts in order."""
