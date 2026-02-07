@@ -103,8 +103,8 @@ def clean_text_file(file_path):
     """Cleans text files by correcting grammar 
     and spelling errors using LanguageTool, with logging."""
 
-    # Get the local folder name based on the command-line argument
-    podcast_folder = PODCAST_FOLDERS.get(file_path)
+    # Use the folder path directly (already looked up in main)
+    podcast_folder = file_path
 
     # Check if podcast folder exists
     if not os.path.exists(podcast_folder):

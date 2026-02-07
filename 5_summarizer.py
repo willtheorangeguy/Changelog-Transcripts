@@ -112,8 +112,8 @@ def summarize_transcripts(file_path, model="llama3.1:8b"):
     """Loops through all year folders and .txt files in the specified directory,
     skipping already processed files and summary files."""
 
-    # Get the local folder name based on the command-line argument
-    podcast_folder = PODCAST_FOLDERS.get(file_path)
+    # Use the folder path directly (already looked up in main)
+    podcast_folder = file_path
 
     # Check if podcast folder exists
     if not os.path.exists(podcast_folder):
@@ -159,4 +159,8 @@ if __name__ == "__main__":
         sys.exit(1)
     podcast_key = sys.argv[1]
     folder_path = PODCAST_FOLDERS.get(podcast_key)
+    if folder_path is None:
+        print(f"Error: Unknown podcast key '{podcast_key}'.")
+        print(f"Valid options: {', '.join(PODCAST_FOLDERS.keys())}")
+        sys.exit(1)
     summarize_transcripts(folder_path)
