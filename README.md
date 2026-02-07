@@ -30,7 +30,6 @@
 ## Key Features
 
 - Ability to download all pre-created transcripts.
-- Pull all Backstage episodes, and convert them to audio.
 - Pull all Brain Science episodes, and convert them to audio.
 - Pull all Founders Talk episodes, and convert them to audio.
 - Pull all Founders Talk episodes, and convert them to audio.

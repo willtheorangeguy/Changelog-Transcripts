@@ -20,7 +20,6 @@ PODCAST_FOLDERS = {
     "rfc": "Request for Commits",
     "brainscience": "Brain Science",
     "spotlight": "Spotlight",
-    "backstage": "Backstage",
     "afk": "Away from Keyboard",
     "news": "Changelog News",
     "podcast": "Changelog Interviews",
