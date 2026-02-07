@@ -111,6 +111,15 @@ def clean_text_file(file_path):
         print(f"Error: Podcast folder '{podcast_folder}' does not exist.")
         return
 
+    # Create a log file to track processed files in the podcast root folder
+    log_path = os.path.join(podcast_folder, LOG_FILENAME)
+    cleaned_files = set()
+
+    # Load already cleaned files from log
+    if os.path.exists(log_path):
+        with open(log_path, "r", encoding="utf-8") as log_file:
+            cleaned_files = set(line.strip() for line in log_file if line.strip())
+
     # Loop through all subdirectories (year folders) in the podcast folder
     for year_folder in os.listdir(podcast_folder):
         year_path = os.path.join(podcast_folder, year_folder)
@@ -120,18 +129,12 @@ def clean_text_file(file_path):
             continue
         
         print(f"Processing year folder: {year_folder}")
-        
-        # Create a log file to track processed files for this year
-        log_path = os.path.join(year_path, LOG_FILENAME)
-        cleaned_files = set()
-
-        # Load already cleaned files from log
-        if os.path.exists(log_path):
-            with open(log_path, "r", encoding="utf-8") as log_file:
-                cleaned_files = set(line.strip() for line in log_file if line.strip())
 
         # Loop through all .txt and .md files in the year directory
         for file in os.listdir(year_path):
+            # Create a relative path identifier for the log (year/filename)
+            file_identifier = os.path.join(year_folder, file)
+            
             if (
                 (file.endswith(".txt") or file.endswith(".md"))
                 and not file.endswith("_corrected.txt")
@@ -142,7 +145,7 @@ def clean_text_file(file_path):
                 and not file.endswith("_notes.md")
             ):
                 # Skip already cleaned files
-                if file in cleaned_files:
+                if file_identifier in cleaned_files:
                     print(f"Skipping (already cleaned): {file}")
                     continue
                 full_path = os.path.join(year_path, file)
@@ -167,7 +170,7 @@ def clean_text_file(file_path):
                     
                     # Log this file as cleaned
                     with open(log_path, "a", encoding="utf-8") as log_file:
-                        log_file.write(file + "\n")
+                        log_file.write(file_identifier + "\n")
                         log_file.flush()
                 
                 # Handle specific file read/write errors

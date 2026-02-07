@@ -120,6 +120,15 @@ def summarize_transcripts(file_path, model="llama3.1:8b"):
         print(f"Error: Podcast folder '{podcast_folder}' does not exist.")
         return
 
+    # Create a log file to track processed files in the podcast root folder
+    log_path = os.path.join(podcast_folder, LOG_FILENAME)
+    processed_files = set()
+
+    # Load already processed files from log
+    if os.path.exists(log_path):
+        with open(log_path, "r", encoding="utf-8") as log_file:
+            processed_files = set(line.strip() for line in log_file if line.strip())
+
     # Loop through all subdirectories (year folders) in the podcast folder
     for year_folder in os.listdir(podcast_folder):
         year_path = os.path.join(podcast_folder, year_folder)
@@ -129,27 +138,21 @@ def summarize_transcripts(file_path, model="llama3.1:8b"):
             continue
         
         print(f"Processing year folder: {year_folder}")
-        
-        # Create a log file to track processed files for this year
-        log_path = os.path.join(year_path, LOG_FILENAME)
-        processed_files = set()
-
-        # Load already processed files from log
-        if os.path.exists(log_path):
-            with open(log_path, "r", encoding="utf-8") as log_file:
-                processed_files = set(line.strip() for line in log_file if line.strip())
 
         # Loop through all .txt files in the year directory
         for file in os.listdir(year_path):
             full_path = os.path.join(year_path, file)
+            # Create a relative path identifier for the log (year/filename)
+            file_identifier = os.path.join(year_folder, file)
+            
             # Skip summary files and already processed files
-            if file.endswith(".txt") and not file.endswith("_summary.txt") and not file.endswith("corrected.txt") and not file.endswith("_notes.txt") and not file.endswith("_summary.md") and not file.endswith("corrected.md") and not file.endswith("_notes.md") and file not in processed_files:
+            if file.endswith(".txt") and not file.endswith("_summary.txt") and not file.endswith("corrected.txt") and not file.endswith("_notes.txt") and not file.endswith("_summary.md") and not file.endswith("corrected.md") and not file.endswith("_notes.md") and file_identifier not in processed_files:
                 print(f"Processing {file}...")
                 summarize_transcript(full_path, model)
                 with open(log_path, "a", encoding="utf-8") as log_file:
-                    log_file.write(file + "\n")
+                    log_file.write(file_identifier + "\n")
                     log_file.flush()
-            elif file in processed_files:
+            elif file_identifier in processed_files:
                 print(f"Skipping (already summarized): {file}")
             
 # When script is run, summarize all transcripts in the current directory
