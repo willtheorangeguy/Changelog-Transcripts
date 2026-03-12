@@ -1,6 +1,6 @@
 """
-This script uses yt-dlp to download audio, by year, from the
-The Standup podcast website playlist.
+This script uses yt-dlp to download audio, by year, from 
+the Changelog Universe podcast feeds.
 """
 
 import sys

@@ -67,9 +67,11 @@ def transcribe_audio(folder_path):
                     
                     transcript_txt = os.path.join(dir_path, f"{base_name}_transcript.txt")
                     transcript_md = os.path.join(dir_path, f"{base_name}_transcript.md")
+                    transcript_interviews_txt = os.path.join(dir_path, f"{base_name} (Interview)_transcript.txt")
+                    transcript_interviews_md = os.path.join(dir_path, f"{base_name} (Interview)_transcript.md")
                     
                     # Skip if either transcript file exists
-                    if os.path.exists(transcript_txt) or os.path.exists(transcript_md):
+                    if os.path.exists(transcript_txt) or os.path.exists(transcript_md) or os.path.exists(transcript_interviews_txt) or os.path.exists(transcript_interviews_md):
                         print(f"Skipping {file} - transcript already exists")
                         continue
                     
