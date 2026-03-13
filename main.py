@@ -73,6 +73,7 @@ def main(output_path, podcast_key):
 if __name__ == "__main__":
     if sys.argv[1] == "practicalai":
         practical_ai()
+        sys.exit(0)
     elif sys.argv[1] == "jsparty":
         podcast_key = "jsparty"
         output_path = "JS Party"
