@@ -34,7 +34,6 @@ pods = [
     "rfc",
     "brainscience",
     "spotlight",
-    "backstage",
     "afk",
     "news",
     "podcast",
