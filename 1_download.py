@@ -18,7 +18,6 @@ PODCAST_FOLDERS = {
     "spotlight": "Spotlight",
     "afk": "Away from Keyboard",
     "news": "Changelog News",
-    "podcast": "Changelog Interviews",
     "interviews": "Changelog Interviews",
     "friends": "Changelog and Friends"
 }
@@ -35,8 +34,7 @@ XML_FEED_URLS = {
     "spotlight": "https://changelog.com/spotlight/feed",
     "afk": "https://changelog.com/afk/feed",
     "news": "https://changelog.com/news/feed",
-    "podcast": "https://changelog.com/podcast/feed",
-    "interviews": "https://changelog.com/podcast/feed",
+    "interviews": "https://changelog.com/interviews/feed",
     "friends": "https://changelog.com/friends/feed"
 }
 
@@ -141,8 +139,8 @@ if __name__ == "__main__":
         playlist_url = "https://changelog.com/news/feed"
         output_path = "Changelog News"
     elif sys.argv[1] == "podcast":
-        playlist_url = "https://changelog.com/interviews/feed"
-        output_path = "Changelog Interviews"
+        playlist_url = "https://changelog.com/podcast/feed"
+        output_path = "Changelog Podcast"
     elif sys.argv[1] == "interviews":
         playlist_url = "https://changelog.com/interviews/feed"
         output_path = "Changelog Interviews"

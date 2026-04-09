@@ -23,7 +23,6 @@ PODCAST_FOLDERS = {
     "spotlight": "Spotlight",
     "afk": "Away from Keyboard",
     "news": "Changelog News",
-    "podcast": "Changelog Interviews",
     "interviews": "Changelog Interviews",
     "friends": "Changelog and Friends"
 }

@@ -36,7 +36,6 @@ pods = [
     "spotlight",
     "afk",
     "news",
-    "podcast",
     "friends"
 ]
 
@@ -105,9 +104,9 @@ if __name__ == "__main__":
         output_path = "Changelog News"
     elif sys.argv[1] == "podcast":
         podcast_key = "podcast"
-        output_path = "Changelog Interviews"
+        output_path = "Changelog Podcast"
     elif sys.argv[1] == "interviews":
-        podcast_key = "podcast"
+        podcast_key = "interviews"
         output_path = "Changelog Interviews"
     elif sys.argv[1] == "friends":
         podcast_key = "friends"

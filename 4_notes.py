@@ -23,7 +23,6 @@ PODCAST_FOLDERS = {
     "spotlight": "Spotlight",
     "afk": "Away from Keyboard",
     "news": "Changelog News",
-    "podcast": "Changelog Interviews",
     "interviews": "Changelog Interviews",
     "friends": "Changelog and Friends"
 }
@@ -39,7 +38,6 @@ GITHUB_FOLDERS = {
     "spotlight": "spotlight",
     "afk": "afk",
     "news": "news",
-    "podcast": "podcast",
     "interviews": "podcast",
     "friends": "friends"
 }
@@ -55,7 +53,6 @@ GITHUB_FILENAME_PREFIXES = {
     "spotlight": "spotlight",
     "afk": "away-from-keyboard",
     "news": "changelog-news",
-    "podcast": "the-changelog",
     "interviews": "the-changelog",
     "friends": "changelog--friends"
 }
@@ -71,8 +68,7 @@ XML_FEED_URLS = {
     "spotlight": "https://changelog.com/spotlight/feed",
     "afk": "https://changelog.com/afk/feed",
     "news": "https://changelog.com/news/feed",
-    "podcast": "https://changelog.com/podcast/feed",
-    "interviews": "https://changelog.com/podcast/feed",
+    "interviews": "https://changelog.com/interviews/feed",
     "friends": "https://changelog.com/friends/feed"
 }
 
