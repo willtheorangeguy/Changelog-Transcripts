@@ -1,9 +1,10 @@
 import os
 import sys
-import json
-import subprocess
 import re
 from datetime import datetime
+from email.utils import parsedate_to_datetime
+from urllib.request import urlopen
+import xml.etree.ElementTree as ET
 from mutagen.easyid3 import EasyID3
 from mutagen.id3 import ID3, TDRC, TRCK
 
@@ -117,26 +118,42 @@ def normalize(text):
     return text
 
 def fetch_playlist_data(url):
-    """Fetch all playlist entries in one go (fast)."""
-    cmd = [
-        "yt-dlp",
-        "--dump-single-json",
-        url
-    ]
-    # Process resulting JSON
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    data = json.loads(result.stdout)
-
-    # Map normalized title to upload date
+    """Fetch episode titles and dates from RSS without loading a huge yt-dlp JSON payload."""
     title_map = {}
 
-    # Loop through entries and build the map
-    for entry in data.get("entries", []):
-        title = entry.get("title")
-        upload_date = entry.get("upload_date")
-        if title and upload_date:
-            dt = datetime.strptime(upload_date, "%Y%m%d")
+    try:
+        with urlopen(url, timeout=30) as response:
+            xml_content = response.read()
+    except Exception as e:
+        print(f"Failed to fetch feed {url}: {e}")
+        return title_map
+
+    try:
+        root = ET.fromstring(xml_content)
+    except ET.ParseError as e:
+        print(f"Failed to parse feed XML for {url}: {e}")
+        return title_map
+
+    # RSS item nodes are usually channel/item; .//item handles namespace-free feeds.
+    for item in root.findall(".//item"):
+        title_node = item.find("title")
+        pub_date_node = item.find("pubDate")
+
+        if title_node is None or pub_date_node is None:
+            continue
+
+        title = (title_node.text or "").strip()
+        pub_date = (pub_date_node.text or "").strip()
+        if not title or not pub_date:
+            continue
+
+        try:
+            dt = parsedate_to_datetime(pub_date)
+            if dt.tzinfo is not None:
+                dt = dt.replace(tzinfo=None)
             title_map[normalize(title)] = dt
+        except (TypeError, ValueError):
+            continue
 
     return title_map
 

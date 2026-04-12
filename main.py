@@ -38,7 +38,8 @@ pods = [
     "spotlight",
     "afk",
     "news",
-    "friends"
+    "friends",
+    "interviews"
 ]
 
 def all():
