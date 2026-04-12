@@ -10,19 +10,21 @@ import subprocess
 # Scripts for Changelog Universe podcasts
 scripts = [
     "1_download.py",
-    "2_transcripts.py",
-    "3_transcriber.py",
-    "4_notes.py",
-    "5_summarizer.py",
-    "6_cleanup.py"
+    "2_tagger.py",
+    "3_transcripts.py",
+    "4_transcriber.py",
+    "5_notes.py",
+    "6_summarizer.py",
+    "7_cleanup.py"
 ]
 
 # Scripts for Practical AI podcast
 practical_ai_scripts = [
     "1_download.py",
-    "3_transcriber.py",
-    "5_summarizer.py",
-    "6_cleanup.py"
+    "2_tagger.py",
+    "4_transcriber.py",
+    "6_summarizer.py",
+    "7_cleanup.py"
 ]
 
 # List of Changelog Universe podcasts
@@ -46,7 +48,7 @@ def all():
 
 def practical_ai():
     """Main function to run the scripts in order."""
-    print(f"Running scripts for podcast: Practical AI")
+    print("Running scripts for podcast: Practical AI")
 
     for script in practical_ai_scripts:
         print(f"Running {script} for podcast practicalai...")

@@ -57,7 +57,6 @@ def download_playlist(playlist_url, output_path):
         ],
         'concurrent-fragments': True,
         'no-mtime': True,
-#       'playlistend': 10
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([playlist_url])
