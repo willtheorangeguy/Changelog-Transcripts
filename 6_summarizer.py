@@ -158,10 +158,9 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 5_summarizer.py <podcast>")
         sys.exit(1)
+    if sys.argv[1] == "backstage":
+        print("Backstage does not have a feed, skipping summarizer...")
+        sys.exit(0)
     podcast_key = sys.argv[1]
     folder_path = PODCAST_FOLDERS.get(podcast_key)
-    if folder_path is None:
-        print(f"Error: Unknown podcast key '{podcast_key}'.")
-        print(f"Valid options: {', '.join(PODCAST_FOLDERS.keys())}")
-        sys.exit(1)
     summarize_transcripts(folder_path)

@@ -7,6 +7,38 @@ from datetime import datetime
 from mutagen.easyid3 import EasyID3
 from mutagen.id3 import ID3, TDRC, TRCK
 
+# Mapping of command-line arguments to local folder names
+PODCAST_FOLDERS = {
+    "practicalai": "Practical AI",
+    "jsparty": "JS Party",
+    "shipit": "Ship It",
+    "founderstalk": "Founders Talk",
+    "gotime": "Go Time",
+    "rfc": "Request for Commits",
+    "brainscience": "Brain Science",
+    "spotlight": "Spotlight",
+    "afk": "Away from Keyboard",
+    "news": "Changelog News",
+    "interviews": "Changelog Interviews",
+    "friends": "Changelog and Friends"
+}
+
+# Mapping of command-line arguments to XML feed URLs
+XML_FEED_URLS = {
+    "practicalai": "https://feeds.transistor.fm/practical-ai-machine-learning-data-science-llm",
+    "jsparty": "https://changelog.com/jsparty/feed",
+    "shipit": "https://changelog.com/shipit/feed",
+    "founderstalk": "https://changelog.com/founderstalk/feed",
+    "gotime": "https://changelog.com/gotime/feed",
+    "rfc": "https://changelog.com/rfc/feed",
+    "brainscience": "https://changelog.com/brainscience/feed",
+    "spotlight": "https://changelog.com/spotlight/feed",
+    "afk": "https://changelog.com/afk/feed",
+    "news": "https://changelog.com/news/feed",
+    "interviews": "https://changelog.com/interviews/feed",
+    "friends": "https://changelog.com/friends/feed"
+}
+
 # Log file name
 LOG_FILENAME = "tagged.log"
 
@@ -64,6 +96,17 @@ def backstage():
                 except Exception as e:
                     print(f"Error with {filepath}: {e}")
 
+def all():
+    """Run the tagger for all podcasts."""
+    for podcast_key in PODCAST_FOLDERS.keys():
+        print(f"Running tagger for podcast: {podcast_key}")
+        playlist_url = XML_FEED_URLS.get(podcast_key)
+        output_path = PODCAST_FOLDERS.get(podcast_key)
+        if playlist_url and output_path:
+            title_map = fetch_playlist_data(playlist_url)
+            process_podcast_folder(output_path, output_path, title_map)
+        else:
+            print(f"Skipping {podcast_key}: Missing feed URL or folder mapping.")
 
 def normalize(text):
     """Normalize strings for reliable matching."""
@@ -225,6 +268,9 @@ if __name__ == "__main__":
         output_path = "Changelog and Friends"
     elif sys.argv[1] == "backstage":
         backstage()
+        sys.exit(0)
+    elif sys.argv[1] == "all":
+        all()
         sys.exit(0)
     else:
         print("Usage: python 2_tagger.py <podcast>")

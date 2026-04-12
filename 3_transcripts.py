@@ -329,5 +329,8 @@ if __name__ == "__main__":
     if sys.argv[1] == 'practicalai':
         print("Practical AI must be run from main.py.")
         sys.exit(1)
+    elif sys.argv[1] == "backstage":
+        print("Backstage does not have a feed, skipping transcript download...")
+        sys.exit(0)
     podcast_key = sys.argv[1]
     process_podcast(podcast_key)

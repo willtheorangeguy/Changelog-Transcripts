@@ -187,6 +187,9 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python 6_cleanup.py <podcast>")
         sys.exit(1)
+    if sys.argv[1] == "backstage":
+        print("Backstage does not have a feed, skipping cleanup...")
+        sys.exit(0)
     podcast_key = sys.argv[1]
     folder_path = PODCAST_FOLDERS.get(podcast_key)
     clean_text_file(folder_path)
