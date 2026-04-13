@@ -30,7 +30,7 @@ function Invoke-GitCommand {
     param(
         [string[]]$Arguments
     )
-    Write-ColoredOutput "  → git $($Arguments -join ' ')" -Color $InfoColor
+    Write-ColoredOutput "  -> git $($Arguments -join ' ')" -Color $InfoColor
     $output = & git $Arguments 2>&1
     $output | ForEach-Object { Write-Host $_ }
     
@@ -60,7 +60,7 @@ Write-ColoredOutput "Current year (will skip): $CurrentYear`n" -Color $InfoColor
 Write-ColoredOutput "Validating git repository..." -Color $InfoColor
 try {
     $gitStatus = git status --porcelain 2>$null
-    Write-ColoredOutput "✓ Repository is valid" -Color $SuccessColor
+    Write-ColoredOutput "[OK] Repository is valid" -Color $SuccessColor
 } catch {
     Write-ColoredOutput "ERROR: Not a valid git repository" -Color $ErrorColor
     exit 1
@@ -105,7 +105,7 @@ foreach ($Year in $YearFolders) {
     $HasCorrected = @(Get-ChildItem -Path $YearPath -Filter "*_corrected.*" -ErrorAction SilentlyContinue).Count -gt 0
     
     if (-not ($HasTranscript -or $HasSummary -or $HasCorrected)) {
-        Write-ColoredOutput "  ⊘ No matching files found (*_transcript.*, *_summary.*, *_corrected.*)" -Color $WarningColor
+        Write-ColoredOutput "  [SKIP] No matching files found (*_transcript.*, *_summary.*, *_corrected.*)" -Color $WarningColor
         $SkippedCount++
         continue
     }
@@ -124,11 +124,11 @@ foreach ($Year in $YearFolders) {
                 $stagedChanges = git diff --cached --name-only 2>$null
                 if ($stagedChanges) {
                     if (Invoke-GitCommand "commit", "-m", "add all $Year transcripts") {
-                        Write-ColoredOutput "  ✓ Transcripts committed" -Color $SuccessColor
+                        Write-ColoredOutput "  [OK] Transcripts committed" -Color $SuccessColor
                         $YearHasChanges = $true
                     }
                 } else {
-                    Write-ColoredOutput "  ⊘ No changes to commit for transcripts" -Color $WarningColor
+                    Write-ColoredOutput "  [SKIP] No changes to commit for transcripts" -Color $WarningColor
                 }
             }
         } else {
@@ -142,11 +142,11 @@ foreach ($Year in $YearFolders) {
                 $stagedChanges = git diff --cached --name-only 2>$null
                 if ($stagedChanges) {
                     if (Invoke-GitCommand "commit", "-m", "add all $Year summaries") {
-                        Write-ColoredOutput "  ✓ Summaries committed" -Color $SuccessColor
+                        Write-ColoredOutput "  [OK] Summaries committed" -Color $SuccessColor
                         $YearHasChanges = $true
                     }
                 } else {
-                    Write-ColoredOutput "  ⊘ No changes to commit for summaries" -Color $WarningColor
+                    Write-ColoredOutput "  [SKIP] No changes to commit for summaries" -Color $WarningColor
                 }
             }
         } else {
@@ -160,11 +160,11 @@ foreach ($Year in $YearFolders) {
                 $stagedChanges = git diff --cached --name-only 2>$null
                 if ($stagedChanges) {
                     if (Invoke-GitCommand "commit", "-m", "add all $Year corrections") {
-                        Write-ColoredOutput "  ✓ Corrections committed" -Color $SuccessColor
+                        Write-ColoredOutput "  [OK] Corrections committed" -Color $SuccessColor
                         $YearHasChanges = $true
                     }
                 } else {
-                    Write-ColoredOutput "  ⊘ No changes to commit for corrections" -Color $WarningColor
+                    Write-ColoredOutput "  [SKIP] No changes to commit for corrections" -Color $WarningColor
                 }
             }
         } else {
@@ -172,10 +172,10 @@ foreach ($Year in $YearFolders) {
         }
         
         if ($YearHasChanges) {
-            Write-ColoredOutput "`n  ✓ Year $Year completed with commits" -Color $SuccessColor
+            Write-ColoredOutput "`n  [OK] Year $Year completed with commits" -Color $SuccessColor
             $ProcessedCount++
         } else {
-            Write-ColoredOutput "`n  ⊘ Year $Year had no new changes to commit" -Color $WarningColor
+            Write-ColoredOutput "`n  [SKIP] Year $Year had no new changes to commit" -Color $WarningColor
             $SkippedCount++
         }
         
@@ -193,4 +193,4 @@ Write-ColoredOutput "========================================" -Color $SuccessCo
 Write-ColoredOutput "Years with commits: $ProcessedCount" -Color $SuccessColor
 Write-ColoredOutput "Years skipped/no changes: $SkippedCount" -Color $InfoColor
 Write-ColoredOutput "`nNote: To push commits to remote, run: git push" -Color $WarningColor
-Write-ColoredOutput "`n✓ Script completed successfully!`n" -Color $SuccessColor
+Write-ColoredOutput "`n[OK] Script completed successfully!`n" -Color $SuccessColor
