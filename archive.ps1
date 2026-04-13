@@ -2,7 +2,6 @@ param(
     [Parameter(Mandatory=$true, HelpMessage="The podcast folder name to process.")]
     [string]$PodcastFolder
 )
-
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Continue"
 
@@ -25,17 +24,15 @@ function Write-ColoredOutput {
 }
 
 # Validate that the podcast folder exists
-$PodcastPath = Join-Path -Path (Get-Location) -ChildPath $PodcastFolder
-if (-not (Test-Path -Path $PodcastPath -PathType Container)) {
+$BasePath = (Get-Location).ProviderPath
+$PodcastPath = Join-Path -Path $BasePath -ChildPath $PodcastFolder
+if (-not (Test-Path -LiteralPath $PodcastPath -PathType Container)) {
     Write-ColoredOutput "ERROR: Podcast folder '$PodcastFolder' not found at '$PodcastPath'" -Color $ErrorColor
     exit 1
 }
 
-# Get the current directory path properly (remove provider prefix)
-$CurrentPath = (Get-Location).Path
-if ($CurrentPath -match '^\w+::\\') {
-    $CurrentPath = ($CurrentPath -split '::')[1]
-}
+# Get the current directory path without provider prefix
+$CurrentPath = (Get-Location).ProviderPath
 
 Write-ColoredOutput "`n========================================" -Color $SuccessColor
 Write-ColoredOutput "TRANSCRIPT ARCHIVE SCRIPT" -Color $SuccessColor
@@ -49,7 +46,7 @@ Write-ColoredOutput "Current year (will skip): $CurrentYear`n" -Color $InfoColor
 # Get all year folders
 Write-ColoredOutput "Scanning year folders in '$PodcastFolder'..." -Color $InfoColor
 $YearFolders = @()
-Get-ChildItem -Path $PodcastPath -Directory | ForEach-Object {
+Get-ChildItem -LiteralPath $PodcastPath -Directory | ForEach-Object {
     if ($_.Name -match '^\d{4}(-\d{4})?$') {
         # Extract the first year number from the folder name
         $yearMatch = [regex]::Match($_.Name, '^\d{4}')
@@ -79,7 +76,7 @@ $SkippedCount = 0
 foreach ($YearFolder in $YearFolders) {
     # Use the full path directly from the filesystem
     $YearPath = Join-Path -Path $PodcastPath -ChildPath $YearFolder
-    
+
     # Extract the first year for the zip filename
     $yearMatch = [regex]::Match($YearFolder, '^\d{4}')
     $ZipYear = $yearMatch.Value
@@ -91,7 +88,7 @@ foreach ($YearFolder in $YearFolders) {
     Write-ColoredOutput "-------------------------------------------" -Color $InfoColor
 
     # Check if zip file already exists
-    if (Test-Path -Path $ZipPath -PathType Leaf) {
+    if (Test-Path -LiteralPath $ZipPath -PathType Leaf) {
         Write-ColoredOutput "  [SKIP] Archive '$ZipFileName' already exists" -Color $WarningColor
         $SkippedCount++
         continue
@@ -99,7 +96,7 @@ foreach ($YearFolder in $YearFolders) {
 
     # Get all .md and .txt files
     $FilesToArchive = @()
-    Get-ChildItem -Path $YearPath -File | Where-Object {
+    Get-ChildItem -LiteralPath $YearPath -File | Where-Object {
         $_.Extension -in @('.md', '.txt')
     } | ForEach-Object {
         $FilesToArchive += $_
@@ -118,11 +115,12 @@ foreach ($YearFolder in $YearFolders) {
 
     # Create the zip archive
     try {
-        # Use Compress-Archive with the -Update flag to handle overwrites
-        $FilesToArchive | ForEach-Object {
-            Compress-Archive -Path $_.FullName -DestinationPath $ZipPath -Update -ErrorAction Stop
+        $SourcePaths = $FilesToArchive | ForEach-Object {
+            (Resolve-Path -LiteralPath $_.FullName).ProviderPath
         }
-        
+
+        Compress-Archive -LiteralPath $SourcePaths -DestinationPath $ZipPath -CompressionLevel Optimal -ErrorAction Stop
+
         Write-ColoredOutput "  [OK] Archive created: $ZipFileName" -Color $SuccessColor
         Write-ColoredOutput "       Location: $ZipPath" -Color $SuccessColor
         $ProcessedCount++
