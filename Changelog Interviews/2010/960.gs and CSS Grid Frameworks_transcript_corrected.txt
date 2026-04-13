@@ -1,0 +1,574 @@
+[0.00 → 18.28] Welcome to the Changelog episode 0.3.2.
+[18.52 → 19.48] I'm Adam Stachowiak.
+[19.70 → 20.62] And I'm Won Edelman.
+[20.80 → 21.66] This is the Changelog.
+[21.68 → 23.64] We cover what's fresh and new in the world of open source.
+[24.06 → 27.02] If you found us on iTunes, we're also on the web at thechangelog.com.
+[27.14 → 28.10] We're also up on GitHub.
+[28.10 → 30.68] Yep, go to GitHub.com forward slash explore.
+[30.80 → 35.42] You'll find some training repos, some feature repos from our blog, as well as the audio podcasts.
+[35.72 → 38.22] If you're on Twitter, follow ChangeLog Show.
+[38.68 → 39.48] And if you want, follow me.
+[39.52 → 40.12] I'm Adam Stack.
+[40.40 → 42.72] And I'm Penguin, P-E-N-G-W-Y-N-N.
+[43.08 → 46.62] I guess we should mention a brand new fresh coat of paint on thechangelog.com.
+[47.02 → 48.08] And it looks fantastic.
+[48.68 → 49.80] Thanks, I appreciate it.
+[50.06 → 50.30] Yeah.
+[50.68 → 52.06] Some new features we're excited about.
+[52.72 → 54.68] Now you can actually browse our episodes.
+[54.68 → 57.90] That's a novel idea for a podcast to have a list of all your episodes.
+[58.10 → 60.84] Well, when you're bootstrapping like we were, you sort of just throw it up, right?
+[61.16 → 64.34] Well, that and the good guys at GitHub have put us up on their Explorer page.
+[64.42 → 67.64] I think we figured everybody could find us up on the Explorer page.
+[67.80 → 69.96] But we've got an episode list that's up there.
+[70.02 → 74.80] We also have a new HTML5 audio player if your browser supports it.
+[74.80 → 85.60] And we've got nice little avatars for author contributors that kind of expose some of the other guys that have been helping out keeping the lights on around the changelog.
+[85.82 → 86.32] Yeah, absolutely.
+[86.54 → 90.16] And also to do some social spreading, you can retweet from the blog too now.
+[90.80 → 93.66] Retweet because it's all about viral communication.
+[93.98 → 94.14] Yep.
+[94.14 → 95.60] If you like an article, retweet it, please.
+[96.00 → 96.40] Please.
+[97.02 → 101.62] Speaking of design, sat down with Nathan Smith from 960 Grid System.
+[101.92 → 102.16] Yeah.
+[102.54 → 103.76] Awesome conversation with him.
+[103.86 → 108.12] He's one of my – I'm one of his biggest fans with the 960GS.
+[108.22 → 108.62] I've used it.
+[108.70 → 109.10] How about you?
+[109.44 → 109.82] Oh, yeah.
+[109.94 → 111.50] I think on a number of projects.
+[111.82 → 119.40] I'm a big grid framework guy just because I don't like doing the tedium of the math of figuring out what my grid's going to be.
+[119.48 → 121.28] I just like to find a groove and go with it.
+[121.58 → 124.32] I like a lot of what he said about semantics too, about HTML5.
+[124.50 → 128.74] And we went to that conversation about using too many class names and what that meant.
+[128.90 → 130.50] And I liked how you riffed on that a bit.
+[130.98 → 134.12] Yeah, he's a pragmatist, I think, as both you and I are.
+[134.34 → 134.56] Yeah.
+[135.02 → 135.58] Good episode.
+[135.68 → 136.18] Should we get to it?
+[136.36 → 136.98] Let's do it.
+[136.98 → 137.04] Let's do it.
+[141.50 → 146.68] All right.
+[146.68 → 151.32] We're joined today by Nathan Smith, creator of 960 Grid System, a CSS framework.
+[151.86 → 155.88] Nathan, why don't you introduce yourself and tell the folks who you are and what you do.
+[156.92 → 159.38] Hey, I'm Nathan Smith, as you said.
+[159.58 → 162.22] I work at Fellowship Technologies in Dallas, Texas.
+[162.70 → 163.70] Actually, we're in Irving.
+[164.14 → 166.74] I'm a designer slash front-end developer there.
+[168.10 → 170.36] Yeah, we do software service for churches.
+[170.36 → 171.40] Awesome.
+[171.50 → 176.58] I should mention we're joined again by Adam Stachowiak, our guest host, who took the summer
+[176.58 → 176.80] off.
+[176.84 → 178.76] He's been backpacking across Western Europe.
+[179.94 → 182.24] Not quite, but definitely on a hiatus.
+[182.48 → 183.30] It's nice to be back.
+[183.52 → 188.16] And it was nice to have Michael step in for me and talk about things that were way over
+[188.16 → 188.62] my head.
+[189.44 → 190.54] Glad to have you back, buddy.
+[190.78 → 191.30] Thank you.
+[191.82 → 194.02] Nathan, how did 960 Grid System come about?
+[194.12 → 195.46] What problem were you trying to solve?
+[195.54 → 197.26] And give us a little background on the project.
+[197.26 → 198.10] Sure, yeah.
+[198.28 → 203.14] I basically just got tired of doing the same stuff over and over.
+[203.84 → 208.14] I think everybody, whether they call it a framework or not, has a collection of code
+[208.14 → 212.04] that either they have in their head that they always retype, or maybe they have it saved on
+[212.04 → 213.80] their hard drive somewhere, and they cut and paste it.
+[214.56 → 221.00] So basically, I just took what I always went to and kind of cleaned it up a little bit and
+[221.00 → 224.26] threw it out there just to see if anybody else wanted to use it.
+[224.26 → 225.96] And it turned out people did.
+[226.80 → 230.32] We kind of knew about this other one called Blueprint, though.
+[230.38 → 233.40] Who would win at a death match between 960GS and Blueprint?
+[234.62 → 235.54] Well, I don't know.
+[235.78 → 240.46] But I can say that the original developer of Blueprint no longer develops Blueprint.
+[240.96 → 246.94] So if you make an open source project, you've got to support it, right?
+[246.94 → 247.18] Yeah.
+[247.42 → 247.78] Yeah.
+[248.22 → 250.90] So I don't really try to get in politics.
+[251.42 → 255.92] I think, I forget who it was on the Dojo team that said it's just all JavaScript.
+[256.22 → 258.52] You know, you had an explicative in there.
+[258.88 → 261.20] But it's all just code.
+[261.72 → 267.36] In fact, today, somebody asked me if the HTML5 boilerplate by Paul Irish, if that was compatible
+[267.36 → 268.28] with 960.
+[268.46 → 270.30] And I'm like, it's just CSS.
+[270.52 → 271.16] Do you realize that?
+[271.24 → 272.30] It's not a product.
+[272.30 → 275.64] It's not like a Windows patch you install, and then it breaks something, you know, like,
+[276.10 → 276.64] try it out.
+[276.68 → 278.88] If it looks like it works, it, you know, probably works.
+[280.22 → 284.08] Do you think this whole frame working thing sort of started a bandwagon to jump onto?
+[285.70 → 288.14] Yeah, I think it's kind of a two-edged sword, you know.
+[289.18 → 291.96] Jeff Croft has talked a little bit about this and why he likes Django.
+[292.32 → 297.98] His initial jump into frameworks was because it let him do things that he didn't know how
+[297.98 → 298.32] to do.
+[298.32 → 302.14] And then he learned more about it and then now it lets him do things that he wouldn't
+[302.14 → 303.12] want to do over and over.
+[303.56 → 305.52] So I think you have two groups of people that use frameworks.
+[305.66 → 309.32] Those that are just getting started and maybe couldn't put a site together as quickly without
+[310.04 → 310.46] a framework.
+[310.58 → 314.06] And you've got those people that could write all of that in their sleep but don't want
+[314.06 → 317.10] to because they want to get to the more interesting part of what makes their site unique.
+[318.56 → 321.02] You know, I got into programming because I hate arithmetic.
+[321.46 → 326.00] And so on thing that attracted me to the grid frameworks is just I didn't have to keep
+[326.00 → 327.82] doing that math for columns all over again.
+[328.62 → 329.20] Yeah, exactly.
+[330.02 → 334.06] Plus we were doing a lot of rapid prototyping on the job I was at the time.
+[334.32 → 336.90] It was a company called Lenient that was then bought out by EMC.
+[337.72 → 345.90] And, you know, it was like half the trouble of putting together a page was not the floats
+[345.90 → 347.50] themselves and, you know, all that stuff.
+[347.54 → 348.76] It was like choosing what to name things.
+[348.88 → 352.22] Like, should I name this camel case or, oh, what if you name yours something different?
+[352.22 → 355.36] We're off by like five pixels, you know, when really it doesn't matter when you're throwing
+[355.36 → 357.22] together just a page layout for rapid prototyping.
+[357.90 → 363.70] So we just kind of started, you know, doing 960 and that kind of evolved into what it is
+[363.70 → 363.98] today.
+[364.80 → 366.90] Well, let's talk about prototyping for a second.
+[367.02 → 372.28] You've got, along with the grid system, you also deliver some PSDs and some printable
+[372.28 → 372.54] stuff.
+[372.64 → 376.10] Tell us about the includable or the deliverables along with 960GS.
+[376.74 → 378.40] Yeah, it's funny because I prefer fireworks.
+[378.40 → 382.48] And so initially I did fireworks and Photoshop just because almost everybody and their brother
+[382.48 → 383.18] uses Photoshop.
+[383.92 → 387.88] And then, you know, I would get an email saying, hey, why don't you support this?
+[388.12 → 389.44] And, or why don't you support that?
+[390.46 → 393.40] And so I'd say, I'd reply usually like, it's not that I don't support it.
+[393.44 → 395.58] It's just that I have no idea how to use the app you're talking about.
+[395.66 → 400.60] So then people would send me templates and, you know, so I could open them up in, you know,
+[400.62 → 403.98] Illustrator and so forth and make sure that they were kind of pixel aligned and then put
+[403.98 → 404.40] them out there.
+[404.40 → 409.30] So a lot of it's been just kind of grassroots people saying, you know, I keep recreating
+[409.30 → 412.10] this template, but it'd be nice if I could just download it with the rest of the stuff.
+[412.38 → 417.30] So, so yeah, if you, if there's anything that, if there's a template that 960 doesn't have
+[417.30 → 420.06] that you want it to have, and you want to send me that, you know, that's fine.
+[420.32 → 421.16] All for that.
+[422.14 → 427.10] I'm actually a user of this framework for a web app we built about a year and a half
+[427.10 → 427.30] ago.
+[427.30 → 430.64] It was called, Geez, what was that called?
+[430.72 → 434.92] It was called Cal Feed from Robert Gram eon here in Houston.
+[435.04 → 436.90] He's part of the Ruby on Rails meetup group here.
+[437.76 → 442.86] And what it did let us do really was just what it said it should do is rapidly prototype
+[442.86 → 449.04] a pretty quick UI with pretty much no, no, I'm losing my word here.
+[449.14 → 450.82] Like it was just easy, basically.
+[451.02 → 453.64] It was a lot easier than trying to think it all through myself.
+[453.64 → 458.88] What kind of, what kind of prototyping did you do, I guess, with it and how fast were
+[458.88 → 460.02] you are able to get sites out there?
+[460.08 → 461.88] Can you give us an idea of like start to finish?
+[462.42 → 462.56] Yeah.
+[462.58 → 466.98] A lot of what we would do would be like a heavy form interaction, you know, thinking through
+[466.98 → 471.84] kind of the user flow, doing JavaScript overrides on different form elements.
+[472.12 → 476.20] Like if a dropdown had to populate another dropdown, you want that second one to be disabled
+[476.20 → 477.50] to the first one's interacted with.
+[477.94 → 481.64] So we wanted to like focus on that type of stuff and that, you know, not spend all of our
+[481.64 → 485.86] time kind of reinventing the wheel as far as where do these columns go or, you know,
+[485.88 → 490.22] are we going to do 150% line height or 160 or, you know, that type of stuff.
+[491.72 → 494.84] So, yeah, like you said, it just helps you throw things together quickly.
+[496.56 → 499.16] You know, kind of stepladder, so to speak.
+[499.16 → 504.76] At a recent Ruby meetup, you and I attended, I halfway jokingly asked you, you know, what's
+[504.76 → 505.48] new with 960?
+[505.90 → 507.88] And you said, hey, 970 is coming out.
+[508.02 → 513.12] But I guess that is a half-truth that 960 is just the default width there.
+[513.22 → 520.06] But it's a pretty configurable system to create as many columns and column widths as you want
+[520.06 → 520.22] to.
+[520.52 → 520.66] Yeah.
+[520.66 → 523.58] If you ever want to paint yourself into a corner, name something with a number either
+[523.58 → 524.82] as the name or after it.
+[524.82 → 529.92] One of my friends is big into the Type 0.3 CMS, and he's like, yeah, Type 0.3 version
+[529.92 → 530.70] 5 is going to be great.
+[530.80 → 531.10] I'm like, wait.
+[531.76 → 534.52] So it's Type 0.3, and it's always going to be the 3, but it's 5.
+[535.00 → 539.42] So, you know, with 960, I don't know, it made for kind of cool logo, and so I went with
+[539.42 → 539.62] it.
+[540.10 → 544.52] But now there are so many grid generators out there that if the default doesn't work for
+[544.52 → 548.74] you in any given grid system, there's usually a generator out there that will help you
+[548.74 → 551.56] like either point and click your way through or I know people have written Ruby scripts
+[551.56 → 553.30] and that type of thing.
+[553.62 → 561.00] So as far as what's next for 960, I was kind of crossing my fingers or waiting to see what
+[561.00 → 562.18] the iPad resolution was.
+[562.24 → 566.34] And when it came out to be 1024, I kind of had a sigh of relief, but I was also kind of
+[566.34 → 566.70] disappointed.
+[566.82 → 567.12] Like, really?
+[567.18 → 569.44] We're going to be stuck at 1024 for that much longer?
+[570.64 → 573.20] But there's a lot you can do in, you know, any given space.
+[573.20 → 577.06] So, you know, and that's devices kind of drive development.
+[577.16 → 579.24] I've got, I'll go ahead and brag.
+[579.32 → 582.16] I've got two 30-inch monitors that they delivered from work this week.
+[582.26 → 584.86] And, you know, Adam's got his, what is it?
+[585.12 → 586.58] 30 inch iMac that you got Adam?
+[586.82 → 587.22] 27.
+[587.48 → 587.80] 27.
+[588.12 → 591.74] But, you know, every time we screen share on Skype, you know, I just see whatever design
+[591.74 → 593.44] I'm working on that he's showing me.
+[593.50 → 599.42] And then it's like just, you know, oceans of white space out to the side of this fixed layout.
+[599.42 → 603.30] So, you know, you support fluid layouts with the grid system as well.
+[603.42 → 605.68] Do you see a trend moving towards fluid or is it still?
+[605.94 → 607.80] Actually, I should correct you there.
+[608.24 → 612.78] There's another guy named Stephen Bow that took 960 kinds of the ratios and then made it
+[612.78 → 613.08] fluid.
+[613.48 → 615.54] But I mentioned that from the 960 site.
+[615.64 → 615.76] Yeah.
+[617.16 → 620.52] Fluid is tough because of images, I think.
+[620.64 → 625.72] So like a background image until many and until all the browsers support it, I guess,
+[625.84 → 627.10] IE kind of being the laggard.
+[627.88 → 628.76] I shouldn't say that.
+[628.76 → 629.92] IE 9 is going to support a lot.
+[630.16 → 636.10] But until the adoption rate of like IE really picks up, and we can put IE 8 to bed along with
+[636.10 → 640.10] the rest of the older ones, you're really not going to have true fluid image tags and
+[640.10 → 642.16] true fluid like background images.
+[642.54 → 644.30] And, you know, support for SVG is kind of limited.
+[644.98 → 647.02] And so I think everything else you can kind of scale.
+[647.38 → 651.62] You know, you can do math on the width and, you know, kind of bump your font sizes up.
+[651.64 → 655.04] But it's going to be those images that are going to get grainy and kind of be the limiting
+[655.04 → 659.32] the limiting reactant, I guess, to use an old high school chemistry term.
+[659.44 → 662.94] You know, it's until we can handle that in a nice fluid way, I think we're going to be
+[662.94 → 664.46] stuck with fixed layouts for a while.
+[664.88 → 667.32] You know, when we started development, it was pretty easy.
+[667.44 → 669.24] You had two resolutions you had to worry about.
+[669.32 → 673.88] You had if you're doing something in print, it was kind of a 300 DPI resolution.
+[673.88 → 675.42] If you're doing something in the screen, it was 72.
+[675.92 → 678.48] And that got bumped up to 96.
+[678.66 → 681.88] And now with the iPhone and some of these other devices, you know, you really have to
+[681.88 → 686.86] think about creating multiple versions of your images even for the same site.
+[687.40 → 687.52] Yeah.
+[687.62 → 694.00] So I guess the iPhone 4 sports like the at 2x suffix on the end of the image name or
+[694.00 → 695.16] something like that.
+[695.70 → 699.02] And if you don't have your images in that higher resolution, you can really tell it on
+[699.02 → 700.60] that really dense screen.
+[700.60 → 705.58] Yeah, even going from like just your average Android phone to iPad, it's like the pixel
+[705.58 → 706.44] density is noticeable.
+[706.72 → 708.92] And especially with the iPad 4.
+[709.60 → 710.74] You're a big Android guy, right?
+[711.60 → 712.08] Yeah.
+[712.30 → 713.68] I mean, I have an Android phone.
+[714.26 → 719.34] I picked up that O'Reilly book, Head First Java, and was like, wow, I guess I'm going to
+[719.34 → 721.64] try to keep doing mobile web development.
+[724.28 → 729.56] Yeah, I guess I would do Android apps if there's something that I felt like I couldn't
+[729.56 → 731.98] solve with a simple web page or web app.
+[732.64 → 738.18] On a recent episode, Resign said that if you want to do mobile web apps, it's going to get
+[738.18 → 739.38] fun in about three years.
+[739.50 → 743.18] Do you think we're three years out from it being a sane environment to do mobile web apps?
+[743.54 → 747.48] Yeah, I was kind of, I was initially intrigued when I heard about Opera Mobile and kind of
+[747.48 → 749.84] their benchmarks and why it's fast and everything.
+[750.40 → 754.72] But then I heard John Resign talking on the Yay Query podcast about if you have an unobtrusive
+[754.72 → 757.98] on-click event, for instance, Opera will see that.
+[758.04 → 760.32] And then when you click on it, it won't cause that to happen.
+[760.44 → 761.76] It'll cause a full page refresh.
+[761.88 → 765.40] Ask the Opera server, hey, what would have happened with this unobtrusive click event?
+[765.46 → 769.08] And then it will return to you the markup based on that altered state.
+[769.18 → 773.68] So basically, you're doing full page refreshes for what would have been in-page browser refresh.
+[774.46 → 779.52] And the only way to get Opera Mobile to truly listen to click events and not refresh the
+[779.52 → 781.38] entire page is to put on-click in the markup.
+[781.38 → 786.46] So I think, you know, we've come a long way with WebKit, but it's things like that
+[786.46 → 790.76] are, I understand the reasoning behind Opera doing that, but it sure isn't like what you
+[790.76 → 791.90] would expect as a web developer.
+[792.04 → 794.62] So I think, yeah, in a few years, it'll be awesome.
+[794.72 → 798.12] And I think the people that are early adopters and kind of doing cutting edge, like the
+[798.12 → 801.76] Sens ha guys, are really kind of dealing with a lot of those problems for us.
+[803.22 → 804.66] I think it's interesting now.
+[804.82 → 807.06] I think it'll get a lot more stable in a few years, though.
+[807.06 → 812.86] Tell me, when you released 960, were you expecting the response level that you'd gotten
+[812.86 → 813.98] from the crowds?
+[814.14 → 815.42] Did you expect it to be successful?
+[816.00 → 816.70] No, not at all.
+[816.80 → 818.28] Initially, there were only two screenshots.
+[818.48 → 820.38] There was one for 12 columns and one for 16.
+[821.12 → 823.24] And I did a one-pager website, and that was it, you know.
+[823.66 → 827.96] And so now there are tons of scrolling because people keep sending me more screenshots that
+[827.96 → 830.68] I just feel like I can't pass up and have to put on the site, you know.
+[831.54 → 833.76] My boss at the time, he was like, this is going to be huge.
+[833.76 → 838.34] And I told him, well, I think it'll be niche, but niche on the internet is still pretty big.
+[839.16 → 843.70] So I'm kind of working through some ideas for redesigning the site to take some of that
+[843.70 → 848.72] page load off the front page, have a more proper gallery, and then actual documentation
+[848.72 → 849.24] written up.
+[849.80 → 850.32] What's the holdup?
+[851.40 → 853.32] Just, you know, not enough hours in the day.
+[854.86 → 856.02] Like everybody else.
+[856.18 → 856.46] Yep.
+[857.14 → 861.72] So now it's kind of a badge of honour, you know, to get a screenshot up on the 960 website.
+[861.72 → 863.76] It's turned into a CSS gallery of sorts.
+[864.12 → 864.18] Yeah.
+[864.40 → 867.84] People email me through my contact form on my site because I don't actually have anything
+[867.84 → 869.52] like that on the 960 site.
+[869.66 → 870.38] It's flat HTML.
+[871.20 → 872.60] Like, how do I submit to the gallery?
+[872.72 → 874.76] I'm like, well, it's not really a gallery.
+[874.96 → 881.60] And it's ultimately just, I guess, my personal taste of whether I like it and whether
+[881.60 → 884.34] or not I have time to go screenshot your site and crop everything down.
+[884.56 → 887.04] And so I feel bad kind of giving that response.
+[887.14 → 889.84] But at the same time, it's like there's so many other galleries out there you can submit
+[889.84 → 891.72] to that are regularly updating.
+[891.86 → 893.22] And that is the purpose of their site.
+[894.26 → 903.02] Do you think we get to be a little, I guess, a bit of an echo chamber with the CSS galleries
+[903.02 → 905.80] and we start to regurgitate just designs that we've seen?
+[905.94 → 908.28] Is it helpful as a design industry to have all these galleries?
+[908.54 → 909.50] Or what's your take?
+[909.50 → 912.76] I think it's helpful to see what's possible.
+[913.10 → 917.24] But if you're going to, like, you open up Photoshop or Fireworks or whatever and you
+[917.24 → 921.00] have a blank document, you're like, okay, let's go surf CSS galleries to get me started.
+[921.28 → 925.72] I think that's the wrong place to start because you're just going to end up recreating bits
+[925.72 → 927.06] and pieces of what you've seen already.
+[928.92 → 929.94] So I don't know.
+[930.02 → 930.90] I think they're good.
+[931.22 → 932.94] But there's just so many of them.
+[932.94 → 937.16] I think back in the day when it was just, like, CSS Zen Garden and that was, like, you
+[937.16 → 940.50] know, winning the Congressional Medal of Honour, getting your design up there.
+[940.62 → 942.02] And it gave you something to aspire to.
+[942.08 → 944.22] But now it's, like, there's so many.
+[944.32 → 945.52] It's, like, I don't know.
+[946.08 → 949.76] Just the signal versus noise, I guess, is the noise is really high.
+[950.26 → 952.98] I guess we should talk about CSS3 since it's the new hotness.
+[953.24 → 955.64] What's got you excited in the latest spec?
+[956.66 → 962.16] Not having to cut up tons and tons of images and make little spans and DIVS.
+[962.16 → 963.80] It's not for rounded corners anymore.
+[963.90 → 964.86] No more sliding doors?
+[965.10 → 970.76] Yeah, like, every time I would see a rounded corner with a gradient also over the top of
+[970.76 → 973.32] a textured background, I'm like, oh, man, that's going to be terrible.
+[974.64 → 978.94] Because, you know, your texture gets off a little bit, and you can't, like, mask it to
+[978.94 → 980.00] contain the gradient.
+[980.14 → 982.44] So now just being able to do that in code is awesome.
+[982.84 → 988.16] I always hated the back and forth volley between Photoshop or Fireworks, in your case,
+[988.30 → 991.54] and the browser and TextMate to code it up.
+[991.54 → 992.98] It was always such a hassle.
+[993.24 → 995.98] So I can totally agree with you on CSS3 being the hotness.
+[996.38 → 999.28] I give a little plug for Fireworks because it's in the PNG format.
+[999.60 → 1003.44] Usually as I'm developing, I'll just have all my backgrounds or all my images in that
+[1003.44 → 1005.88] format so I can still move my layers around, just hit refresh.
+[1006.48 → 1009.74] And then when I'm done, I'll go and export them as what they need to be, like GIF or JPEG
+[1009.74 → 1012.78] or whatever yields the lowest file size.
+[1013.68 → 1014.70] So yay, Fireworks.
+[1014.70 → 1017.50] Can't do that with PSDs in the browser.
+[1019.56 → 1022.32] But it is still a big pain not to take away from that.
+[1023.08 → 1028.24] Is Fireworks still the best tool for creating optimized PNGs or do you shrink them after the
+[1028.24 → 1029.56] fact like you have to do in Photoshop?
+[1029.84 → 1032.58] I'll export from Fireworks, which usually gets it pretty small.
+[1032.58 → 1038.58] But then I'll use a program called ImageOptim, which is a Mac app that just runs through
+[1038.58 → 1040.88] a series of open source PNG compressors.
+[1040.96 → 1042.42] It also works with JPEG and GIF.
+[1043.08 → 1046.58] And I've had file size savings of up to like 60% with that.
+[1046.76 → 1049.74] So it's definitely worth the time it takes.
+[1049.80 → 1054.46] You just open up a directory with images in it, drag it to that dock icon, and then leave
+[1054.46 → 1057.38] it alone for a few minutes, come back and see how much it compressed them.
+[1058.04 → 1059.78] At what point do you run it through that?
+[1059.78 → 1064.30] I mean, to do that when you're constantly evolving the design, is the design completely
+[1064.30 → 1066.38] finished when you're doing that or is it an evolving design?
+[1066.38 → 1070.34] Oh yeah, it's usually like before you go to FTP or check in and into Git or something.
+[1070.56 → 1074.46] I wouldn't do that like obsessively over like every image you output.
+[1074.64 → 1078.30] I would just do it in a batch right at the end of your project when you're ready to deploy.
+[1079.20 → 1081.60] Kind of like you don't minify all your CSS and JavaScript.
+[1081.86 → 1083.36] So I think of it kind of like that.
+[1083.88 → 1084.36] I don't know, Wayne.
+[1084.38 → 1088.50] Should we bring up the topic of SaaS since we're talking about all this style stuff and
+[1088.50 → 1088.88] the core of hotness?
+[1088.88 → 1092.62] You know, I've tried talking to Nathan about SaaS before, and he's just not that into it.
+[1092.94 → 1093.68] Get off my lawn.
+[1097.50 → 1102.88] For me, I think if I was working at a shop that did mostly Ruby on Rails development,
+[1102.98 → 1103.88] I would be all about it.
+[1104.14 → 1106.86] Or, you know, it was easy to kind of plug that in.
+[1106.86 → 1111.90] But being that our apps are written in .NET, it's kind of a hard sell when there's a lot
+[1111.90 → 1113.92] of cruft to .NET as it is.
+[1115.26 → 1117.66] Definitely something I want to look more into, though.
+[1118.48 → 1119.46] Not to take away from it.
+[1119.68 → 1124.48] Just beyond Compass and SaaS, you know, as a technology, what do you think about dynamic
+[1124.48 → 1125.04] style sheets?
+[1125.18 → 1128.24] I mean, are you doing any sort of dynamic style sheet creation in your .NET projects?
+[1128.46 → 1129.10] We're not.
+[1129.10 → 1133.06] But we just moved over to actually today, which is why I was a little late getting started
+[1133.06 → 1133.52] on the podcast.
+[1134.32 → 1136.80] We've been switching from Team Foundation Server to Git.
+[1136.94 → 1140.86] And so that'll give us a lot more agility to kind of test things out, you know, in separate
+[1140.86 → 1142.58] branches and see how we like things.
+[1143.08 → 1147.20] Because before it was almost like as a UX team, we would just try to stay out of the
+[1147.20 → 1151.84] source control to not muddy up the mainline branch, you know, the mainline trunk of the
+[1151.84 → 1152.10] code.
+[1152.88 → 1158.16] So I feel like we finally put .NET in its place as a platform and not letting it rule every
+[1158.16 → 1159.76] aspect of the development process.
+[1160.26 → 1165.08] You know, one thing I've wondered, we have the Google Libraries API, the AJAX libraries,
+[1165.18 → 1169.42] as they call them, where you can host your jQuery and your jQuery UI and your Moo Tools
+[1169.42 → 1172.44] up on Google CDN and just reference them from there.
+[1173.10 → 1175.04] Why no love for the CSS frameworks?
+[1176.98 → 1178.00] That's a good question.
+[1178.18 → 1178.54] I don't know.
+[1178.60 → 1185.18] I think because typically you use a CSS framework as a starting point and then make some edits
+[1185.18 → 1185.70] here and there.
+[1185.70 → 1190.80] And so I think people want more control than that would give them over their design.
+[1191.00 → 1191.68] That's my guess.
+[1192.30 → 1197.84] I think that, you know, Google being a programming centric company, you know, they see the value
+[1197.84 → 1201.98] in performant JavaScript, but maybe not so much in CSS.
+[1202.28 → 1204.56] I mean, a lot of their pages themselves are pretty minimal.
+[1204.80 → 1206.24] So I don't know.
+[1206.64 → 1210.26] You know, it's one of the things about using a CSS framework when I do employ them and I
+[1210.26 → 1215.30] really don't want to touch the underlying framework, I usually use either a separate link
+[1215.30 → 1218.98] REL, you know, head tag or an ad import or something like that.
+[1219.02 → 1223.74] It looks like that if those were being served out of cache on all the sites that are using
+[1223.74 → 1227.56] 960 instead of having those baked into every style sheet, the web would run a lot faster.
+[1227.56 → 1227.92] Yeah.
+[1228.00 → 1230.56] And then I could change everybody's background to red on a whim.
+[1230.90 → 1231.72] There you go.
+[1231.82 → 1232.84] That's another plus.
+[1233.12 → 1235.50] You know, this is the new 965 grid.
+[1237.10 → 1238.92] Could Iffy everything?
+[1239.04 → 1240.24] Iffy everything.
+[1240.26 → 1243.36] Before we go too far, we should probably talk about semantics a little bit.
+[1243.42 → 1247.20] One of the things that I hear a lot about these grid systems and the frameworks is that they
+[1247.20 → 1252.40] clutter up the markup with, I guess, just intense amounts of classes and stuff like that.
+[1252.44 → 1255.28] What's your take on semantics as it pertains to frameworks?
+[1256.00 → 1256.22] Yeah.
+[1256.52 → 1262.26] I think the big S semantics, as Tim Berners-Lee intended it, had more to do with correct tags.
+[1263.64 → 1268.42] You know, when he started talking semantic web, CSS was still in its infancy, you know.
+[1268.42 → 1276.66] You know, they still had things like clear equals all to clear things that were aligned left and aligned right as far as floated images.
+[1277.86 → 1292.34] So I would say, like, things like microformats have kind of plugged that gap between the semantic richness that we need in, you know, in our sites and our conversations and marking things up versus what HTML gave us initially.
+[1292.34 → 1300.38] But really, I mean, the browser itself is not looking for semantics in class names unless you've installed something that's looking for microformats.
+[1300.38 → 1305.98] So, I mean, I think semantics are in the eye of the beholder.
+[1306.14 → 1308.12] I would talk more about maintainability.
+[1308.24 → 1310.50] It doesn't make sense to the next person reading it.
+[1310.50 → 1320.82] So if your team agrees on, you know, for instance, grid underscore whatever, you know, grid underscore five, and you know what that means is a ratio for how your page is laid out.
+[1320.86 → 1325.98] I think that's more important than, you know, making sure every little thing is correct.
+[1326.14 → 1333.92] I mean, because when you're marking up a blog post, you don't go and change, like, your theme to, well, if you're Jason Santa maria, maybe you do.
+[1333.92 → 1340.64] But, you know, for the most part, like, you're not going to give a different class name based on the particular mood of your page.
+[1340.78 → 1350.18] I think the semantics more, as a rule of thumb, I think in semantics, in terms of semantics, I think, is this going to affect how a screen reader interprets the page?
+[1350.30 → 1353.48] You know, am I using a B tag when really I mean strong or emphasis?
+[1354.28 → 1357.78] Am I doing double BR when maybe it would be better served as a paragraph?
+[1357.78 → 1363.60] Or am I just typing in asterisks when it should be an unordered list and so forth?
+[1364.72 → 1366.94] So to me, those are the semantics that are worth arguing about.
+[1367.30 → 1375.82] And I think that's a lot of what HTML5 has given us now with header and footer, you know, so we're not having DIVS just named whatever we feel like.
+[1375.98 → 1378.94] But it's actually going to be communicating something to the browser.
+[1379.26 → 1382.48] You know, earlier you said get off my lawn, and I think we all have that side of us.
+[1382.48 → 1388.12] As you do this long enough, you start to see changes in the development landscape that you really don't appreciate.
+[1388.12 → 1394.60] And HTML5 and how it accepts non-quoted attributes is just one of those things that I look at and cringe.
+[1394.96 → 1395.22] Oh, yeah.
+[1395.28 → 1401.26] I still quote all my attributes, and I even do the trailing slash because I learned that being new school.
+[1401.54 → 1402.72] So now I guess I'm old school.
+[1404.06 → 1404.42] Right.
+[1404.42 → 1413.38] Yeah, one of my coworkers, he used to say, you know, at the end of the day, we're creating software interfaces in a document language, you know.
+[1414.08 → 1420.48] So there's always going to be some give and take and semantics over what the app needs to do or what your page needs to look like.
+[1420.48 → 1424.36] So you would fancy yourself a front-end developer or a designer?
+[1425.04 → 1433.56] I guess front-end developer if I had to choose only one because I've got to give a lot of credit to people that work as a designer full-time.
+[1433.74 → 1441.28] You know, like your job is to come in every day, you know, sit down in a chair and be creative on tap, you know, on demand.
+[1441.28 → 1453.42] And, I mean, I could be running on four hours of sleep and somebody hands me a PSD and I can cut it up and make it look to the pixel exactly like it's supposed to because that doesn't involve creativity so much as, you know, just knowing the craft.
+[1454.58 → 1466.34] Not to say I can't design things, but I think I would find it hard if I had to be kind of that creative director type that was always, you know, ready with a new idea and a fresh spin on things.
+[1466.96 → 1469.38] You know, it's challenging to be in that front-end role.
+[1469.38 → 1472.50] I think I'd consider myself pretty much in the same boat.
+[1472.70 → 1482.30] It's one of those things where you know you're not at the high-end expert level of either development or design, but you know more about both sides than a lot of folks know about either.
+[1482.86 → 1498.00] See, I think of front-end design as kind of being like a midfielder in soccer, you know, like you might have your coworker that's awesome at a server-side language, and he's awesome at the database layer, you know, and you have your friend that's an amazing designer that actually went to art school and knows what he's doing.
+[1498.00 → 1510.42] I mean, I always feel like kind of a hack in that area, but I feel like a midfielder in that I can kind of fall back and do some PHP or do some C-sharp or .NET, or I can kind of push, you know, push to the front, even further to the front end and do design.
+[1510.42 → 1519.94] So it's a good support role because, you know, using that analogy, midfielders score goals, but they also slide tackle, you know, so I think it's a good spot to be in.
+[1520.62 → 1522.96] I also like to use the analogy of a multi-headed Hydra.
+[1524.00 → 1531.32] So in Greek mythology, you had one body, many heads, but in web development, you've got many bodies and one head because it's all got to go through HTML somehow.
+[1531.86 → 1535.48] Even Silver light and Flash have to be embedded in the HTML document.
+[1535.64 → 1537.54] So it's not a bad place to be as a front-end developer.
+[1537.54 → 1538.94] That's a great analogy.
+[1539.24 → 1539.76] I like that.
+[1540.14 → 1544.62] So I kind of think of it like, yeah, maybe my job is bread and butter, but you know what?
+[1544.66 → 1546.12] The world's always going to need bread and butter.
+[1547.24 → 1547.92] For sure.
+[1548.48 → 1552.44] Well, an open source, I guess the CSS framework is open source by definition.
+[1553.24 → 1554.02] It's kind of hard.
+[1554.02 → 1567.98] I remember one time, this must have been in the 2000 race, the late 90s, when Al Gore was running against Bush in the presidential race, and Gore made the comment that his website was open source.
+[1568.44 → 1570.06] I was like, well, they all are.
+[1570.40 → 1576.22] I think he meant they use open source tools, but you know, you can't create a closed source CSS framework.
+[1576.32 → 1577.56] It used to be really, really hard.
+[1577.56 → 1587.44] Yeah, I mean, even with JavaScript, at least, you could make really short variable names if you felt like that was going to somehow throw people off your scent if they're trying to steal your code.
+[1587.58 → 1592.48] But CSS, I mean, you can only remove line breaks and spacing so much.
+[1592.90 → 1595.28] You can obfuscate your class names, but that's about it, right?
+[1595.46 → 1598.02] Yeah, you can name them grid underscore two, and then people won't know what they're doing.
+[1599.48 → 1602.10] I don't know if you're using Sass, though.
+[1602.14 → 1604.36] You can choose your output style.
+[1604.96 → 1605.42] That's true.
+[1605.42 → 1605.82] That's true.
+[1606.12 → 1612.76] The best, I guess, argument of semantics versus non-semantics I ever saw was Jared Christensen, a former co-worker.
+[1613.60 → 1625.94] One iteration of his site, he had like, the outer wrapper was like, DIV ID tortilla, and then it was like, DIV ID Mostafa, and kind of like the multi-levels of the Saturday Night Live burrito, you know?
+[1626.04 → 1626.38] Right.
+[1626.54 → 1627.36] That's a great commercial.
+[1627.36 → 1633.94] So each thing wrapped some subsequent thing, and that made sense to him, and it only needed to be maintainable for one person.
+[1633.94 → 1637.06] So, you know, if people want to name things like that, that's awesome.
+[1637.90 → 1640.00] I'll have to find that and put that YouTube in the show notes.
+[1640.06 → 1640.66] That's a great one.
+[1640.78 → 1642.52] And then they say, and we're not done.
+[1642.60 → 1644.14] Now we deep-fry that in mayonnaise.
+[1644.14 → 1645.86] We're going to wrap it in a blueberry crêpe.
+[1646.42 → 1646.82] Right.
+[1646.82 → 1651.02] So what other open source projects have you excited that you're working on?
+[1651.02 → 1657.36] I know you're in the .NET world, and there's limited open source over there, but what's got you excited that's free and open?
+[1657.36 → 1671.10] One really cool thing is that Microsoft, in their MVC framework, ships with jQuery, and it has Intelligence for, you know, all the .NET developers that kind of want that hinting, code hinting.
+[1671.10 → 1680.32] So that's been really cool as far as, like, just driving the adoption of good JavaScript practices because it makes it so easy to add unobtrusive event listeners and stuff like that.
+[1681.30 → 1691.32] So I contributed Chapter 13 to the jQuery cookbook that O'Reilly published, and that's kind of given me some street cred, I guess, amongst coworkers and trying to evangelize best practices.
+[1691.32 → 1702.72] Do you consider yourself an evangelist in the workplace as far as best practices and educating the guys that may not be quite as a craftsman as you are?
+[1703.24 → 1705.32] I consider myself a cheerleader, I guess.
+[1705.42 → 1711.64] I get really excited about stuff and have to tell others, and sometimes that leads to them wanting to know more.
+[1711.74 → 1713.36] Sometimes it leads to them telling me to shut up.
+[1713.36 → 1723.88] But either way, I think, you know, if there's something that I think was beneficial for the team, I'm fortunate enough to have coworkers that want to learn more and want to teach as well.
+[1724.06 → 1725.62] So it's a good environment.
+[1726.82 → 1728.12] Hey, that's how this podcast got started.
+[1728.20 → 1730.80] We just couldn't shut up about some of the tools we were using.
+[1731.20 → 1731.72] That's true.
+[1732.00 → 1732.70] That's certainly true.
+[1733.16 → 1734.62] Anything you want to plug, Nathan?
+[1736.32 → 1739.92] As far as open source CMSs, lately I've been getting more into Drupal.
+[1739.92 → 1744.66] So for market purists, it's like, why is that extra DIV there?
+[1744.82 → 1750.22] But I think in the grand scheme of things, it's like you don't have to style against that DIV, and it's not hurting you.
+[1750.48 → 1763.06] So that enables me to do things that I wouldn't know how to do or wouldn't have the time to do by myself as far as deploy sites that are a little bit beefier than maybe you could do with a simple blogging tool.
+[1763.06 → 1766.08] So, yeah.
+[1766.58 → 1769.48] I've been hearing good things about Dojo lately, too, from Rebecca Murphy.
+[1770.78 → 1774.06] So kind of wanting to look into that, just, you know, not enough hours in the day.
+[1774.50 → 1776.60] I asked Rebecca, our friend from Texas JavaScript.
+[1777.34 → 1778.54] Put on a great conference down there.
+[1779.30 → 1780.08] Yeah, it was bummed.
+[1780.12 → 1781.14] I couldn't make it down for that.
+[1781.42 → 1782.64] Hopefully they'll have it next year, too.
+[1783.16 → 1784.86] Well, maybe they should have it in Dallas.
+[1784.96 → 1785.72] That's still in Texas.
+[1786.38 → 1787.30] Yeah, it should rotate.
+[1787.48 → 1790.02] Why should Austin get every, you know, Texas-based conference?
+[1790.12 → 1790.24] Right?
+[1790.30 → 1790.96] I know, right?
+[1791.78 → 1795.28] So Adam's a big markdown guy, and I've heard you're a big textile guy.
+[1795.36 → 1796.28] So what's the difference?
+[1797.28 → 1799.96] Difference is textile is hands down better.
+[1800.64 → 1804.58] Now, so I started with text pattern about five years ago.
+[1804.58 → 1809.98] It's a CMS that's kind of designer-friendly, and that's where textile came from.
+[1810.10 → 1812.54] The guy that created text pattern created textile.
+[1813.78 → 1820.48] So, you know, having like five years of blog posts written in textile makes one kind of lean that way a little more.
+[1820.48 → 1834.06] Textile lets you do a little bit more as far as adding class names and IDs to things where markdown is more focused on writing, you know, documentation or writing a blog post or writing more human-readable type things.
+[1834.06 → 1837.86] But I guess it's just more, you know, you choose your horse and ride.
+[1837.98 → 1843.08] So I've been galloping along with textile for so long that markdown seems foreign to me.
+[1843.70 → 1846.32] I guess when I use Markdown, I don't usually add classes too much.
+[1846.42 → 1849.70] Maybe that's something that textile offers more of, and I should check it out.
+[1849.70 → 1852.16] It also lets you kind of shoot yourself in the foot.
+[1852.32 → 1861.52] Like if you don't lock that down, if you allow people to comment on blog posts, and you give them full textile, then they can put H1 tags and floats and all sorts.
+[1861.66 → 1863.80] You can even make tables with textile.
+[1864.30 → 1871.60] So you just kind of have to – it's a little bit heavier of a sword, I guess, than Markdown.
+[1872.26 → 1877.78] I guess since we talked about Markdown, what is your take on Hall, I guess, in comparison to, say, HTML?
+[1879.70 → 1881.86] I think Hall's a pretty cool idea.
+[1882.22 → 1883.96] I haven't had a lot of experience with it.
+[1885.08 → 1892.00] I guess I see more of a strict divide between I'm making my template and that would just do probably just pure HTML.
+[1892.24 → 1895.90] And then I'm making – I'm writing something, which I would do in textile or markdown.
+[1895.90 → 1903.34] So, yeah, I guess I would have to play with it more to really fully appreciate it.
+[1903.78 → 1904.86] So one last question.
+[1904.96 → 1909.84] I see that the 960 grid system, your GitHub repo has 34 forks.
+[1910.02 → 1911.40] Are people actively patching this?
+[1911.44 → 1914.78] It seems like kind of like the JSON spec that's kind of frozen.
+[1914.98 → 1916.68] I mean, how is 960 evolving?
+[1916.68 → 1922.72] Yeah, I don't – I feel kind of an obligation to keep it moving forward.
+[1922.86 → 1925.68] But at the same time, I'm wondering, like, where to, you know?
+[1925.76 → 1929.34] Like, there's such great grid generators out there.
+[1930.20 → 1933.60] And so I don't want to kind of pull the rug out from under the people that are using it now by saying,
+[1933.68 → 1937.02] hey, 960 is now 1020, but the name remains.
+[1937.14 → 1942.70] You know, I don't want to – having it be named a number really kind of solidifies where you're staying at.
+[1942.70 → 1948.78] But I thought maybe if browsers increased in size later on down the road, maybe subdomain it.
+[1948.82 → 1951.34] So it's like 1280.960.
+[1951.50 → 1951.90] I don't know.
+[1953.44 → 1960.70] Lately, what I've been working more on, though, is a form reset that will get consistency across browsers as far as –
+[1960.70 → 1962.10] you know, there's the two schools of thought.
+[1962.20 → 1964.52] One is style your forms uniquely per site.
+[1964.60 → 1969.90] And the other one is don't touch form elements at all because you don't want to throw off the user by not having them look native.
+[1969.90 → 1976.66] So what I'm trying to do is style them to look basically like Safari defaults and kind of get some control so that across the board,
+[1977.18 → 1980.66] you at least have, like, inputs and text areas and so forth look predictable.
+[1981.70 → 1988.30] But I'm leaving alone things like buttons, checkboxes, radio buttons, and especially select drop-down lists,
+[1988.36 → 1991.50] I think are best left to the browser native or OS native.
+[1992.00 → 1996.32] Well, if you ever do change the name, you've got a perfect URL shortener with the current domain.
+[1996.60 → 1997.24] That's true.
+[1997.24 → 1998.86] All right.
+[1998.94 → 1999.90] Thanks, Nathan, for joining us.
+[2000.00 → 2000.58] Thank you very much.
+[2000.58 → 2030.56] I'll see you next time.
+[2030.58 → 2060.56] I'll see you next time.
