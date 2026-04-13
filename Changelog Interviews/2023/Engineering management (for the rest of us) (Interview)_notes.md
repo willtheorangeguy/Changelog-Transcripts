@@ -1,0 +1,7 @@
+- [sarahdrasnerdesign.com](https://sarahdrasnerdesign.com)
+- [Sarah Drasner on CSS Tricks](https://css-tricks.com/author/sdrasner/)
+- Book: [Engineering Management for the Rest of Us](https://www.engmanagement.dev)
+- [The Peter principle](https://en.wikipedia.org/wiki/Peter_principle)
+- [Accelerate: Building and Scaling High Performing Technology Organizations](https://www.amazon.com/Accelerate-Building-Performing-Technology-Organizations/dp/B07BMBYHXL)
+- [Dr. Nicole Forsgren](https://nicolefv.com)
+- [The Engineer/Manager Pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/)
