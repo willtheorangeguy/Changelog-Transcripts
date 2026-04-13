@@ -1,0 +1,7 @@
+- 📥 [Subscribe to Changelog Weekly](https://changelog.com/weekly)
+- [50 Useful Vim Commands](https://vimtricks.com/p/50-useful-vim-commands/)
+- [pets configuration management system](https://github.com/ema/pets)
+- [Keep ’Em Coming: Why Your First Ideas Aren’t Always the Best](https://www.gsb.stanford.edu/insights/keep-em-coming-why-your-first-ideas-arent-always-best)
+  - [Ideaflow](https://www.jeremyutley.design/ideaflow)
+- 👕 [Kaizen - Continuous Improvement](https://merch.changelog.com/products/kaizen)
+- [Infinite Canvas](https://infinitecanvas.tools)
