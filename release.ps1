@@ -128,9 +128,16 @@ $seenTags = @{}
 $createdCount = 0
 $skippedCount = 0
 $failedCount = 0
+$currentYear = 2026
 
 foreach ($yearFolder in $yearFolders) {
     $year = [regex]::Match($yearFolder.Name, "^\d{4}").Value
+    if ([int]$year -eq $currentYear) {
+        Write-ColoredOutput "  [SKIP] Skipping current year folder '$($yearFolder.Name)'." -Color $WarningColor
+        $skippedCount++
+        continue
+    }
+
     $tag = "$TagPrefix-$year"
     $zipFileName = "$year.zip"
     $zipPath = Join-Path -Path $yearFolder.FullName -ChildPath $zipFileName
