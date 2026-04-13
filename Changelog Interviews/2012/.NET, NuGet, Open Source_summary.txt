@@ -1,0 +1,35 @@
+• The Change Log episode 0.7.6 is brought to you by Pusher and covers fresh and new in open source
+• Discussion with Phil Hack about .NET and the open source community, and how to integrate GitHub and .NET
+• NuGet package manager for .NET and Windows developers, and its role in sharing open source code
+• Challenges of managing .NET and open source code, including spelling and search engine optimization
+• Importance of open source package managers in increasing open source adoption
+• NuGet's open source nature and collaborative development process
+• Microsoft initially led the NuGet project and has continued to contribute to it through developers and a program manager.
+• NuGet is now a core part of Visual Studio 11.
+• The naming conventions of C# and .NET can make it difficult to find resources, but this has been mitigated by search engines and the NuGet gallery.
+• C# is currently the 11th most popular language on GitHub, and the goal is to increase this ranking.
+• Git and GitHub can be challenging for Windows users due to issues with line endings and lack of resources for getting started with Git on Windows.
+• Developing tools to make Git more accessible on Windows and with GitHub
+• GitHub Enterprise features for .NET development
+• SignalR, a framework for persistent connections to servers
+• NancyFX, a Sinatra-like framework for .NET developers
+• OWIN, a .NET port of the Rack from Rails, for abstracting interface between framework and host provider
+• Lightweight web frameworks and servers built in .NET
+• Transition of .NET developers to open-source front-end frameworks like jQuery and Backbone
+• Microsoft's shift to adopting open-source front-end frameworks, including shipping jQuery in ASP.NET
+• Impact of including NuGet in Visual Studio 11 on developer adoption of open-source components
+• Recognition of the web's evolution towards richer client-side experiences with JavaScript
+• Intermingling of different communities, with benefits of sharing ideas and learning from each other
+• GitHub's culture of valuing learning and technology agnosticism
+• Importance of conferences like NDC and ORA Dev for bringing together developers from different communities
+• Domain transfer process from Microsoft to Hover is detailed
+• C# features such as language integrated query (LINQ) and reactive extensions are discussed
+• Importance of reactive extensions in handling asynchronous programming is highlighted
+• C# 5 features, including the await keyword, are mentioned
+• Comparison of Microsoft and GitHub cultures, particularly regarding meetings and work schedules, is made
+• Discussion of the benefits of async communication over traditional meetings
+• Comparison of the speaker's work style and productivity between meeting-heavy environments and online chat-based environments
+• Usage and favorite features of the Hubot chatbot
+• Conversation about open-source projects on GitHub, including specific projects like NuGet and SignalR
+• Discussion of the speaker's location and lack of a move to the Bay Area
+• Brief discussion of closing out episodes and the "programming hero" question
