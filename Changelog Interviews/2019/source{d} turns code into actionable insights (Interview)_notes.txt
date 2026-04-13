@@ -1,0 +1,3 @@
+- [An analysis of the Kubernetes codebase](https://medium.com/sourcedtech/an-analysis-of-the-kubernetes-codebase-4db20ea2e9b9)
+- [source{d}](https://sourced.tech/) and [the source{d} community](https://sourced.tech/community/)
+- [JustForFunc](https://youtube.com/justforfunc)
