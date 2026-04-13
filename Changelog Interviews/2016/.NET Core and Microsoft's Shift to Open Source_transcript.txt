@@ -1,0 +1,2175 @@
+[0.00 --> 5.94]  Bandwidth for ChangeLog is provided by Fastly. Learn more at Fastly.com.
+[6.44 --> 9.66]  Je suis Bertrand Leroy et vous écoutez le ChangeLog.
+[18.24 --> 22.08]  Welcome back everyone. This is the ChangeLog and I'm your host Adam Stukowiak.
+[22.32 --> 28.26]  This is episode 224 and today Jared and I talk to Bertrand Leroy about .NET Core.
+[28.26 --> 37.92]  Bertrand has a deep history in Microsoft technologies and he schools us on all things about .NET Core, where it's going, the open source around it, Microsoft's take on it.
+[38.22 --> 47.08]  And also Bertrand hosts a live YouTube podcast called On.NET and he also curates a weekly email called This Week in .NET.
+[47.56 --> 50.76]  Our sponsors today are CodeSchool and TopTal.
+[51.06 --> 54.08]  Our first sponsor of the show is our friends at CodeSchool.
+[54.08 --> 58.52]  And if you want to learn something new, a proven method is to learn by doing.
+[58.90 --> 60.58]  And that's exactly the way CodeSchool works.
+[61.04 --> 64.14]  You learn to program by doing with hands-on courses.
+[64.72 --> 81.36]  CodeSchool's courses are organized into paths based on technologies like HTML and CSS, JavaScript, hot topics like React and Angular, Ruby, Python, .NET, iOS, Git, databases, and even electives that take you off the beaten path.
+[81.36 --> 82.98]  Let's see if you want to learn React.
+[83.32 --> 88.60]  You can start level one of CodeSchool's React course, which begins with a quick video lesson on React components.
+[88.90 --> 94.20]  After the video, you get hands-on practice building with components using in-browser coding challenges.
+[94.72 --> 97.30]  There's no hassle, no setup, just learning.
+[97.30 --> 105.08]  And the best part is when you use our special URL, CodeSchool.com slash changelog, you save an extra $10 per month.
+[105.28 --> 109.84]  Instead of paying $29, you pay $19 because you're a listener of this show.
+[110.04 --> 114.10]  Again, use our special URL, CodeSchool.com slash changelog.
+[114.18 --> 114.94]  Don't Google it.
+[115.32 --> 117.58]  That's the only way to get our special deal.
+[117.96 --> 120.06]  Once again, CodeSchool.com slash changelog.
+[120.10 --> 121.38]  And now onto the show.
+[121.38 --> 131.94]  All right, we're back for the show.
+[132.12 --> 137.38]  Got Bertrand Leroy, and obviously I'm going to say that not exactly right because he's French.
+[138.10 --> 142.10]  And, Jared, this is a show kind of covering .NET, Microsoft, .NET Core.
+[142.38 --> 143.50]  But it's been a while, right?
+[144.00 --> 144.78]  Yeah, a couple of years.
+[144.78 --> 151.64]  Episode 134 was when .NET Core just first kind of peeked his head out from the walls of Redmond.
+[152.40 --> 154.12]  And it's been a while.
+[154.20 --> 157.80]  We have lots of listeners and fans saying, hey, more on Microsoft, more on .NET.
+[158.36 --> 159.30]  And we're fans, too.
+[159.58 --> 164.40]  Frankly, there's a lot more to cover now because Microsoft's just continuing to open source more and more things.
+[165.10 --> 171.02]  We should give a shout out to Brett Morrison, who's friends with Bertrand and fan as well.
+[171.02 --> 177.42]  And he suggested to have him on and talk about .NET Core running on all three major platforms and all of the new stuff.
+[177.76 --> 180.52]  So thanks, Brett, for suggesting this show.
+[180.70 --> 182.26]  And thanks, Bertrand, for joining us.
+[182.88 --> 183.62]  Thank you for having me.
+[184.20 --> 187.18]  Now, we got to start off with the right way here because I know I butchered your name.
+[187.26 --> 188.62]  What's the best way to say your name?
+[188.68 --> 190.34]  Like, give the listeners the French version.
+[190.88 --> 193.00]  The French version, Bertrand Leroy.
+[193.46 --> 193.72]  Okay.
+[193.76 --> 195.74]  But, you know, the R's are very difficult.
+[195.74 --> 201.64]  But you're used to common English, non-French ways of saying it, right?
+[202.22 --> 202.44]  Yeah.
+[202.56 --> 207.92]  Usually when I introduce myself, I don't even bother to try to give the French pronunciation.
+[208.34 --> 209.94]  I just say Bertrand Leroy and that's fine.
+[210.14 --> 210.38]  Okay.
+[210.92 --> 214.06]  And so some of your history stems back, obviously, to Microsoft.
+[214.30 --> 215.56]  You've worked there for many years.
+[215.64 --> 223.22]  Can you give us some of the lay of the land of kind of what your experience is and what your affiliation is to .NET, Microsoft, and the work you've done there?
+[223.22 --> 223.66]  Yeah.
+[224.44 --> 224.92]  Yeah.
+[225.02 --> 231.28]  So I started working with .NET a long time ago, back when the first version was in beta.
+[232.18 --> 234.30]  So I was working in France at the time.
+[234.48 --> 240.20]  I was working for a small web company and I had built CMS using .NET.
+[240.90 --> 244.60]  Maybe the first CMS on .NET.
+[246.28 --> 251.76]  And, you know, it was at the time the .com, .NET, and all that.
+[251.76 --> 257.14]  So I started wondering about what was next and I looked at Microsoft.
+[257.14 --> 259.86]  I was living in France, so it was a big change for me.
+[260.56 --> 264.52]  And, yeah, they actually hired me, my great astonishment.
+[264.78 --> 266.50]  And I started working on ASP.NET.
+[267.18 --> 272.52]  And I've worked on ASP.NET 2, 3, 4.
+[272.52 --> 275.36]  And then I left.
+[275.62 --> 278.56]  I created a startup with a friend.
+[279.64 --> 281.28]  I did that for a few years.
+[281.70 --> 286.16]  And I came back to Microsoft a little more than a year ago to work on .NET.
+[286.94 --> 290.20]  So, yeah, all my career at Microsoft has been around .NET.
+[290.84 --> 294.90]  And I've seen a lot of change happening during that time.
+[294.90 --> 296.72]  So, why did you leave the first time?
+[296.82 --> 299.92]  Was it because you wanted to do a startup or were there other reasons?
+[301.14 --> 302.78]  It was a combination of reasons.
+[303.08 --> 307.12]  The first one was that, yeah, I wanted to do something different.
+[307.38 --> 310.08]  So we created that hardware startup, actually.
+[310.20 --> 311.26]  It wasn't even software.
+[311.46 --> 315.38]  Well, there were some software components, but, yeah, we wanted to do some hardware.
+[315.38 --> 326.66]  And another reason was that I was at the time a little frustrated with the pace of innovation and that sort of thing.
+[326.72 --> 332.58]  And I was at a point where I thought that it was easier to innovate, actually, outside.
+[333.40 --> 334.24]  That's interesting.
+[334.38 --> 338.02]  I mean, especially with the recent change over the last three or four years,
+[338.02 --> 348.06]  we've seen this resurgence from Microsoft to embrace all platforms, to embrace open source and even change, as you had said there, the pace of their innovation.
+[348.22 --> 351.02]  How do you feel about this new Microsoft we've been seeing?
+[351.78 --> 356.24]  Well, obviously, things have changed a lot.
+[356.24 --> 361.54]  And I wouldn't have come back if things hadn't changed in that direction.
+[361.54 --> 369.02]  And, well, we all remember the old Microsoft that was borderline hostile to open source.
+[370.36 --> 376.28]  And that wasn't a place where I wanted to stay at the time.
+[376.94 --> 380.22]  Let's say if you can't, if they don't have change, then you could be the change.
+[380.34 --> 381.66]  Are you a part of that change then?
+[381.80 --> 384.58]  Well, yeah, actually, that was the idea.
+[384.88 --> 391.46]  That's kind of what I tried to do at my own small level at the time.
+[391.98 --> 394.80]  And that was kind of frustrating.
+[395.16 --> 397.12]  And we did have some success.
+[397.70 --> 404.86]  So I was one of the people who started the R-Chart project, which is a CMS on .NET.
+[405.16 --> 406.10]  That's open source.
+[406.10 --> 413.04]  And that was one of the first major open source projects coming from Microsoft.
+[413.38 --> 414.60]  I'm very proud of that.
+[414.90 --> 418.16]  So that I put in the category of success.
+[418.16 --> 422.76]  But it was slow, slow, slow.
+[423.16 --> 425.64]  But now open source is the norm.
+[425.92 --> 433.32]  And when you do something new, you basically have to justify why it's not open source rather than why it is.
+[433.32 --> 443.50]  Speaking of open source and Microsoft, too, we had in a recent Change Law Weekly, a link to Francesc Ampoi, who works at Google on the Google Cloud platform.
+[444.04 --> 449.22]  And his post on Medium was, is Microsoft the biggest open source software contributor?
+[449.88 --> 452.00]  With a question mark, of course, because that's a big question.
+[452.66 --> 456.16]  You mentioned he's a Google employee, obviously, on the fan of open source.
+[456.16 --> 458.08]  And kind of give some of those rundowns.
+[458.14 --> 462.40]  So a lot more has been happening at Microsoft around open source.
+[463.32 --> 463.42]  Yeah.
+[463.62 --> 463.84]  Yeah.
+[463.92 --> 464.70]  So I saw that.
+[464.80 --> 468.92]  And, you know, it's a question that's actually very difficult to answer because how do you measure that?
+[470.04 --> 472.60]  And, yeah, I've seen the numbers.
+[472.96 --> 476.80]  And, you know, you can always argue that I believe in those numbers.
+[476.92 --> 479.40]  Google and Angular were separated, something like that.
+[479.40 --> 483.68]  So you always have some caveats, you know, statistics, downlines and so on.
+[484.36 --> 492.30]  But, yeah, the fact remains that today Microsoft is one of the most important contributors to open source.
+[492.60 --> 498.30]  And not just, you know, projects that were initiated by Microsoft.
+[498.30 --> 510.88]  I think it's interesting to see how teams such as my own are actually contributing to other open source projects.
+[511.66 --> 517.36]  Back on episode 134, when we had on, it was Rich Lander, Emo Landworth, and Varun Gupta.
+[517.46 --> 528.14]  And we asked them, this was a long time ago, but I recall asking them, like, what was the onus or what was the shift inside of Microsoft that changed the mind?
+[528.30 --> 529.10]  Of the company.
+[529.84 --> 540.78]  And I believe to generalize their response is that very much there was many people that wanted it, wanted to embrace open source kind of in the small inside their teams or personally.
+[541.30 --> 550.28]  But the change in leadership that happened a few years back really enabled it to, for the entire company to do so.
+[550.36 --> 552.54]  Does that reflect with your experience?
+[553.22 --> 553.76]  Oh, yeah, totally.
+[554.30 --> 554.56]  Totally.
+[554.56 --> 555.56]  Totally.
+[555.56 --> 564.36]  And under that leadership, it's been a slow process that has actually begun before Satya became the CEO.
+[565.48 --> 569.24]  So it depended where you were looking at.
+[569.24 --> 579.94]  I mean, if you look at the Windows division, maybe that, you know, that's the place where, that wouldn't be the place where it began.
+[579.94 --> 588.02]  But the developer division, for example, has been doing open source for a very long time and has been pushing for change.
+[588.02 --> 594.60]  So you might know the name of Scott Guthrie, who is the, who is our VP.
+[595.28 --> 601.24]  And he's been a major advocate for open source for a very long time.
+[601.24 --> 613.42]  It seems like your guys' shift from a company that largely sells software licenses for its income to one that, you know, also provides services and more and more.
+[613.58 --> 624.64]  So shifting revenue to services, it seems like that shift in business strategy allows for open source because you're not giving away the software licensing, right?
+[624.64 --> 627.28]  Like you're, you're still providing the services or the hosting.
+[628.00 --> 634.56]  And so, and I think like Satya Nadella has, you know, was maybe that, that was starting to change already when Balmer was still there.
+[634.56 --> 640.10]  But it seems like the last few years after Satya took over is when Microsoft has become a services company.
+[640.22 --> 641.00]  Is that fair to say?
+[641.90 --> 642.00]  Yeah.
+[642.00 --> 642.04]  Yeah.
+[642.12 --> 652.56]  But again, Microsoft is a super big company and there are parts of it that, that did add up that new model and some that didn't and might actually not.
+[653.62 --> 658.88]  So, yeah, it, you know, that's always the, the thing with open source.
+[659.00 --> 661.32]  How do you, where is your business?
+[661.92 --> 670.14]  And if the software itself is your revenue, does it make sense to make it open source?
+[670.14 --> 670.58]  Right.
+[670.58 --> 681.08]  Now, if you're starting to sell, um, cloud computing time, then that becomes something completely different and sure your SDK should be open source.
+[681.58 --> 682.02]  Right.
+[682.72 --> 687.98]  So one thing that you say on your website is that, and we've touched on this a little bit, but I'm curious exactly your role.
+[688.10 --> 695.50]  So you said that you were an actor in the company's shift towards more open source and you mentioned the, the C, the CMS or the open source project.
+[695.60 --> 697.38]  What was the name of that project that you?
+[697.78 --> 700.18]  Orchard, O-R-C-H-A-R-D.
+[700.58 --> 701.04]  Orchard.
+[701.12 --> 701.38]  Okay.
+[701.52 --> 701.98]  Very good.
+[702.14 --> 704.90]  That's the, the American versus French.
+[705.20 --> 707.10]  My ears can't pick up, up that word.
+[707.34 --> 707.52]  Yeah.
+[707.78 --> 708.04]  Yeah.
+[709.20 --> 709.96]  Orchard CMS.
+[710.50 --> 714.40]  It's always been a problem for me to pronounce this word correctly.
+[714.76 --> 715.16]  Ironically.
+[715.94 --> 717.12]  Oh, for a second.
+[717.20 --> 718.18]  I thought you said art shop.
+[718.26 --> 720.38]  And I was like, no, I know, I know, I know.
+[720.38 --> 724.26]  So I, I just, the same way you cannot pronounce Bertrand, I cannot pronounce.
+[725.70 --> 727.32]  It's been, it's been a bane.
+[727.32 --> 729.20]  At least we can laugh at ourselves about it, right?
+[729.82 --> 730.10]  Oh yeah.
+[730.10 --> 736.30]  So was that the, the, when you say you were involved in the shift, um, was the open sourcing
+[736.30 --> 740.48]  of that and the success of that something that helped or were you a vocal proponent
+[740.48 --> 742.80]  for open sourcing inside the company as well?
+[742.80 --> 746.92]  At the time I was just a mere software developer.
+[747.28 --> 752.30]  So not a lot of influence, not a lot of power, but you know, I was doing my part.
+[753.08 --> 761.68]  Uh, I think the first thing I did, uh, was to work with, uh, Scott Guthrie on, um, getting
+[761.68 --> 764.74]  jQuery to ship with Visual Studio.
+[764.74 --> 772.62]  Uh, that was something that was kind of a big deal because Visual Studio is not open source.
+[772.80 --> 780.46]  Uh, and shipping an open source project inside of that was kind of tricky from a legal standpoint,
+[780.46 --> 783.90]  a licensing standpoint, and all those things.
+[784.48 --> 789.94]  So that's one of the first things that I, uh, that I worked on, uh, concerning open source
+[789.94 --> 790.46]  at Microsoft.
+[790.64 --> 796.94]  And I was very happy to do that because I, I was, I was feeling that this was the beginning
+[796.94 --> 802.46]  of something, uh, profound that, that, that could potentially, uh,
+[803.64 --> 807.52]  change the way the company thinks about software in general.
+[807.84 --> 809.94]  And I'm not saying that is what caused it.
+[810.46 --> 810.96]  Sure.
+[811.14 --> 815.76]  It was a very small thing, but it was, it was a sign of, of what was beginning to happen
+[815.76 --> 816.30]  at the time.
+[816.80 --> 817.08]  Yeah.
+[817.08 --> 823.12]  And now here y'all are one of the top, uh, organizations on GitHub in terms of activity
+[823.12 --> 827.54]  or what was the exact metrics, Adam, on that particular thing?
+[827.66 --> 830.14]  I'm glad you said that because we kind of left that conversation there.
+[830.18 --> 836.06]  It was one thing that, uh, Francesc ended that post with was really about what it means
+[836.06 --> 836.76]  to be a contributor.
+[836.82 --> 840.42]  And it wasn't a slight against Microsoft, but it was just saying it's more than just contributing.
+[840.42 --> 840.86]  Right.
+[841.22 --> 845.86]  And, uh, so the article kind of camped out on Microsoft being a biggest, the biggest
+[845.86 --> 850.60]  contributor in terms of full requests and, uh, commits and things like that.
+[850.60 --> 856.34]  But it, you know, he has this quote that says the biggest OSS contributor is people,
+[856.36 --> 859.06]  not orgs with, uh, an awesome little emoji there.
+[859.08 --> 863.24]  And it's just, it's more than just commits or more than just co-contributions is bigger
+[863.24 --> 863.62]  than that.
+[863.62 --> 865.72]  So that's kind of where he left that piece.
+[866.46 --> 869.90]  Well, you know, if we spend all our time just trying to decide who's number one, right.
+[869.96 --> 872.88]  And we won't, we won't spend any time writing software and contributing.
+[873.28 --> 877.48]  So I think the takeaway though, for me is, is, is not a negative one.
+[877.50 --> 878.56]  It's, it's a positive one.
+[878.56 --> 879.76]  It's like, that's awesome.
+[879.88 --> 880.94]  We need more of that.
+[880.98 --> 885.60]  That's like, it reminds me of the conversation we had about open source at Facebook.
+[885.60 --> 891.78]  Like we need more companies like Microsoft, Facebook, open source, Apple, uh, doing the
+[891.78 --> 897.02]  things they do in the open and inviting, um, developers into those ecosystems.
+[897.02 --> 901.16]  Cause it's only going to help them for one, but it's also just kind of, uh, doing a lot
+[901.16 --> 902.08]  more for open source.
+[902.16 --> 908.48]  We invite that, like having that kind of, um, you know, I guess perspective to open source
+[908.48 --> 910.02]  is a good thing for a company like that.
+[910.42 --> 912.26]  Well, we're getting close to our first break before that.
+[912.30 --> 916.86]  Let's, let's give your, uh, YouTube show a plug here, Bertrand on.net.
+[916.86 --> 922.54]  So as we opened, Adam and I have had many people say we don't cover Microsoft technologies
+[922.54 --> 926.24]  enough and, you know, we try to cover all that we can.
+[926.32 --> 929.24]  There's only, we only get one show a week and we're doing our best.
+[929.32 --> 933.82]  We'd probably do a little bit better, but if you're just dying for lots of .net coverage
+[933.82 --> 938.70]  in the showrooms in the form of podcast or video, uh, Bertrand's your man.
+[938.78 --> 943.00]  He actually has a weekly chat with the .net team and guests.
+[943.16 --> 944.72]  Can you tell us about on.net?
+[944.72 --> 945.52]  Yeah.
+[945.52 --> 945.60]  Yeah.
+[946.04 --> 953.60]  So one of the things that's really important for me is, uh, recognition, uh, recognition
+[953.60 --> 956.86]  of contributions from everybody in the community.
+[956.86 --> 965.88]  I, I think, well, it may sound like, uh, something very, uh, obvious, but, uh, community
+[965.88 --> 971.16]  is one of the most important things for a software platform.
+[971.16 --> 978.50]  Um, and, uh, I wanted to do something that would recognize, uh, what, what people out
+[978.50 --> 985.10]  there are doing around .net, uh, because that's what, what is making what .net is today.
+[985.10 --> 992.90]  So, um, every week I'm interviewing somebody who can be someone from inside of Microsoft or
+[992.90 --> 993.82]  outside of Microsoft.
+[993.82 --> 996.62]  I'm trying to keep a balance of, of both.
+[997.20 --> 1004.94]  And, uh, you know, we chat about .net and, uh, we look at demos that they make, uh, of what,
+[1004.94 --> 1006.32]  what they are doing with .net.
+[1006.98 --> 1012.44]  Uh, and yeah, we're trying to build something that is interesting to watch every week.
+[1012.44 --> 1013.44]  Hmm.
+[1013.44 --> 1015.28]  And it's on, uh, what, uh, is it cloud?
+[1015.72 --> 1016.94]  What's the, uh, it's YouTube.
+[1016.94 --> 1017.78]  And then what else?
+[1017.82 --> 1018.48]  There's two places.
+[1018.66 --> 1019.02]  Channel nine.
+[1019.26 --> 1019.62]  Cloud nine.
+[1019.62 --> 1019.80]  Yeah.
+[1019.80 --> 1022.10]  So the, the name of the show is on .net.
+[1022.20 --> 1022.44]  Right.
+[1022.54 --> 1028.06]  And, uh, it's, uh, it's a channel on YouTube, but it's, it's also on, uh, channel nine.
+[1028.38 --> 1028.96]  Channel nine.
+[1029.16 --> 1029.84]  I was different.
+[1030.14 --> 1030.56]  Channel nine.
+[1030.74 --> 1031.22]  Not cloud nine.
+[1031.36 --> 1031.76]  My bad.
+[1032.22 --> 1032.66]  Yeah.
+[1033.08 --> 1033.54]  Yeah.
+[1033.54 --> 1039.90]  Channel nine being the, the, the central place, uh, where you can find Microsoft videos.
+[1040.26 --> 1040.62]  Right.
+[1040.62 --> 1045.24]  And just looking at the first picture, it looks like two people sitting in the same room.
+[1045.30 --> 1047.90]  Is this like an in studio show or are you over Skype?
+[1048.00 --> 1048.64]  How does it work?
+[1049.20 --> 1050.04]  Oh, it depends.
+[1050.22 --> 1056.34]  Uh, so the last show was with, uh, Sebastian Ross, who is, uh, one of the people who have
+[1056.34 --> 1058.52]  been working on our child, uh, with me.
+[1058.60 --> 1061.40]  So that was kind of, uh, uh, he's here.
+[1061.40 --> 1065.04]  So we did, we did it in studio, but, uh, usually it's over Skype.
+[1065.26 --> 1065.44]  Yeah.
+[1065.44 --> 1073.36]  Uh, and I also write a weekly column on the dot net blog, uh, uh, where I give a list
+[1073.36 --> 1074.02]  of links.
+[1074.02 --> 1080.40]  I give shout outs to some, uh, open source projects and, uh, stuff like that, uh, kind
+[1080.40 --> 1082.20]  of a community heartbeat as well.
+[1082.20 --> 1088.80]  So I do both of those things to, uh, really to recognize the contributions from the community.
+[1089.46 --> 1090.30]  The ecosystem.
+[1090.72 --> 1091.20]  Very cool.
+[1091.20 --> 1094.08]  Well, we will have links to all those things in our show notes.
+[1094.08 --> 1094.86]  Check the show notes.
+[1094.86 --> 1099.62]  If you're interested in on.net and other stuff that Bertrand is up to, but let's take our
+[1099.62 --> 1100.62]  first break on the other side.
+[1100.70 --> 1102.82]  We'll get into the core of our conversation.
+[1103.04 --> 1104.96]  Oh, that was, that was totally cheesy.
+[1105.60 --> 1111.84]  We'll talk about.net core, uh, catch up after a couple of years of open sourcing 1.0 announced
+[1111.84 --> 1114.02]  in June and all that that entails.
+[1114.02 --> 1115.66]  So, uh, we'll be right back.
+[1118.44 --> 1124.30]  This message is for all those team leaders out there that are looking to easily add new
+[1124.30 --> 1129.12]  developers and new designers to their team, easily scale up when you need to.
+[1129.24 --> 1130.56]  You got a big push coming.
+[1130.64 --> 1132.16]  You got a new area of the product.
+[1132.24 --> 1134.90]  You've got to go into and you've got more need than you thought you could.
+[1134.96 --> 1139.08]  You've got to go through all this hassle of putting a job out there and hiring people
+[1139.08 --> 1140.94]  to find the right people.
+[1140.94 --> 1144.80]  Well, that's a bunch of hard stuff that you don't need to even deal with.
+[1145.32 --> 1146.84]  Call upon my friends at top towel.
+[1147.02 --> 1149.64]  That's T O P T A L.com.
+[1149.94 --> 1153.94]  The cool thing about top towel is you can hire the top 3% of freelance software developers.
+[1154.30 --> 1155.62]  And designers.
+[1155.62 --> 1160.64]  And what that means is they've got a rigorous screening process to identify the best.
+[1160.80 --> 1166.18]  So when you call upon them to help you place the right kind of people into your team that,
+[1166.30 --> 1169.02]  you know, you're calling upon the best people out there.
+[1169.24 --> 1173.98]  Once again, go to top towel.com that's T O P T A L.com.
+[1174.08 --> 1178.16]  Or if you'd like a personal introduction, email me, Adam at change love.com.
+[1178.56 --> 1179.94]  And now back to the show.
+[1179.94 --> 1183.84]  All right.
+[1183.88 --> 1188.00]  We are back with Bertrand Leroy talking about all things open source and Microsoft.
+[1188.86 --> 1192.74]  We mentioned before the break that Bertrand was one of the actors in the company's shift
+[1192.74 --> 1197.28]  towards more open source and obviously an advocate and proponent for open source software.
+[1197.72 --> 1205.60]  He also has his name on 12 patents for Microsoft that you probably did under their employ.
+[1205.60 --> 1206.20]  Yeah.
+[1206.66 --> 1209.74]  But you have your own opinions on software patents, don't you?
+[1209.94 --> 1214.12]  And we'd love to hear what you think about patents in general and software patents in particular.
+[1215.20 --> 1215.68]  Yeah.
+[1216.00 --> 1223.00]  So that's definitely the point where I should say that I'm just a guy working for Microsoft,
+[1223.36 --> 1227.46]  not a Microsoft official mouse piece or anything like that.
+[1227.46 --> 1235.60]  And so, yeah, opinions are my own, not necessarily the opinions of the company.
+[1235.60 --> 1244.02]  My opinion on patents is that they have become an obstacle to innovation.
+[1244.02 --> 1253.74]  Whereas originally, my understanding is that they were supposed to be driving innovation.
+[1253.74 --> 1263.48]  They were supposed to be a way for companies to be able to benefit from their inventions.
+[1266.12 --> 1271.04]  But yeah, I think nowadays they have become something completely different.
+[1271.30 --> 1277.34]  They have become some form of currency, maybe, mostly.
+[1277.68 --> 1279.34]  Even a trap in some cases.
+[1279.34 --> 1279.46]  Yes.
+[1280.08 --> 1280.46]  Yes.
+[1280.74 --> 1281.10]  Yes.
+[1281.28 --> 1283.82]  And personally, I think that's very sad.
+[1286.32 --> 1289.96]  When you see everything that's going on around patent trolling.
+[1291.88 --> 1295.98]  So I had a small business, as I said earlier.
+[1296.74 --> 1302.32]  And I think nowadays for any small business, there is this threat, this permanent threat that
+[1302.32 --> 1305.44]  you might be the target of some patent troll at some point.
+[1305.44 --> 1312.64]  And yeah, that is threatening the amount of innovation that a small company can do.
+[1313.62 --> 1318.78]  So yeah, I think patent reform is sorely needed.
+[1319.94 --> 1321.96]  I couldn't disagree at all with that.
+[1322.08 --> 1327.72]  I mean, I think that, you know, we've had a couple of shows, Jared, in the past.
+[1327.72 --> 1334.02]  I think the one I'm thinking of was like 0DB earlier this year, and they didn't have a
+[1334.02 --> 1338.48]  great answer for that question either, which was around 0DB being open source in terms of
+[1338.48 --> 1340.58]  a protocol, but then having a patent.
+[1340.72 --> 1344.18]  I think they had to do it for, you know, money raising reasons.
+[1344.30 --> 1347.52]  And I think even Sourcegraph had something in that conversation, if I recall correctly
+[1347.52 --> 1347.80]  from.
+[1348.86 --> 1353.32]  And so there's places where you're almost forced into it as a business, but you're like,
+[1353.38 --> 1355.68]  that's against my own personal beliefs.
+[1355.68 --> 1357.46]  Yeah, and that's a big problem.
+[1357.62 --> 1364.68]  When you want to raise money for a startup, there are still many venture capitalists who
+[1364.68 --> 1367.58]  will ask you to have patents.
+[1368.56 --> 1375.14]  Because otherwise, and especially if you're trying to have an open source startup, it can
+[1375.14 --> 1375.94]  be challenging.
+[1375.94 --> 1385.48]  Because, yeah, when they put money on the table, they don't want that innovation to
+[1385.48 --> 1385.90]  get copied.
+[1385.94 --> 1388.88]  Yeah, they want to have some security in their choices, basically.
+[1389.12 --> 1389.30]  Yeah.
+[1389.56 --> 1393.92]  Which turns into, you know, lack of freedom for the rest of the world.
+[1394.64 --> 1394.82]  Yeah.
+[1395.54 --> 1398.96]  We asked that question simply because, you know, we were researching this call.
+[1398.96 --> 1401.08]  We saw that you had 12 patents for Microsoft.
+[1401.18 --> 1403.84]  We're kind of curious what your stance was on it, especially in light of you being an
+[1403.84 --> 1405.84]  actor and the company's shift towards more open source.
+[1406.56 --> 1409.88]  And, you know, the beliefs you have, as you mentioned, you're not a mouthpiece for Microsoft,
+[1409.88 --> 1410.84]  but your own opinions.
+[1411.46 --> 1415.52]  And I thought it was a pretty interesting subject to talk to you about, especially as we lead
+[1415.52 --> 1417.32]  into .NET Core.
+[1417.84 --> 1422.84]  Well, knowing recently here in June, at least the release of that later in June's month there,
+[1422.84 --> 1430.80]  and that conversation we also had back with Emo and Varun and, you know, was that episode
+[1430.80 --> 1431.50]  134.
+[1431.66 --> 1433.44]  So, like, let's continue that piece there.
+[1434.50 --> 1436.94]  .NET Core now is open source.
+[1437.04 --> 1437.88]  It has been for a bit.
+[1438.00 --> 1441.16]  Now this, maybe give us the lay of the land.
+[1441.34 --> 1445.02]  I know Jared and I, in our pre-call, we were thinking, like, there's so many pieces to .NET
+[1445.02 --> 1450.32]  that, as an outsider, it's hard to kind of peek in and know for sure unless you're actually
+[1450.32 --> 1455.04]  inside and, you know, a .NET developer, can you kind of give us a lay of the land of what
+[1455.04 --> 1460.36]  .NET Core is, what other pieces to .NET there are, and the overall landscape of what this
+[1460.36 --> 1461.10]  platform is?
+[1461.80 --> 1462.00]  Yeah.
+[1462.10 --> 1467.52]  So what you're saying is interesting because obviously we don't want it to be hard to
+[1467.52 --> 1470.44]  understand for people who haven't been doing .NET before.
+[1471.02 --> 1473.76]  So, yeah, that's kind of a bummer what you're saying.
+[1475.28 --> 1479.68]  Well, you have, like, ASP.NET, then you have .NET Core, and then you've got all these different
+[1479.68 --> 1480.18]  nuances.
+[1480.18 --> 1484.08]  And so from the outsider perspective, it's like, what is .NET?
+[1484.98 --> 1485.32]  So, yeah.
+[1485.46 --> 1490.60]  So like with any development technology, there are several layers to it.
+[1490.78 --> 1495.90]  There is the runtime, and then you have the base class library, and then you have technologies
+[1495.90 --> 1498.98]  that are building on top of that.
+[1498.98 --> 1509.38]  So historically, we used to have the .NET framework, which was Windows only, and then there is Mono,
+[1509.58 --> 1516.28]  which is an open source implementation of pretty much the same thing, which, by the way, that
+[1516.28 --> 1522.22]  is now Microsoft as well because, well, we can probably talk about Xamarin at some point.
+[1522.22 --> 1524.98]  I was going to say, does Mono still need to exist now that everything...
+[1524.98 --> 1525.98]  That's a great question.
+[1525.98 --> 1526.98]  That's a great question.
+[1526.98 --> 1527.98]  Let's talk about that later.
+[1527.98 --> 1528.98]  Sure.
+[1528.98 --> 1529.98]  Okay.
+[1529.98 --> 1530.48]  Yeah.
+[1530.48 --> 1531.48]  Please keep explaining.
+[1531.48 --> 1541.48]  And now you have .NET Core, which is a cross-platform implementation of .NET, of the .NET runtime, if you will.
+[1541.48 --> 1549.68]  And then you have the base class library that we call the .NET standard, and that's evolving
+[1549.68 --> 1552.48]  as well.
+[1552.48 --> 1559.98]  And then you have technologies such as ASP.NET, WPF, stuff like that, that build on top of
+[1559.98 --> 1560.98]  all that.
+[1560.98 --> 1566.48]  And some of those technologies are cross-platform, some are not.
+[1566.48 --> 1569.48]  So ASP.NET is cross-platform.
+[1569.48 --> 1570.48]  It works on .NET Core today.
+[1570.48 --> 1573.48]  There is a version that works on .NET Core.
+[1573.48 --> 1581.48]  But yeah, all that can seem, I realize, a little bit complicated, but if you're a new .NET...
+[1581.48 --> 1589.48]  Well, if you're new to .NET, you haven't used it before, I think the easiest thing to do is
+[1589.48 --> 1599.48]  to go to .NET, D-O-T, .NET, and get started with .NET Core, because that's the simplest thing.
+[1599.48 --> 1606.48]  You don't have to worry about .NET Framework, all those things.
+[1606.48 --> 1609.48]  Just do .NET Core and try it.
+[1609.48 --> 1614.48]  And it's a refoundation of .NET in many ways.
+[1614.48 --> 1618.48]  And it should be simpler to approach.
+[1618.48 --> 1622.48]  It doesn't require Visual Studio or anything like that.
+[1622.48 --> 1624.48]  It's like any other development platform.
+[1624.48 --> 1630.48]  You can start with the command line and the text editor and just run from there.
+[1630.48 --> 1632.48]  So it's definitely got a lot more approachable then.
+[1632.48 --> 1633.48]  Yeah.
+[1633.48 --> 1636.48]  Well, yeah, we want it to be...
+[1636.48 --> 1638.48]  It's more approachable.
+[1638.48 --> 1639.48]  It's cross-platform.
+[1639.48 --> 1642.48]  So yeah, it's not your old .NET.
+[1642.48 --> 1649.48]  On that front, what's the draw since you said if you're a beginner, sending someone to .NET,
+[1649.48 --> 1653.48]  so D-O-T, .NET, on the web.
+[1653.48 --> 1655.48]  Is that net.net?
+[1655.48 --> 1656.48]  Oh, I'm sorry.
+[1656.48 --> 1659.48]  It's .NET.
+[1659.48 --> 1660.48]  Okay.
+[1660.48 --> 1661.48]  Yeah.
+[1661.48 --> 1665.48]  We should talk about making things easy for folks.
+[1665.48 --> 1666.48]  Yeah.
+[1666.48 --> 1667.48]  That's pretty funny.
+[1667.48 --> 1668.48]  Sorry, Jared.
+[1668.48 --> 1669.48]  I had to laugh out loud on that one.
+[1669.48 --> 1671.48]  Was it net.net or is it...
+[1671.48 --> 1672.48]  No.
+[1672.48 --> 1674.48]  That's funny.
+[1674.48 --> 1676.48]  If you're reading it, it's .NET.
+[1676.48 --> 1677.48]  Yes.
+[1677.48 --> 1678.48]  Gotcha.
+[1678.48 --> 1682.48]  But in light of that, being approachable, what is the draw to...
+[1682.48 --> 1686.48]  We're going to talk about .NET Core being 1.0 here in a bit, but just on, you know,
+[1686.48 --> 1689.48]  camp down on this thought here is like being approachable.
+[1689.48 --> 1692.48]  What is it that draws people to .NET?
+[1692.48 --> 1697.48]  Like what is the draw for developers to look at this platform as something that they should
+[1697.48 --> 1698.48]  look at as a developer?
+[1698.48 --> 1699.48]  What attracts people?
+[1699.48 --> 1703.48]  The community, the language, the platform, what?
+[1703.48 --> 1705.48]  That's a great question.
+[1705.48 --> 1710.48]  So traditionally, we've been pushing the .NET brand.
+[1710.48 --> 1715.48]  And to new developers, it's not necessarily the way you want to approach things.
+[1715.48 --> 1720.48]  When you look at other platforms, I mean, you don't say...
+[1720.48 --> 1723.48]  You talk about the language first, you know?
+[1723.48 --> 1727.48]  You develop in Java, you develop in Python, you develop in Go, right?
+[1727.48 --> 1733.48]  The only example I can think of that doesn't start from the language is Node maybe.
+[1733.48 --> 1737.48]  But Node is also pretty much tied to JavaScript.
+[1737.48 --> 1738.48]  Yeah.
+[1738.48 --> 1741.48]  So really, it's not that different.
+[1741.48 --> 1744.48]  And so .NET was a little different in that way.
+[1744.48 --> 1750.48]  And I'm of the opinion, and there are a few on the team who agree with that, that we should
+[1750.48 --> 1752.48]  actually start with the language more.
+[1752.48 --> 1756.48]  And the thing is that we have more than one language.
+[1756.48 --> 1758.48]  It's all like Java, Haskara.
+[1758.48 --> 1760.48]  We have F-sharp as well.
+[1760.48 --> 1761.48]  So we have C-sharp and F-sharp.
+[1761.48 --> 1767.48]  And I think starting from the language is a really good way to talk to developers.
+[1767.48 --> 1768.48]  Yeah.
+[1768.48 --> 1769.48]  You start from the code, you show code.
+[1769.48 --> 1780.48]  And C-sharp and F-sharp are, in my opinion, wonderful languages that have led the way in
+[1780.48 --> 1783.48]  a lot of different interesting ways.
+[1783.48 --> 1791.48]  Async await, for example, is a great feature that started on C-sharp.
+[1791.48 --> 1794.48]  And it's continuing that way.
+[1794.48 --> 1801.48]  If you look at the latest version of C-sharp, you have pattern matching, which is something
+[1801.48 --> 1803.48]  that comes from functional languages.
+[1803.48 --> 1807.48]  F-sharp is a really interesting language to look at.
+[1807.48 --> 1809.48]  So yeah, I would...
+[1809.48 --> 1815.48]  If I were to talk to new developers, I would point them to one of the languages, depending
+[1815.48 --> 1817.48]  where they're coming from.
+[1817.48 --> 1824.48]  For example, if you come from a Java background, I would point you to C-sharp.
+[1824.48 --> 1830.48]  If you come more from, I don't know, Python or JavaScript, maybe F-sharp would be a good fit.
+[1830.48 --> 1836.48]  Is it fair to say that C-sharp is Microsoft's object-oriented language and F-sharp is the functional
+[1836.48 --> 1837.48]  language?
+[1837.48 --> 1838.48]  If just generalized.
+[1838.48 --> 1839.48]  Yeah.
+[1839.48 --> 1847.48]  Even though C-sharp does have some functional features and F-sharp does have some object-oriented
+[1847.48 --> 1848.48]  features.
+[1848.48 --> 1853.48]  But yeah, it's the general category that you could draw there.
+[1853.48 --> 1854.48]  Yeah.
+[1854.48 --> 1859.48]  What would be the best comparison, like for F-sharp specifically, to another language?
+[1859.48 --> 1865.48]  Like if it was friends with one that looks very similar, would it be like an Erlang or
+[1865.48 --> 1868.48]  a Clojure or would it be more like a JavaScript?
+[1868.48 --> 1871.48]  Or is there even...
+[1871.48 --> 1872.48]  Can anything compare?
+[1872.48 --> 1876.48]  I'm sure people will scream at me no matter what I say here.
+[1876.48 --> 1877.48]  Let them scream.
+[1877.48 --> 1879.48]  Yeah, I'm teeing you up for mad tweets.
+[1879.48 --> 1880.48]  This is your opinion.
+[1880.48 --> 1881.48]  I'm teeing you up for mad tweets.
+[1881.48 --> 1884.48]  No, it's not very JavaScript-y.
+[1884.48 --> 1886.48]  It's more...
+[1886.48 --> 1887.48]  Yeah.
+[1887.48 --> 1888.48]  It's not lespy.
+[1888.48 --> 1897.48]  I think the F-sharp folks, the people from the F-sharp team, talk about a multi-paradigm
+[1897.48 --> 1907.48]  functional language or something like that, which is maybe a little too buzzworthy, but
+[1907.48 --> 1909.48]  pretty accurate nonetheless.
+[1909.48 --> 1910.48]  I mean, it is multi-paradigm.
+[1910.48 --> 1912.48]  You can do many different things with it.
+[1912.48 --> 1915.48]  It's not limited to one specific domain.
+[1915.48 --> 1916.48]  Uh-huh.
+[1916.48 --> 1919.48]  But it is essentially functional in orientation.
+[1919.48 --> 1925.48]  So in terms of people that are using .NET, probably we could say the majority are on
+[1925.48 --> 1929.48]  C-sharp and then you have some using F-sharp and then you still have some other languages
+[1929.48 --> 1931.48]  like doesn't VB run on .NET still?
+[1931.48 --> 1933.48]  And isn't there some more legacy languages?
+[1933.48 --> 1934.48]  Oh yeah, absolutely.
+[1934.48 --> 1935.48]  Yeah.
+[1935.48 --> 1941.48]  And actually, I know that I'm going to have the VB folks scream at me for not mentioning
+[1941.48 --> 1943.48]  VB, of course.
+[1943.48 --> 1949.48]  Is VB still actively maintained and being like moving forward?
+[1949.48 --> 1950.48]  Absolutely.
+[1950.48 --> 1951.48]  Yeah, absolutely.
+[1951.48 --> 1957.48]  And it's interesting because it's not that the C-sharp features, for example, are getting
+[1957.48 --> 1961.48]  literally translated to VB.
+[1961.48 --> 1968.48]  That kind of used to be the case in the beginning of VB.NET, but now the new features tend to
+[1968.48 --> 1969.48]  be a lot more idiomatic.
+[1969.48 --> 1977.48]  So they are really two languages that have different strengths and it's interesting to
+[1977.48 --> 1982.48]  see how they evolve in parallel, but separately.
+[1982.48 --> 1984.48]  So why run in parallel?
+[1984.48 --> 1989.48]  I know VB came first and so you have existing systems and existing software.
+[1989.48 --> 1998.48]  But C-sharp has been your guys' main language or the head honcho language for a long time
+[1998.48 --> 1999.48]  now.
+[1999.48 --> 2005.48]  What's the desire to not just deprecate VB and say, everybody move over to C-sharp?
+[2005.48 --> 2008.48]  Is there's too many lines of code in the world?
+[2008.48 --> 2011.48]  I don't think that's the problem.
+[2011.48 --> 2014.48]  I really think it's about curly braces.
+[2014.48 --> 2015.48]  Seriously.
+[2015.48 --> 2017.48]  Did you say curly braces?
+[2017.48 --> 2018.48]  He said curly braces.
+[2018.48 --> 2020.48]  It's seriously about curly braces?
+[2020.48 --> 2022.48]  Now things just got interesting.
+[2022.48 --> 2023.48]  Yeah.
+[2023.48 --> 2025.48]  Not everybody likes curly braces.
+[2025.48 --> 2027.48]  Seriously.
+[2027.48 --> 2028.48]  I love that answer.
+[2028.48 --> 2030.48]  I think you're probably right.
+[2030.48 --> 2031.48]  It's probably as simple as that.
+[2031.48 --> 2032.48]  Yeah.
+[2032.48 --> 2033.48]  So have two.
+[2033.48 --> 2038.48]  So just these two languages, you're in, you know, Microsoft's investing in the communities
+[2038.48 --> 2039.48]  are investing, you know.
+[2039.48 --> 2040.48]  Yeah.
+[2040.48 --> 2043.48]  There are thousands and not millions of dollars into these annually.
+[2043.48 --> 2046.48]  And it's because some people like curly braces and some people don't.
+[2046.48 --> 2055.48]  So there are some really hardcore visual basic fans and you won't convince them that C-sharp
+[2055.48 --> 2056.48]  is better.
+[2056.48 --> 2057.48]  Huh?
+[2057.48 --> 2058.48]  That's a great answer.
+[2058.48 --> 2059.48]  I love that.
+[2059.48 --> 2060.48]  That's the way it is.
+[2060.48 --> 2061.48]  And that's fine.
+[2061.48 --> 2065.48]  Shall we talk about tabs versus spaces now?
+[2065.48 --> 2068.48]  That's been decided also by big query.
+[2068.48 --> 2069.48]  Right.
+[2069.48 --> 2071.48]  Spaces have won.
+[2071.48 --> 2072.48]  Yes.
+[2072.48 --> 2074.48]  Except for the people that love tabs.
+[2074.48 --> 2077.48]  Well, he's based on the open source available.
+[2077.48 --> 2080.48]  It's based on open source code, not all of code everywhere.
+[2080.48 --> 2081.48]  But.
+[2081.48 --> 2082.48]  All right.
+[2082.48 --> 2083.48]  All right.
+[2083.48 --> 2084.48]  So now we've, we've gotten there.
+[2084.48 --> 2089.48]  We're not, we're not going to talk about Vim versus a visual studio code or, or Emacs or
+[2089.48 --> 2090.48]  anything.
+[2090.48 --> 2091.48]  So.
+[2091.48 --> 2095.48]  Before, before we move on, can, can I talk about something else that should be a big draw
+[2095.48 --> 2096.48]  for people to.
+[2096.48 --> 2097.48]  Absolutely.
+[2097.48 --> 2098.48]  Yep.
+[2098.48 --> 2100.48]  There is performance too.
+[2100.48 --> 2101.48]  So.
+[2101.48 --> 2103.48]  Dotnet core has amazing performance.
+[2103.48 --> 2106.48]  And that's been a major focus from the engineering team.
+[2106.48 --> 2108.48]  They've spent a lot, a lot of time.
+[2108.48 --> 2117.48]  And we've also had some really valuable contributions from the community on, on performance improvement.
+[2117.48 --> 2126.48]  Um, and in particular, uh, that net core is going to be, or is already on the taken empower benchmarks.
+[2126.48 --> 2138.48]  And it's in the top 10, I believe something like that, you know, uh, right alongside very, uh, very high performance, uh, platforms.
+[2138.48 --> 2139.48]  So yeah.
+[2139.48 --> 2140.48]  Uh, it's faster than node.
+[2140.48 --> 2141.48]  It's faster than go.
+[2141.48 --> 2147.48]  Um, I'll just mention one other, um, which is not a technical advantage, but let's face it.
+[2147.48 --> 2169.48]  It's a real advantage, especially if you have a young developer and she's wondering, should I learn.net or should I learn Java or Ruby or what have you is that there are many, many large corporations that make a lot of money and they need.net programmers.
+[2169.48 --> 2179.48]  And so you tend to have a pretty, not, I wouldn't say an easy time, but you have lucrative job opportunities if you are well-versed in these technologies.
+[2179.48 --> 2183.48]  And I think we'd be remiss not to mention that as a real draw to the platform.
+[2183.48 --> 2184.48]  Yeah.
+[2184.48 --> 2195.48]  Uh, I will mention another one, uh, since you mentioned, uh, kids learning how to program, um, video games is usually very popular with the young ones.
+[2195.48 --> 2200.48]  Uh, and, uh, there is a platform called unity that you may have heard about.
+[2200.48 --> 2201.48]  Yep.
+[2201.48 --> 2202.48]  And unity runs on.net.
+[2202.48 --> 2203.48]  So yeah.
+[2203.48 --> 2212.48]  And, uh, actually nowadays, most of the independent, uh, gaming companies, uh, are using unity to build their games.
+[2212.48 --> 2217.48]  Uh, most of the games you have on your cell phone have probably been built, uh, on unity.
+[2217.48 --> 2218.48]  Hmm.
+[2218.48 --> 2220.48]  That was a recent announcement too, back at build.
+[2220.48 --> 2224.48]  They were talking about, uh, at least I'm finding this headline, at least you, unity joins the.net foundation.
+[2224.48 --> 2229.48]  I'm guessing there's more to that than, than just what they announced at build before this, this year.
+[2229.48 --> 2230.48]  Yeah.
+[2230.48 --> 2231.48]  Yeah.
+[2231.48 --> 2232.48]  So let's talk about.net core and what's new.
+[2232.48 --> 2236.48]  So you had your 1.0 announcement, uh, in June.
+[2236.48 --> 2244.48]  And when we first had a.net on the show, it was like, you know, Microsoft's brand new open source baby, and it was just getting started.
+[2244.48 --> 2246.48]  And there were things that were open source.
+[2246.48 --> 2247.48]  There are things that weren't.
+[2247.48 --> 2249.48]  And now it seems like it's fully matured.
+[2249.48 --> 2250.48]  It's a 1.0.
+[2250.48 --> 2263.48]  Can you give us kind of the, what's changed between when the announcement first went out and then all the hard work that's happened over the last couple of years, you don't actually don't have to detail every particular thing, but like the highlights of what.net core 1.0 means.
+[2263.48 --> 2266.48]  And some of the major changes.
+[2266.48 --> 2269.48]  Uh, oh boy.
+[2269.48 --> 2273.48]  Um, well, lots and lots of work.
+[2273.48 --> 2282.48]  Um, but the, difficult thing was deciding what would go into, uh, version one.
+[2282.48 --> 2283.48]  One one.
+[2283.48 --> 2284.48]  One one.
+[2284.48 --> 2285.48]  Oh, and what wouldn't.
+[2285.48 --> 2291.48]  And, uh, the level of compatibility that it would have, uh, with previous versions of, of.net.
+[2291.48 --> 2304.48]  And that's something that we are still, uh, getting up to speed with, you know, bringing, uh, community library developers on board with, with.net core.
+[2304.48 --> 2309.72]  because, you know, they need to...
+[2309.72 --> 2311.62]  It's a new platform in many ways,
+[2311.62 --> 2315.64]  but, you know, the thing is that the API surface for the moment
+[2315.64 --> 2320.20]  is smaller than what people were used to on .NET Framework,
+[2320.52 --> 2325.62]  which means that some libraries have actually had to undergo
+[2326.22 --> 2329.42]  some significant rewrites to make it work.
+[2329.82 --> 2330.64]  So this is changing.
+[2330.64 --> 2337.88]  There will be a new version soon that will implement a lot more APIs.
+[2338.32 --> 2340.94]  That's what we call NetStandard 2.0,
+[2341.82 --> 2346.70]  that will have an API surface that will be a lot closer
+[2346.70 --> 2349.82]  to the .NET Framework that people know.
+[2351.12 --> 2352.30]  Where was I going with that?
+[2352.92 --> 2355.50]  Yeah, what happened with .NET Core?
+[2355.50 --> 2360.50]  So yeah, the Wando version means that the runtime is...
+[2361.24 --> 2363.56]  We consider it completely stable.
+[2363.82 --> 2367.52]  You can build production software on it.
+[2368.34 --> 2370.50]  It's released under an MIT license,
+[2371.46 --> 2372.90]  which is very, very liberal.
+[2373.68 --> 2377.70]  You can do pretty much anything you want with it.
+[2377.70 --> 2386.02]  So yeah, new runtime, new base class library that is still being worked on
+[2386.02 --> 2387.10]  very, very actively.
+[2388.52 --> 2392.06]  Do you have any specifics that you'd like to ask?
+[2392.50 --> 2394.76]  Well, I think a highlight of...
+[2394.76 --> 2396.94]  And I don't know if it was just added for 1.0,
+[2397.00 --> 2399.96]  but it's something that you all have been working real hard on,
+[2400.02 --> 2401.14]  is cross-platform.
+[2401.60 --> 2401.90]  Yes.
+[2401.90 --> 2406.90]  So I think probably we should talk about what went into that,
+[2406.98 --> 2412.70]  and then perhaps what that means for us macOS or Linux-based developers.
+[2413.10 --> 2417.86]  That's a great question, because as .NET started as mostly a Windows technology,
+[2418.16 --> 2421.22]  there are some APIs in the full .NET Framework
+[2421.22 --> 2425.60]  that don't necessarily make a lot of sense
+[2425.60 --> 2429.86]  for cross-platform implementations such as .NET Core.
+[2429.86 --> 2433.64]  I mean, who cares about the registry on Linux?
+[2434.12 --> 2437.08]  Well, it doesn't even exist, right?
+[2437.34 --> 2441.62]  So there are a few concepts like that that just don't translate.
+[2442.28 --> 2446.44]  So we have to decide what we are doing with those.
+[2448.18 --> 2453.16]  Do we just keep the APIs in there and make them throw
+[2453.16 --> 2457.78]  when you're not on an OS that can support the capability?
+[2457.78 --> 2460.60]  Do you exclude the API?
+[2461.86 --> 2463.94]  It's really on a case-by-case basis,
+[2464.08 --> 2465.72]  and there is a lot of work going into that.
+[2465.96 --> 2468.26]  So ImoLandworth, whom you had on the show,
+[2468.82 --> 2471.18]  is the person working on that.
+[2472.34 --> 2472.50]  Yeah.
+[2472.62 --> 2474.94]  And then there is tooling,
+[2475.28 --> 2479.08]  because it used to be the case
+[2479.08 --> 2482.30]  that .NET was strongly tied to Visual Studio.
+[2482.30 --> 2485.50]  And of course, Visual Studio is Windows only.
+[2486.16 --> 2493.04]  So to make the platform work on Linux and Mac,
+[2493.90 --> 2497.78]  we had to find other ways of tooling the platform.
+[2497.78 --> 2502.92]  So .NET Core shifts its focus from Visual Studio
+[2502.92 --> 2504.12]  to the command line.
+[2504.12 --> 2506.62]  So we can still use Visual Studio,
+[2506.74 --> 2509.52]  and there is still great tool support on Visual Studio.
+[2510.04 --> 2512.98]  But you can do everything from the command line
+[2512.98 --> 2513.76]  and the text editor,
+[2514.18 --> 2517.92]  which is what works on the Mac and on Linux.
+[2518.72 --> 2520.98]  Well, it's interesting because, you know,
+[2521.04 --> 2524.60]  I know on GoTime, Jared, it's been a lot of rave.
+[2524.60 --> 2529.28]  I think it's been mentioned at least several times,
+[2529.60 --> 2531.18]  Visual Studio being, you know,
+[2531.26 --> 2532.82]  really interesting for Go
+[2532.82 --> 2535.46]  and being cross-platform is unique.
+[2535.64 --> 2536.56]  And then, you know, Bertrand,
+[2536.62 --> 2539.40]  you saying cross-platform is this, you know,
+[2539.44 --> 2542.00]  this new thing coming, I guess, from .NET Core 1.0.
+[2542.52 --> 2544.62]  But then also back in that conversation,
+[2544.92 --> 2549.42]  we had around Ubuntu and Bash going to Windows,
+[2549.64 --> 2550.14]  all that good stuff.
+[2550.20 --> 2553.90]  Like, it seems like the next level of things for us
+[2553.90 --> 2556.98]  is really about, at least in terms of .NET,
+[2557.20 --> 2558.64]  is being cross-platform, you know,
+[2558.72 --> 2560.94]  Linux, macOS, Windows.
+[2561.30 --> 2563.36]  And then you mentioned the focus on command line,
+[2563.42 --> 2565.54]  but then you still do have Visual Studio
+[2565.54 --> 2567.16]  that's cross-platform now, too.
+[2567.28 --> 2568.74]  So you have that available to you,
+[2568.76 --> 2570.82]  and it's just a, at least basically announcement.
+[2571.24 --> 2571.78]  It's a...
+[2571.78 --> 2573.12]  Isn't that a separate project, though?
+[2573.16 --> 2574.58]  Like Visual Studio Code?
+[2574.92 --> 2576.30]  Correct us if we're wrong here, Bertrand,
+[2576.38 --> 2577.38]  but isn't there...
+[2577.38 --> 2580.24]  Visual Studio is kind of the old standard,
+[2580.38 --> 2582.12]  which is the Windows-specific one,
+[2582.12 --> 2583.48]  but now you have Visual Studio Code,
+[2583.54 --> 2584.48]  which is cross-platform,
+[2584.62 --> 2585.46]  or do I misunderstand?
+[2585.96 --> 2586.80]  Maybe I'm misunderstanding.
+[2587.44 --> 2590.30]  Visual Studio is an IDE.
+[2590.88 --> 2593.78]  It's a very advanced IDE.
+[2594.10 --> 2595.74]  It has a lot and a lot of features,
+[2596.42 --> 2598.86]  and it is Windows-only for the moment.
+[2599.42 --> 2602.60]  And Visual Studio Code, on the other hand,
+[2602.72 --> 2604.40]  is closer to a text editor.
+[2604.84 --> 2606.40]  It's more like a...
+[2606.40 --> 2607.42]  Ah, I see.
+[2607.98 --> 2608.52]  That's a...
+[2608.52 --> 2610.66]  And this one is cross-platform.
+[2611.22 --> 2612.96]  Now you can see why we're so confused.
+[2613.32 --> 2614.16]  That's the new hotness.
+[2614.26 --> 2616.02]  Yeah, naming, naming.
+[2616.14 --> 2617.48]  Y'all got to work on your naming a little bit.
+[2618.26 --> 2620.00]  They are very, very different beasts.
+[2620.24 --> 2622.22]  I mean, just for Visual Studio,
+[2622.78 --> 2625.08]  the download is a lot more substantial,
+[2625.34 --> 2628.06]  and it takes more time to install it,
+[2628.32 --> 2634.22]  whereas VS Code is a few megs in download,
+[2634.22 --> 2636.34]  and it takes less than a minute to install.
+[2636.34 --> 2637.00]  Gotcha.
+[2637.30 --> 2637.56]  Okay.
+[2638.06 --> 2639.28]  So they are very different.
+[2639.66 --> 2642.94]  But it may be a text editor of VS Code,
+[2643.06 --> 2646.32]  but it also has some pretty advanced features
+[2646.32 --> 2650.62]  in terms of debugging and code completion and so on.
+[2650.98 --> 2651.12]  So...
+[2651.12 --> 2651.28]  Yeah.
+[2651.76 --> 2654.42]  You're still in a very comfortable environment.
+[2655.00 --> 2657.56]  I'm pretty sure the GoTime community
+[2657.56 --> 2659.98]  is excited about Visual Studio Code.
+[2660.14 --> 2660.56]  Yes.
+[2661.16 --> 2662.18]  Because of the...
+[2662.18 --> 2664.12]  The Go extension is very, very popular.
+[2664.44 --> 2664.70]  Gotcha.
+[2664.70 --> 2665.18]  Okay.
+[2665.78 --> 2666.94]  Well, this is a good place to pause.
+[2667.20 --> 2667.90]  This is a great conversation.
+[2668.00 --> 2668.88]  We're going to come right back to this.
+[2668.96 --> 2670.80]  But let's pause here, and we'll be right back.
+[2672.54 --> 2673.58]  Every Saturday morning,
+[2673.62 --> 2675.46]  we ship an email called Change Law Weekly.
+[2675.60 --> 2676.98]  It's our editorialized take
+[2676.98 --> 2678.26]  on what happened this week
+[2678.26 --> 2680.34]  in open source and software development.
+[2680.44 --> 2681.62]  It's not generated by a machine.
+[2681.94 --> 2683.36]  There's no algorithms involved.
+[2683.66 --> 2685.06]  It's me, it's Jared,
+[2685.24 --> 2686.58]  hand-curating this email,
+[2686.92 --> 2688.34]  keeping you up to date with the latest headlines,
+[2688.54 --> 2691.00]  links, videos, projects, and repos.
+[2691.00 --> 2693.80]  And to get this awesome email in your inbox
+[2693.80 --> 2695.02]  every single week,
+[2695.12 --> 2697.68]  head to changelog.com slash weekly and subscribe.
+[2702.06 --> 2703.66]  All right, we're back with Bertrand LeRoy,
+[2703.74 --> 2705.12]  and we're talking about .NET Core.
+[2705.34 --> 2707.58]  And, you know, we laughed a lot in the break,
+[2707.66 --> 2708.76]  but we've all been kind of,
+[2709.20 --> 2709.98]  at least I say we all,
+[2710.08 --> 2710.60]  I mean me,
+[2711.14 --> 2713.14]  confused about some things in terms of naming.
+[2713.50 --> 2715.58]  I thought Visual Studio
+[2715.58 --> 2717.06]  turned into Visual Studio Code
+[2717.06 --> 2717.94]  and was open source,
+[2717.94 --> 2718.72]  but that's not true.
+[2720.00 --> 2721.84]  And then talking about cross-platform,
+[2721.92 --> 2722.82]  we talked about the importance
+[2722.82 --> 2724.14]  of what that means,
+[2724.24 --> 2725.10]  but, you know,
+[2725.14 --> 2726.34]  what's the draw, Bertrand,
+[2726.46 --> 2730.32]  for .NET Core to be on macOS or Linux?
+[2731.32 --> 2733.56]  Well, one of our goals
+[2733.56 --> 2736.44]  was to enable people
+[2736.44 --> 2740.98]  to write microservice types of applications
+[2740.98 --> 2744.86]  and, you know,
+[2744.92 --> 2747.84]  really server applications of all kinds.
+[2748.38 --> 2749.50]  And today,
+[2749.98 --> 2752.06]  the server is running Linux
+[2752.06 --> 2753.36]  pretty much everywhere.
+[2754.52 --> 2756.28]  So that's one reason
+[2756.28 --> 2759.08]  why Linux is so important,
+[2759.58 --> 2761.98]  probably for any development platform,
+[2762.12 --> 2763.30]  but especially for one
+[2763.30 --> 2767.42]  that's at this moment in time
+[2767.42 --> 2769.82]  aiming at server workloads.
+[2769.82 --> 2772.60]  And the Mac,
+[2772.80 --> 2774.86]  that's a different reason,
+[2774.96 --> 2775.60]  which is that,
+[2776.00 --> 2776.26]  well,
+[2776.42 --> 2779.00]  when you go to any tech conference,
+[2779.34 --> 2780.78]  you might notice
+[2780.78 --> 2783.08]  that a lot of the laptops
+[2783.08 --> 2783.96]  that people have
+[2783.96 --> 2785.90]  are Macs, right?
+[2786.08 --> 2788.20]  So it's a fact of life
+[2788.20 --> 2789.60]  that a lot of developers
+[2789.60 --> 2791.00]  are working on Mac today.
+[2791.42 --> 2793.50]  So it's also important
+[2793.50 --> 2794.82]  that they can develop
+[2795.46 --> 2796.66]  for our platform
+[2796.66 --> 2799.02]  using the tools that they love.
+[2799.02 --> 2802.20]  and not force them to run a VM,
+[2802.40 --> 2803.40]  just run .NET.
+[2803.56 --> 2805.44]  That wouldn't make a lot of sense.
+[2806.42 --> 2807.88]  So for us,
+[2808.04 --> 2808.96]  all three platforms
+[2808.96 --> 2809.96]  are super important
+[2809.96 --> 2810.96]  for different reasons.
+[2811.62 --> 2811.80]  One thing,
+[2811.90 --> 2813.54]  one phenomena that we watch
+[2813.54 --> 2815.36]  happen a lot in open source,
+[2815.48 --> 2816.10]  especially because
+[2816.10 --> 2817.16]  so many developers
+[2817.16 --> 2818.74]  are running macOS
+[2818.74 --> 2820.06]  or Linux,
+[2820.76 --> 2822.06]  is a lot of the
+[2822.06 --> 2824.02]  projects and platforms
+[2824.02 --> 2825.64]  have poor Windows support.
+[2825.64 --> 2827.58]  so Ruby
+[2827.58 --> 2829.80]  has had this problem.
+[2831.60 --> 2832.70]  I could probably go on,
+[2832.74 --> 2833.28]  but I can't think of
+[2833.28 --> 2833.90]  any other examples
+[2833.90 --> 2834.50]  besides that one.
+[2834.56 --> 2835.56]  But there are,
+[2836.28 --> 2837.18]  especially when
+[2837.18 --> 2839.04]  different things
+[2839.04 --> 2840.00]  that touch the file system
+[2840.00 --> 2840.80]  or you mentioned how,
+[2840.90 --> 2841.10]  you know,
+[2841.16 --> 2841.90]  the registry
+[2841.90 --> 2843.00]  doesn't make sense on Linux.
+[2843.18 --> 2843.30]  Well,
+[2844.32 --> 2845.02]  user local
+[2845.02 --> 2846.16]  doesn't make sense on Windows.
+[2846.36 --> 2847.28]  And so you always have
+[2847.28 --> 2848.16]  this kind of divide,
+[2848.26 --> 2848.88]  even when,
+[2849.22 --> 2849.34]  oh,
+[2849.38 --> 2850.26]  Node's another good example.
+[2850.38 --> 2851.18]  There's been a lot of issues
+[2851.18 --> 2852.56]  with Node support on Windows,
+[2853.02 --> 2853.58]  even though,
+[2854.12 --> 2855.66]  or Windows support on Node,
+[2855.72 --> 2856.30]  even though that was
+[2856.30 --> 2857.08]  kind of one of the
+[2857.08 --> 2858.60]  main draws to Node
+[2858.60 --> 2859.56]  for many developers
+[2859.56 --> 2860.20]  to get started.
+[2860.36 --> 2861.92]  But we find that like,
+[2862.26 --> 2863.14]  there's like a second class
+[2863.14 --> 2864.48]  citizen of platforms.
+[2865.10 --> 2867.36]  And in the open source world,
+[2867.86 --> 2868.62]  it's been Windows
+[2868.62 --> 2869.54]  in certain cases.
+[2870.32 --> 2870.38]  Yeah.
+[2870.64 --> 2871.74]  What are the odds
+[2871.74 --> 2872.70]  that like macOS
+[2872.70 --> 2873.64]  specifically,
+[2874.04 --> 2874.66]  because I think Linux,
+[2874.80 --> 2875.38]  because there's
+[2875.38 --> 2876.28]  so many servers,
+[2876.28 --> 2876.92]  like you said,
+[2876.96 --> 2877.64]  and you probably have,
+[2877.82 --> 2878.48]  you know,
+[2878.56 --> 2879.64]  large corporations
+[2879.64 --> 2880.56]  and customers
+[2880.56 --> 2882.00]  that are running .NET
+[2882.00 --> 2883.66]  on Linux servers.
+[2884.86 --> 2885.92]  But what about,
+[2886.16 --> 2887.30]  I could see where macOS
+[2887.30 --> 2888.10]  could become like
+[2888.10 --> 2889.08]  the second class citizen
+[2889.08 --> 2890.14]  of .NET Core's
+[2890.14 --> 2891.50]  open source cross-platform.
+[2892.46 --> 2893.66]  Is there a dedicated
+[2893.66 --> 2894.46]  like people
+[2894.46 --> 2895.20]  or team
+[2895.20 --> 2895.82]  that are like
+[2895.82 --> 2896.92]  inside Microsoft
+[2896.92 --> 2897.94]  running macOS
+[2897.94 --> 2899.34]  and making sure
+[2899.34 --> 2900.80]  that that doesn't happen?
+[2900.90 --> 2901.40]  Or is that
+[2901.40 --> 2902.32]  a real possibility?
+[2903.38 --> 2903.90]  Well,
+[2904.24 --> 2904.82]  actually,
+[2904.96 --> 2905.54]  a lot of people
+[2905.54 --> 2906.16]  on the team
+[2906.16 --> 2907.96]  are using Macs
+[2907.96 --> 2908.50]  every day.
+[2909.06 --> 2909.16]  Oh.
+[2909.64 --> 2911.38]  it's actually
+[2911.38 --> 2912.34]  kind of encouraged.
+[2913.78 --> 2914.48]  When you buy
+[2914.48 --> 2914.88]  a laptop,
+[2915.50 --> 2917.10]  the first choice
+[2917.10 --> 2917.68]  on our team,
+[2917.92 --> 2918.70]  I'm not talking
+[2918.70 --> 2919.42]  about Microsoft
+[2919.42 --> 2919.94]  in general,
+[2920.06 --> 2920.92]  but on our team,
+[2921.48 --> 2922.14]  the default
+[2922.14 --> 2922.82]  kind of is
+[2922.82 --> 2923.50]  a Mac.
+[2925.22 --> 2926.24]  Things have changed.
+[2926.38 --> 2926.52]  Yeah,
+[2926.54 --> 2927.34]  I would never get that.
+[2927.52 --> 2928.42]  It wouldn't make any,
+[2928.50 --> 2928.60]  I mean,
+[2928.60 --> 2929.46]  I guess it's nice
+[2929.46 --> 2930.10]  to see that,
+[2930.14 --> 2931.10]  you know,
+[2931.10 --> 2931.82]  it's about you
+[2931.82 --> 2932.46]  as a developer
+[2932.46 --> 2933.20]  and not,
+[2933.44 --> 2933.72]  you know,
+[2933.82 --> 2934.92]  a forced hand,
+[2934.96 --> 2935.54]  so to speak,
+[2935.62 --> 2935.88]  of like,
+[2935.94 --> 2936.10]  hey,
+[2936.78 --> 2937.56]  you work at Microsoft,
+[2937.74 --> 2938.62]  you use Windows only,
+[2938.62 --> 2940.00]  and that's how
+[2940.00 --> 2940.60]  it has to be.
+[2941.24 --> 2941.38]  Oh,
+[2941.44 --> 2941.54]  no,
+[2941.58 --> 2942.10]  not at all.
+[2942.76 --> 2943.92]  It really is
+[2943.92 --> 2945.28]  everybody's
+[2945.28 --> 2946.66]  personal choice
+[2946.66 --> 2947.96]  and what
+[2947.96 --> 2949.48]  really makes sense
+[2949.48 --> 2949.96]  for the job
+[2949.96 --> 2950.90]  you're doing.
+[2950.90 --> 2951.36]  And,
+[2951.44 --> 2952.20]  yeah,
+[2952.44 --> 2954.52]  as you said,
+[2954.56 --> 2955.20]  it's important
+[2955.20 --> 2956.46]  that we have
+[2956.46 --> 2957.68]  people on the team
+[2957.68 --> 2959.58]  who run on macOS
+[2959.58 --> 2960.04]  so that,
+[2960.62 --> 2960.80]  yeah,
+[2960.92 --> 2963.42]  they can make sure
+[2963.42 --> 2964.02]  all the time
+[2964.02 --> 2964.54]  that it works.
+[2964.72 --> 2965.70]  And of course,
+[2965.78 --> 2966.38]  we have some,
+[2966.78 --> 2967.90]  we have quite a lot
+[2967.90 --> 2968.68]  of tests,
+[2969.28 --> 2970.06]  automated tests
+[2970.06 --> 2972.00]  running on Mac,
+[2972.12 --> 2973.78]  but that's obvious.
+[2973.78 --> 2974.10]  Sure.
+[2974.76 --> 2975.02]  Right.
+[2975.36 --> 2975.78]  Well,
+[2975.90 --> 2976.98]  we talked about
+[2976.98 --> 2977.78]  Mono in brief
+[2977.78 --> 2978.34]  previously.
+[2978.46 --> 2979.10]  This was the
+[2979.10 --> 2979.94]  open source version
+[2979.94 --> 2981.48]  of the .NET runtime
+[2981.48 --> 2984.16]  and very popular
+[2984.16 --> 2986.10]  and long running
+[2986.10 --> 2986.80]  project,
+[2987.24 --> 2988.30]  a necessary project
+[2988.30 --> 2989.80]  when everything
+[2989.80 --> 2990.66]  was still proprietary.
+[2991.04 --> 2991.82]  But as I,
+[2992.38 --> 2993.20]  as you mentioned before,
+[2993.20 --> 2993.76]  and I kind of said,
+[2993.84 --> 2994.30]  what does it mean
+[2994.30 --> 2994.86]  for Mono?
+[2995.22 --> 2996.04]  Is that now,
+[2996.14 --> 2996.38]  like,
+[2996.50 --> 2997.40]  the main thing
+[2997.40 --> 2998.10]  is open source
+[2998.10 --> 3000.06]  and do we have
+[3000.06 --> 3000.62]  to have Mono
+[3000.62 --> 3001.10]  or what does it
+[3001.10 --> 3001.64]  mean for Mono?
+[3001.70 --> 3002.00]  And you said,
+[3002.06 --> 3002.44]  let's talk about
+[3002.44 --> 3002.86]  that later.
+[3002.86 --> 3003.52]  So I'm just bringing
+[3003.52 --> 3003.98]  it back up
+[3003.98 --> 3004.48]  because I'm still
+[3004.48 --> 3005.68]  curious what
+[3005.68 --> 3006.92]  Mono's future is,
+[3006.96 --> 3007.48]  if any.
+[3008.64 --> 3009.54]  The different flavors
+[3009.54 --> 3010.74]  of .NET that
+[3010.74 --> 3011.52]  exist today,
+[3011.84 --> 3012.80]  the main ones
+[3012.80 --> 3013.74]  would be
+[3013.74 --> 3015.22]  .NET Framework,
+[3015.64 --> 3016.50]  .NET Core,
+[3016.88 --> 3017.36]  and Mono.
+[3017.78 --> 3018.80]  They are all
+[3018.80 --> 3019.60]  being used
+[3019.60 --> 3021.06]  on different
+[3021.06 --> 3021.60]  workloads
+[3021.60 --> 3023.00]  that are all
+[3023.00 --> 3023.88]  important.
+[3025.42 --> 3026.74]  Mono in particular
+[3026.74 --> 3028.42]  is what
+[3028.42 --> 3030.02]  drives Unity.
+[3030.72 --> 3031.50]  We've talked
+[3031.50 --> 3032.10]  about Unity
+[3032.10 --> 3032.84]  a little bit.
+[3032.86 --> 3034.18]  it's what
+[3034.18 --> 3035.56]  is behind
+[3035.56 --> 3036.78]  Xamarin.
+[3037.28 --> 3037.78]  So that means
+[3037.78 --> 3038.32]  that if you want
+[3038.32 --> 3038.74]  to run
+[3038.74 --> 3039.94]  a .NET application
+[3039.94 --> 3040.62]  on iOS
+[3040.62 --> 3041.46]  or Android,
+[3042.00 --> 3042.52]  chances are
+[3042.52 --> 3043.04]  you are running
+[3043.04 --> 3043.64]  it on Mono.
+[3043.96 --> 3044.26]  Well,
+[3044.38 --> 3045.56]  it's almost a certainty.
+[3046.36 --> 3046.62]  So,
+[3047.72 --> 3048.08]  yeah,
+[3048.48 --> 3050.62]  I don't see
+[3050.62 --> 3050.96]  them
+[3050.96 --> 3052.16]  going
+[3052.16 --> 3053.40]  anywhere
+[3053.40 --> 3055.80]  nefarious
+[3055.80 --> 3057.38]  in the near future
+[3057.38 --> 3057.86]  at least.
+[3057.86 --> 3058.94]  Is it safe
+[3058.94 --> 3059.22]  to say
+[3059.22 --> 3059.68]  that Mono
+[3059.68 --> 3060.06]  may have
+[3060.06 --> 3060.98]  been
+[3060.98 --> 3062.00]  early
+[3062.00 --> 3062.54]  traction
+[3062.54 --> 3063.32]  or early
+[3063.32 --> 3064.60]  indicators
+[3064.60 --> 3065.10]  that
+[3065.10 --> 3065.88]  taking
+[3065.88 --> 3066.32]  something
+[3066.32 --> 3066.88]  for
+[3066.88 --> 3067.30]  or
+[3067.30 --> 3067.60]  around
+[3067.60 --> 3068.08]  .NET
+[3068.08 --> 3069.08]  open source
+[3069.08 --> 3069.66]  could be a
+[3069.66 --> 3070.28]  positive thing?
+[3070.80 --> 3070.92]  Yeah,
+[3070.92 --> 3071.26]  absolutely.
+[3071.70 --> 3071.84]  Yeah.
+[3071.84 --> 3074.12]  it's been a
+[3074.12 --> 3074.56]  huge
+[3074.56 --> 3076.02]  driver for
+[3076.02 --> 3076.36]  change.
+[3076.36 --> 3076.68]  Sure.
+[3077.42 --> 3078.32]  So I think
+[3078.32 --> 3078.80]  Jared's question
+[3078.80 --> 3079.10]  was kind of
+[3079.10 --> 3079.40]  like what
+[3079.40 --> 3079.94]  happens to it?
+[3079.96 --> 3080.22]  So does
+[3080.22 --> 3081.16]  Mono go away
+[3081.16 --> 3081.72]  or does it
+[3081.72 --> 3082.44]  get folded
+[3082.44 --> 3083.08]  into .NET
+[3083.08 --> 3083.46]  core
+[3083.46 --> 3084.38]  now that
+[3084.38 --> 3084.78]  it's open
+[3084.78 --> 3085.16]  source
+[3085.16 --> 3085.54]  and now
+[3085.54 --> 3086.10]  that more
+[3086.10 --> 3086.46]  and more
+[3086.46 --> 3087.32]  is happening
+[3087.32 --> 3087.74]  around this
+[3087.74 --> 3088.50]  cross-platform
+[3088.50 --> 3088.92]  piece?
+[3089.46 --> 3089.98]  What happens?
+[3090.84 --> 3091.18]  So there
+[3091.18 --> 3091.88]  are definitely
+[3091.88 --> 3092.56]  things that
+[3092.56 --> 3092.86]  are going
+[3092.86 --> 3093.46]  to happen
+[3093.46 --> 3094.04]  in terms
+[3094.04 --> 3095.50]  of what
+[3095.50 --> 3096.94]  implementation
+[3096.94 --> 3097.76]  of the
+[3097.76 --> 3098.34]  base class
+[3098.34 --> 3098.94]  library
+[3098.94 --> 3101.14]  each is
+[3101.14 --> 3101.50]  using
+[3101.50 --> 3102.30]  and there
+[3102.30 --> 3102.62]  is some
+[3102.62 --> 3103.06]  convergence
+[3103.06 --> 3104.60]  that's
+[3104.60 --> 3105.16]  going on
+[3105.16 --> 3105.66]  so that
+[3105.66 --> 3106.92]  we actually
+[3106.92 --> 3107.82]  don't maintain
+[3107.82 --> 3109.24]  three different
+[3109.24 --> 3109.78]  code bases.
+[3109.98 --> 3110.48]  There is a lot
+[3110.48 --> 3110.96]  that is being
+[3110.96 --> 3111.66]  put in common
+[3111.66 --> 3112.32]  obviously.
+[3114.50 --> 3114.82]  But
+[3114.82 --> 3116.66]  you still
+[3116.66 --> 3116.98]  have the
+[3116.98 --> 3117.26]  runtime
+[3117.26 --> 3117.74]  itself
+[3117.74 --> 3118.62]  and we
+[3118.62 --> 3119.46]  have great
+[3119.46 --> 3120.22]  implementations
+[3120.22 --> 3120.76]  of .NET
+[3120.76 --> 3121.74]  running on
+[3121.74 --> 3122.48]  iOS and
+[3122.48 --> 3122.84]  Android
+[3122.84 --> 3124.84]  and I'm
+[3124.84 --> 3126.14]  not sure
+[3126.14 --> 3127.32]  why exactly
+[3127.32 --> 3127.90]  we would
+[3127.90 --> 3129.30]  necessarily
+[3129.30 --> 3131.14]  converse
+[3131.14 --> 3131.72]  those on
+[3131.72 --> 3132.52]  .NET Core
+[3132.52 --> 3133.00]  but I don't
+[3133.00 --> 3133.24]  know.
+[3133.52 --> 3133.74]  Maybe.
+[3134.08 --> 3134.50]  I don't know.
+[3134.68 --> 3134.92]  I really
+[3134.92 --> 3135.16]  don't.
+[3136.36 --> 3137.06]  It might
+[3137.06 --> 3137.48]  happen at
+[3137.48 --> 3137.88]  some point.
+[3138.88 --> 3139.78]  You would
+[3139.78 --> 3140.26]  have to ask
+[3140.26 --> 3140.68]  the question
+[3140.68 --> 3141.12]  to somebody
+[3141.12 --> 3141.60]  else than
+[3141.60 --> 3141.80]  me.
+[3142.20 --> 3142.88]  I don't
+[3142.88 --> 3143.06]  care.
+[3143.72 --> 3144.40]  And yeah
+[3144.40 --> 3146.90]  it's also
+[3146.90 --> 3147.86]  a problem
+[3147.86 --> 3148.40]  of where
+[3148.40 --> 3148.76]  you put
+[3148.76 --> 3149.32]  your focus
+[3149.32 --> 3149.94]  and where
+[3149.94 --> 3150.24]  you put
+[3150.24 --> 3150.84]  your energies
+[3150.84 --> 3152.78]  and we
+[3152.78 --> 3153.56]  have many
+[3153.56 --> 3154.04]  many things
+[3154.04 --> 3154.44]  to do.
+[3155.24 --> 3155.76]  Everything
+[3155.76 --> 3156.40]  takes time.
+[3157.32 --> 3157.48]  So we've
+[3157.48 --> 3157.94]  covered cross
+[3157.94 --> 3158.38]  platform.
+[3158.54 --> 3158.80]  We obviously
+[3158.80 --> 3159.36]  understand how
+[3159.36 --> 3159.84]  important that
+[3159.84 --> 3160.42]  is because
+[3160.42 --> 3161.42]  no longer
+[3161.42 --> 3161.84]  are you
+[3161.84 --> 3162.34]  tied to
+[3162.34 --> 3163.52]  simply those
+[3163.52 --> 3163.82]  who have
+[3163.82 --> 3164.06]  Windows
+[3164.06 --> 3164.46]  machines.
+[3164.46 --> 3164.84]  You're
+[3164.84 --> 3165.92]  able to
+[3165.92 --> 3166.46]  attract
+[3166.46 --> 3167.06]  macOS
+[3167.06 --> 3167.62]  developers
+[3167.62 --> 3168.48]  or anybody
+[3168.48 --> 3169.74]  using a
+[3169.74 --> 3170.30]  Macintosh
+[3170.30 --> 3170.76]  computer.
+[3171.40 --> 3172.20]  You're also
+[3172.20 --> 3172.66]  attracting
+[3172.66 --> 3173.22]  those who are
+[3173.22 --> 3173.66]  on Linux.
+[3173.66 --> 3175.00]  that's a
+[3175.00 --> 3175.44]  good thing.
+[3175.92 --> 3176.44]  You're
+[3176.44 --> 3178.14]  focused on
+[3178.14 --> 3178.42]  the command
+[3178.42 --> 3178.56]  line.
+[3178.66 --> 3179.30]  Is the
+[3179.30 --> 3179.66]  command
+[3179.66 --> 3180.62]  line to
+[3180.62 --> 3181.10]  .NET Core
+[3181.10 --> 3181.72]  new?
+[3181.96 --> 3182.18]  Is that
+[3182.18 --> 3182.58]  something that's
+[3182.58 --> 3183.02]  never been
+[3183.02 --> 3183.90]  there for
+[3183.90 --> 3184.58]  .NET Core?
+[3185.08 --> 3185.54]  You mean
+[3185.54 --> 3186.14]  for .NET in
+[3186.14 --> 3186.26]  general?
+[3186.26 --> 3187.58]  .NET in
+[3187.58 --> 3187.80]  general.
+[3187.92 --> 3188.06]  Sorry.
+[3188.78 --> 3188.98]  Yeah.
+[3189.08 --> 3189.34]  So that
+[3189.34 --> 3190.54]  is new
+[3190.54 --> 3191.24]  to .NET Core.
+[3191.40 --> 3191.64]  Yes.
+[3192.82 --> 3193.84]  And it
+[3193.84 --> 3194.42]  really comes
+[3194.42 --> 3194.78]  from the
+[3194.78 --> 3195.24]  fact that
+[3195.24 --> 3196.14]  we need
+[3196.14 --> 3196.88]  tooling on
+[3196.88 --> 3197.20]  all the
+[3197.20 --> 3197.56]  supported
+[3197.56 --> 3198.12]  platforms.
+[3198.42 --> 3198.76]  We need
+[3198.76 --> 3199.16]  to be able
+[3199.16 --> 3199.60]  to build
+[3199.60 --> 3200.16]  everywhere.
+[3200.16 --> 3202.02]  So typically
+[3202.02 --> 3202.98]  we talked
+[3202.98 --> 3203.54]  before about
+[3203.54 --> 3204.08]  my confusion
+[3204.08 --> 3204.62]  around Visual
+[3204.62 --> 3204.94]  Studio.
+[3205.14 --> 3205.34]  So you've
+[3205.34 --> 3205.60]  got the
+[3205.60 --> 3205.84]  IDE,
+[3206.02 --> 3206.30]  you've got
+[3206.30 --> 3206.72]  code.
+[3208.02 --> 3208.96]  Is it a
+[3208.96 --> 3209.78]  change of
+[3209.78 --> 3210.00]  heart?
+[3210.10 --> 3210.48]  Is it a
+[3210.48 --> 3211.08]  change of
+[3211.08 --> 3211.92]  retraining to
+[3211.92 --> 3212.48]  people or
+[3212.48 --> 3212.84]  to those
+[3212.84 --> 3213.50]  developers that
+[3213.50 --> 3214.50]  are .NET
+[3214.50 --> 3215.30]  developers to
+[3215.30 --> 3216.06]  go from an
+[3216.06 --> 3216.66]  IDE, a
+[3216.66 --> 3217.30]  visual thing,
+[3217.42 --> 3217.90]  to a
+[3217.90 --> 3218.40]  command line?
+[3219.36 --> 3219.84]  Yeah,
+[3219.90 --> 3220.38]  there is a
+[3220.38 --> 3221.10]  fair bit of
+[3221.10 --> 3221.56]  that going
+[3221.56 --> 3221.88]  on.
+[3222.04 --> 3223.32]  But the
+[3223.32 --> 3224.20]  fact is that
+[3224.20 --> 3225.32]  a lot of
+[3225.32 --> 3225.92]  people in
+[3225.92 --> 3227.44]  the existing
+[3227.44 --> 3227.84]  .NET
+[3227.84 --> 3228.84]  community were
+[3228.84 --> 3229.54]  actually asking
+[3229.54 --> 3230.30]  for that to
+[3230.30 --> 3230.66]  happen.
+[3230.88 --> 3231.08]  Really?
+[3231.40 --> 3232.14]  They wanted
+[3232.14 --> 3233.02]  to use the
+[3233.02 --> 3233.46]  command line
+[3233.46 --> 3234.54]  more because
+[3234.54 --> 3235.10]  that also
+[3235.10 --> 3235.64]  means that
+[3235.64 --> 3236.12]  things are
+[3236.12 --> 3236.62]  easier to
+[3236.62 --> 3237.06]  automate.
+[3237.64 --> 3240.00]  And it's
+[3240.00 --> 3240.42]  a general
+[3240.42 --> 3241.08]  direction the
+[3241.08 --> 3241.64]  industry as
+[3241.64 --> 3242.16]  a whole is
+[3242.16 --> 3242.84]  going.
+[3244.36 --> 3244.98]  When you
+[3244.98 --> 3245.58]  look at,
+[3245.66 --> 3246.30]  I don't know,
+[3246.34 --> 3246.82]  if you look at
+[3246.82 --> 3247.48]  some of the
+[3247.48 --> 3248.22]  ideas that
+[3248.22 --> 3249.06]  JetBrains are
+[3249.06 --> 3249.64]  building, for
+[3249.64 --> 3250.08]  example,
+[3251.60 --> 3252.56]  WebStorm,
+[3252.64 --> 3253.08]  for example,
+[3253.26 --> 3253.58]  when you
+[3253.58 --> 3255.58]  develop Node
+[3255.58 --> 3256.52]  on WebStorm,
+[3257.22 --> 3257.62]  what the
+[3257.62 --> 3258.42]  IDE is doing
+[3258.42 --> 3259.00]  is mostly
+[3259.00 --> 3259.60]  driving the
+[3259.60 --> 3260.06]  command line.
+[3260.82 --> 3260.98]  Right?
+[3261.92 --> 3262.40]  Right.
+[3263.18 --> 3264.24]  So, yeah,
+[3264.50 --> 3265.28]  I think it's
+[3265.28 --> 3267.68]  something that
+[3267.68 --> 3268.00]  had to
+[3268.00 --> 3268.32]  happen.
+[3270.00 --> 3271.64]  And I
+[3271.64 --> 3272.14]  think for
+[3272.14 --> 3273.06]  new developers,
+[3273.26 --> 3273.76]  it's actually
+[3273.76 --> 3274.44]  a lot easier.
+[3275.06 --> 3276.24]  But as I
+[3276.24 --> 3277.68]  said, the
+[3277.68 --> 3278.64]  IDE is
+[3278.64 --> 3279.16]  still there.
+[3280.76 --> 3281.42]  There are
+[3281.42 --> 3282.10]  still a lot
+[3282.10 --> 3282.50]  of people.
+[3282.64 --> 3283.00]  I don't know
+[3283.00 --> 3283.28]  if it's
+[3283.28 --> 3283.78]  something like
+[3283.78 --> 3284.34]  curly braces,
+[3284.58 --> 3285.26]  but there
+[3285.26 --> 3285.82]  are still a
+[3285.82 --> 3286.30]  lot of people
+[3286.30 --> 3287.12]  who prefer to
+[3287.12 --> 3288.20]  work in
+[3288.20 --> 3288.60]  an IDE,
+[3288.82 --> 3289.12]  and they
+[3289.12 --> 3289.40]  can.
+[3290.28 --> 3291.00]  We're giving
+[3291.00 --> 3291.68]  them that
+[3291.68 --> 3292.30]  choice.
+[3293.10 --> 3293.82]  Everything is
+[3293.82 --> 3294.42]  possible under
+[3294.42 --> 3296.10]  both environments.
+[3297.70 --> 3298.50]  But, yeah,
+[3298.62 --> 3299.28]  now if you
+[3299.28 --> 3299.92]  want to
+[3299.92 --> 3301.08]  write C-sharp
+[3301.08 --> 3301.46]  code,
+[3301.82 --> 3302.84]  you can
+[3302.84 --> 3304.16]  install it,
+[3304.56 --> 3305.38]  and on the
+[3305.38 --> 3305.78]  command line,
+[3305.86 --> 3306.06]  you do
+[3306.06 --> 3306.70]  .NET New,
+[3306.82 --> 3307.30]  and you're in
+[3307.30 --> 3307.64]  business.
+[3308.20 --> 3308.70]  It's kind of
+[3308.70 --> 3308.96]  like your
+[3308.96 --> 3309.76]  guys' decision
+[3309.76 --> 3310.46]  to continue
+[3310.46 --> 3310.92]  with VB
+[3310.92 --> 3311.96]  and also
+[3311.96 --> 3313.00]  develop C-sharp.
+[3313.12 --> 3313.72]  You have those
+[3313.72 --> 3314.16]  who want to
+[3314.16 --> 3314.80]  stay with VB,
+[3314.80 --> 3315.14]  and you
+[3315.14 --> 3315.44]  have those
+[3315.44 --> 3315.82]  who want
+[3315.82 --> 3316.18]  to do
+[3316.18 --> 3316.70]  C-sharp.
+[3317.20 --> 3317.38]  And in
+[3317.38 --> 3317.70]  this case,
+[3317.76 --> 3317.96]  you have
+[3317.96 --> 3318.32]  those who
+[3318.32 --> 3318.88]  will never
+[3318.88 --> 3319.30]  leave their
+[3319.30 --> 3319.64]  IDE.
+[3320.20 --> 3320.52]  You can
+[3320.52 --> 3320.84]  peel it
+[3320.84 --> 3321.14]  from their
+[3321.14 --> 3321.34]  cold,
+[3321.42 --> 3321.88]  dead hands.
+[3322.38 --> 3322.82]  And then
+[3322.82 --> 3323.02]  you have
+[3323.02 --> 3323.42]  those who
+[3323.42 --> 3323.92]  want something
+[3323.92 --> 3324.28]  lighter,
+[3324.42 --> 3325.14]  more of a
+[3325.14 --> 3325.66]  text editor,
+[3326.22 --> 3326.74]  and perhaps
+[3326.74 --> 3327.76]  want to run
+[3327.76 --> 3328.18]  it on Linux.
+[3328.46 --> 3329.26]  So I think
+[3329.26 --> 3330.04]  choice is always
+[3330.04 --> 3330.48]  good.
+[3330.88 --> 3332.30]  I think you
+[3332.30 --> 3332.64]  guys have
+[3332.64 --> 3333.20]  some work to
+[3333.20 --> 3333.80]  do with your
+[3333.80 --> 3334.54]  branding and
+[3334.54 --> 3335.40]  your cohesive
+[3335.40 --> 3336.10]  story,
+[3336.40 --> 3337.02]  because it is
+[3337.02 --> 3337.62]  a bit confusing.
+[3338.62 --> 3340.92]  I feel like
+[3340.92 --> 3341.72]  we've gotten
+[3341.72 --> 3342.46]  over some bumps
+[3342.46 --> 3342.94]  in the road,
+[3342.94 --> 3343.26]  Adam,
+[3343.38 --> 3343.76]  and I'm
+[3343.76 --> 3344.32]  understanding
+[3344.32 --> 3344.64]  it more
+[3344.64 --> 3344.90]  now.
+[3345.26 --> 3345.60]  I wish that
+[3345.60 --> 3346.12]  it wasn't
+[3346.12 --> 3347.18]  quite this
+[3347.18 --> 3348.22]  hard to
+[3348.22 --> 3348.80]  peel back
+[3348.80 --> 3349.10]  the layers
+[3349.10 --> 3349.36]  of the
+[3349.36 --> 3350.02]  onion or
+[3350.02 --> 3350.56]  see the
+[3350.56 --> 3351.02]  whole picture,
+[3351.24 --> 3352.36]  but no doubt
+[3352.36 --> 3352.82]  you guys will
+[3352.82 --> 3353.24]  probably get
+[3353.24 --> 3353.38]  there.
+[3353.44 --> 3353.82]  Let me ask
+[3353.82 --> 3354.22]  you this.
+[3354.58 --> 3356.04]  Ubuntu
+[3356.04 --> 3357.88]  support now
+[3357.88 --> 3358.46]  has Bash
+[3358.46 --> 3359.06]  on Windows,
+[3359.18 --> 3359.34]  right?
+[3359.38 --> 3359.66]  We talked
+[3359.66 --> 3360.18]  about that.
+[3361.14 --> 3362.58]  And what I
+[3362.58 --> 3362.86]  want to know
+[3362.86 --> 3363.22]  is what would
+[3363.22 --> 3364.28]  happen if
+[3364.28 --> 3365.16]  somebody ran
+[3365.16 --> 3367.24]  .NET on
+[3367.24 --> 3369.00]  Linux on
+[3369.00 --> 3370.24]  Bash on
+[3370.24 --> 3370.80]  Windows?
+[3371.08 --> 3371.64]  Would the
+[3371.64 --> 3372.32]  world implode?
+[3372.32 --> 3373.62]  Or what's
+[3373.62 --> 3373.78]  going to
+[3373.78 --> 3374.18]  happen there?
+[3375.12 --> 3375.60]  I don't
+[3375.60 --> 3375.84]  know.
+[3375.96 --> 3376.32]  That's an
+[3376.32 --> 3376.70]  interesting
+[3376.70 --> 3377.14]  question.
+[3377.26 --> 3377.48]  You should
+[3377.48 --> 3377.94]  try it.
+[3378.72 --> 3379.22]  Maybe I
+[3379.22 --> 3379.44]  will.
+[3379.56 --> 3379.92]  I'll get
+[3379.92 --> 3380.18]  Dustin
+[3380.18 --> 3380.64]  Kirkland to
+[3380.64 --> 3381.04]  try it.
+[3382.26 --> 3382.80]  That's too
+[3382.80 --> 3383.02]  funny.
+[3383.74 --> 3383.94]  Yeah,
+[3383.98 --> 3384.54]  sounds like a
+[3384.54 --> 3385.12]  fun experiment.
+[3386.30 --> 3386.84]  All right,
+[3386.88 --> 3387.20]  listeners,
+[3387.72 --> 3388.76]  a challenge to
+[3388.76 --> 3389.10]  the listeners.
+[3389.30 --> 3389.70]  Somebody go
+[3389.70 --> 3390.14]  out there,
+[3390.82 --> 3391.36]  do that,
+[3391.48 --> 3392.14]  report back,
+[3392.20 --> 3392.72]  and we will
+[3392.72 --> 3393.64]  link it up.
+[3393.80 --> 3394.60]  Open an issue,
+[3394.70 --> 3395.08]  let us know
+[3395.08 --> 3395.70]  what happens.
+[3395.88 --> 3396.72]  Give us a
+[3396.72 --> 3398.06]  video GIF or
+[3398.06 --> 3398.48]  a full-on
+[3398.48 --> 3398.72]  video,
+[3398.80 --> 3399.58]  whatever works.
+[3400.42 --> 3400.82]  Inception.
+[3402.32 --> 3402.88]  So,
+[3403.34 --> 3404.06]  to wrap
+[3404.06 --> 3404.50]  some things
+[3404.50 --> 3404.94]  up here,
+[3405.02 --> 3405.38]  if you're
+[3405.38 --> 3406.08]  just getting
+[3406.08 --> 3406.46]  started,
+[3406.60 --> 3407.14]  or if you're
+[3407.14 --> 3407.52]  someone out
+[3407.52 --> 3407.68]  of the
+[3407.68 --> 3407.96]  ones that
+[3407.96 --> 3408.36]  peek into
+[3408.36 --> 3408.98]  this world,
+[3409.56 --> 3410.28]  going to
+[3410.28 --> 3411.48]  .NET,
+[3411.56 --> 3411.86]  which is
+[3411.86 --> 3412.12]  actually
+[3412.12 --> 3412.76]  D-O-T
+[3412.76 --> 3413.40]  dot
+[3413.40 --> 3414.34]  N-E-T,
+[3415.28 --> 3416.28]  slash core
+[3416.28 --> 3416.62]  would be
+[3416.62 --> 3417.16]  going to the
+[3417.16 --> 3417.68]  core page.
+[3417.78 --> 3418.10]  That's what
+[3418.10 --> 3418.54]  they recommend
+[3418.54 --> 3418.88]  in this
+[3418.88 --> 3419.26]  announcement
+[3419.26 --> 3419.74]  for .NET
+[3419.74 --> 3420.54]  Core 1.0
+[3420.54 --> 3421.48]  back in
+[3421.48 --> 3421.72]  June.
+[3421.94 --> 3422.10]  So,
+[3422.66 --> 3422.96]  if that's
+[3422.96 --> 3423.52]  where you're
+[3423.52 --> 3423.92]  starting out,
+[3423.96 --> 3424.24]  that's what
+[3424.24 --> 3424.60]  I'm saying,
+[3424.68 --> 3425.02]  at least from
+[3425.02 --> 3426.06]  this article
+[3426.06 --> 3426.30]  here.
+[3426.40 --> 3426.78]  But Bertrand,
+[3426.84 --> 3427.20]  from you,
+[3427.34 --> 3428.72]  from your
+[3428.72 --> 3429.18]  perspective,
+[3429.18 --> 3430.42]  if there's
+[3430.42 --> 3430.72]  a listener
+[3430.72 --> 3431.00]  out there
+[3431.00 --> 3431.24]  who's been
+[3431.24 --> 3431.78]  listening along
+[3431.78 --> 3432.20]  thinking,
+[3432.78 --> 3433.30]  I'm interested
+[3433.30 --> 3433.60]  in this,
+[3433.66 --> 3433.96]  I want to
+[3433.96 --> 3434.50]  get involved,
+[3435.04 --> 3436.22]  I don't see
+[3436.22 --> 3436.68]  what Jared
+[3436.68 --> 3437.02]  and Adam
+[3437.02 --> 3437.22]  see,
+[3437.30 --> 3437.64]  I don't see
+[3437.64 --> 3438.60]  these layers
+[3438.60 --> 3438.92]  to the onion,
+[3439.00 --> 3439.50]  I get it,
+[3439.70 --> 3440.56]  it's easy for
+[3440.56 --> 3440.80]  me,
+[3441.06 --> 3441.32]  or they're
+[3441.32 --> 3441.94]  just simply
+[3441.94 --> 3442.52]  interested,
+[3443.22 --> 3443.94]  what are some
+[3443.94 --> 3444.74]  good resources,
+[3444.92 --> 3445.44]  good people to
+[3445.44 --> 3445.78]  follow,
+[3446.34 --> 3446.90]  good places
+[3446.90 --> 3447.72]  to catch up?
+[3447.78 --> 3448.12]  Obviously,
+[3448.26 --> 3448.78]  you've got your
+[3448.78 --> 3450.24]  show on .NET,
+[3450.36 --> 3451.66]  but who might
+[3451.66 --> 3452.32]  someone follow,
+[3452.84 --> 3453.20]  where might
+[3453.20 --> 3453.78]  someone go
+[3453.78 --> 3455.14]  to get started,
+[3455.36 --> 3456.02]  or to at
+[3456.02 --> 3457.02]  least open up
+[3457.02 --> 3458.12]  this world
+[3458.12 --> 3458.46]  for them?
+[3458.46 --> 3460.60]  I would
+[3460.60 --> 3461.06]  definitely
+[3461.06 --> 3461.76]  check out
+[3461.76 --> 3463.10]  the C-sharp
+[3463.10 --> 3463.96]  language tutorial,
+[3464.62 --> 3465.56]  or one of
+[3465.56 --> 3466.04]  the F-sharp
+[3466.04 --> 3466.80]  tutorials.
+[3467.94 --> 3468.48]  One thing
+[3468.48 --> 3468.60]  you,
+[3469.04 --> 3469.36]  well,
+[3469.62 --> 3469.90]  yeah,
+[3470.18 --> 3471.00]  I was going
+[3471.00 --> 3471.44]  to say one
+[3471.44 --> 3471.68]  thing you
+[3471.68 --> 3472.06]  can do
+[3472.06 --> 3473.18]  is follow
+[3473.18 --> 3473.74]  the
+[3473.74 --> 3474.64]  weekend.net
+[3474.64 --> 3475.54]  posts on
+[3475.54 --> 3476.22]  the .NET
+[3476.22 --> 3476.70]  blog,
+[3477.06 --> 3478.80]  and look
+[3478.80 --> 3479.20]  at all
+[3479.20 --> 3480.10]  the articles
+[3480.10 --> 3480.88]  that people
+[3480.88 --> 3481.36]  are publishing,
+[3481.46 --> 3481.78]  but maybe
+[3481.78 --> 3482.30]  that's more
+[3482.30 --> 3482.82]  for somebody
+[3482.82 --> 3483.14]  who is
+[3483.14 --> 3483.40]  already
+[3483.40 --> 3483.74]  familiar
+[3483.74 --> 3484.22]  with it.
+[3485.96 --> 3486.54]  The
+[3486.54 --> 3486.96]  documentation
+[3486.96 --> 3487.60]  site
+[3487.60 --> 3488.50]  might be
+[3488.50 --> 3488.72]  a good
+[3488.72 --> 3489.16]  place to
+[3489.16 --> 3489.54]  start,
+[3489.92 --> 3490.36]  obviously.
+[3491.10 --> 3491.66]  So .NET,
+[3491.92 --> 3492.38]  D-O-T,
+[3492.50 --> 3493.00]  dot N-E-T?
+[3493.66 --> 3493.96]  Yeah.
+[3495.22 --> 3495.98]  If you're
+[3495.98 --> 3496.66]  curious about
+[3496.66 --> 3497.12]  the language,
+[3497.42 --> 3497.76]  you have
+[3497.76 --> 3498.36]  some tutorials
+[3498.36 --> 3499.06]  for that.
+[3499.16 --> 3499.56]  If you're
+[3499.56 --> 3500.22]  curious about
+[3500.22 --> 3500.86]  the ecosystem
+[3500.86 --> 3501.74]  and the
+[3501.74 --> 3502.20]  kinds of
+[3502.20 --> 3502.66]  libraries
+[3502.66 --> 3503.14]  that you
+[3503.14 --> 3503.72]  can find,
+[3504.28 --> 3504.96]  you can
+[3504.96 --> 3506.52]  go to
+[3506.52 --> 3507.76]  nuget.org,
+[3508.56 --> 3509.96]  N-U-G-E-T
+[3509.96 --> 3510.60]  dot org.
+[3511.48 --> 3512.12]  That's the
+[3512.12 --> 3512.86]  package manager
+[3512.86 --> 3513.66]  for .NET.
+[3513.66 --> 3514.84]  How about
+[3514.84 --> 3515.36]  some people?
+[3515.78 --> 3516.22]  Who might
+[3516.22 --> 3516.58]  someone,
+[3516.82 --> 3517.42]  let's just
+[3517.42 --> 3518.42]  write a lot of
+[3518.42 --> 3518.78]  some Twitter
+[3518.78 --> 3519.20]  followers,
+[3519.40 --> 3519.96]  we can get
+[3519.96 --> 3520.40]  some ad
+[3520.40 --> 3520.86]  symbols,
+[3521.40 --> 3521.64]  or anybody
+[3521.64 --> 3522.08]  on GitHub,
+[3522.30 --> 3522.78]  some followers
+[3522.78 --> 3523.10]  there.
+[3523.84 --> 3524.06]  Yeah,
+[3524.16 --> 3524.88]  so obviously
+[3524.88 --> 3525.98]  one very
+[3525.98 --> 3526.76]  prominent figure
+[3526.76 --> 3527.92]  in the .NET
+[3527.92 --> 3528.86]  world is
+[3528.86 --> 3529.16]  Miguel
+[3529.16 --> 3529.72]  DeCasa.
+[3530.50 --> 3531.06]  Matt
+[3531.06 --> 3531.92]  Storgerson is
+[3531.92 --> 3532.64]  interesting to
+[3532.64 --> 3532.90]  follow,
+[3533.06 --> 3533.48]  he's the
+[3533.48 --> 3534.02]  PM for
+[3534.02 --> 3534.74]  C-Sharp.
+[3535.14 --> 3535.34]  Don
+[3535.34 --> 3535.86]  Seim,
+[3536.06 --> 3536.50]  if you're
+[3536.50 --> 3537.24]  interested in
+[3537.24 --> 3537.66]  F-Sharp,
+[3537.72 --> 3537.98]  you should
+[3537.98 --> 3538.42]  definitely
+[3538.42 --> 3539.04]  follow him.
+[3539.14 --> 3539.70]  Philip Carter,
+[3539.96 --> 3540.24]  also,
+[3540.40 --> 3540.94]  who is the
+[3540.94 --> 3541.56]  program manager
+[3541.56 --> 3542.44]  for F-Sharp.
+[3542.44 --> 3543.38]  Rachel Rees
+[3543.38 --> 3544.02]  is interesting
+[3544.02 --> 3544.54]  to follow,
+[3544.74 --> 3547.48]  she's working
+[3547.48 --> 3548.04]  at Jet,
+[3548.54 --> 3549.06]  that's a
+[3549.06 --> 3549.70]  company that
+[3549.70 --> 3551.14]  was bought
+[3551.14 --> 3551.78]  by Walmart
+[3551.78 --> 3552.46]  a few months
+[3552.46 --> 3553.06]  ago for
+[3553.06 --> 3553.92]  $3 billion,
+[3554.34 --> 3554.76]  something like
+[3554.76 --> 3555.02]  that.
+[3555.56 --> 3556.22]  So they
+[3556.22 --> 3557.04]  know what
+[3557.04 --> 3557.22]  they are
+[3557.22 --> 3557.76]  doing there,
+[3558.18 --> 3558.62]  apparently.
+[3559.70 --> 3560.74]  Nick Craver
+[3560.74 --> 3563.66]  is awesome
+[3563.66 --> 3564.02]  if you're
+[3564.02 --> 3564.88]  interested in
+[3564.88 --> 3565.80]  performance
+[3565.80 --> 3567.30]  on .NET,
+[3567.42 --> 3567.88]  he's from
+[3567.88 --> 3568.62]  Stack Overflow.
+[3569.18 --> 3569.46]  Dustin
+[3569.46 --> 3569.90]  Campbell
+[3569.90 --> 3571.28]  works on
+[3571.28 --> 3572.98]  VS Code.
+[3573.70 --> 3574.40]  Oran Miller,
+[3575.24 --> 3576.34]  he's in
+[3576.34 --> 3576.78]  charge of
+[3576.78 --> 3577.68]  Entity Framework,
+[3577.78 --> 3578.94]  which is the
+[3578.94 --> 3581.34]  object-relational
+[3581.34 --> 3582.98]  mapper that
+[3582.98 --> 3583.82]  you can use
+[3583.82 --> 3584.96]  on .NET Core.
+[3585.74 --> 3585.86]  Well,
+[3585.86 --> 3586.16]  the good thing
+[3586.16 --> 3586.86]  is you've got
+[3586.86 --> 3587.68]  no shortage
+[3587.68 --> 3588.20]  of people,
+[3588.68 --> 3589.20]  which is great.
+[3589.26 --> 3589.36]  Oh,
+[3589.44 --> 3589.60]  yeah.
+[3589.80 --> 3590.00]  Well,
+[3590.08 --> 3590.24]  yeah,
+[3590.34 --> 3591.04]  there's lots
+[3591.04 --> 3591.34]  and lots
+[3591.34 --> 3591.78]  of people.
+[3592.02 --> 3592.32]  So here's
+[3592.32 --> 3592.86]  what we'll
+[3592.86 --> 3593.28]  do then.
+[3593.76 --> 3594.10]  All the
+[3594.10 --> 3594.58]  people that
+[3594.58 --> 3595.04]  you mentioned,
+[3595.04 --> 3595.44]  we'll listen
+[3595.44 --> 3595.98]  back to,
+[3596.06 --> 3596.46]  but if you've
+[3596.46 --> 3597.42]  got URLs or
+[3597.42 --> 3597.98]  Twitter handles
+[3597.98 --> 3598.42]  or something
+[3598.42 --> 3598.86]  to share
+[3598.86 --> 3599.44]  with us,
+[3599.84 --> 3600.12]  we'll make
+[3600.12 --> 3600.46]  sure we get
+[3600.46 --> 3600.82]  those in the
+[3600.82 --> 3601.14]  show notes.
+[3601.22 --> 3601.72]  That way,
+[3602.36 --> 3603.00]  any listeners
+[3603.00 --> 3603.40]  that are
+[3603.40 --> 3604.50]  following along
+[3604.50 --> 3606.22]  can go out
+[3606.22 --> 3606.66]  and follow
+[3606.66 --> 3607.14]  those people
+[3607.14 --> 3607.50]  and kind of
+[3607.50 --> 3607.74]  see what
+[3607.74 --> 3608.14]  they're into.
+[3608.90 --> 3609.56]  I'll come up
+[3609.56 --> 3610.56]  with a list
+[3610.56 --> 3611.06]  of people
+[3611.06 --> 3611.54]  and,
+[3611.62 --> 3611.98]  yeah,
+[3611.98 --> 3612.64]  you can put
+[3612.64 --> 3613.02]  that in the
+[3613.02 --> 3613.42]  description.
+[3614.02 --> 3614.84]  Bertrand recommends
+[3614.84 --> 3615.42]  following these
+[3615.42 --> 3616.02]  people and we'll
+[3616.02 --> 3616.70]  just put a list.
+[3616.84 --> 3617.40]  How about that?
+[3617.74 --> 3617.94]  Sure.
+[3618.48 --> 3619.06]  So Bertrand,
+[3619.20 --> 3619.88]  just to close
+[3619.88 --> 3620.26]  with the show
+[3620.26 --> 3620.44]  here,
+[3620.54 --> 3621.02]  is there anything
+[3621.02 --> 3621.60]  else that
+[3621.60 --> 3623.04]  we didn't
+[3623.04 --> 3623.90]  cover that
+[3623.90 --> 3624.54]  was like,
+[3624.86 --> 3625.72]  you wanted to
+[3625.72 --> 3626.16]  make sure we
+[3626.16 --> 3626.64]  got mentioned
+[3626.64 --> 3627.10]  in the show?
+[3627.10 --> 3627.86]  Yeah,
+[3627.96 --> 3628.86]  so I briefly
+[3628.86 --> 3629.80]  mentioned that
+[3629.80 --> 3631.50]  the team is
+[3631.50 --> 3632.34]  currently hard
+[3632.34 --> 3633.80]  at work making
+[3633.80 --> 3634.78]  sure that the
+[3634.78 --> 3635.56]  API surface
+[3635.56 --> 3636.62]  for .NET Core
+[3636.62 --> 3639.50]  becomes a lot
+[3639.50 --> 3640.20]  bigger than it
+[3640.20 --> 3640.72]  is today.
+[3641.14 --> 3642.54]  So next version
+[3642.54 --> 3643.48]  of .NET Core
+[3643.48 --> 3644.38]  will have a lot
+[3644.38 --> 3645.62]  more APIs to
+[3645.62 --> 3646.24]  work with.
+[3646.62 --> 3647.38]  So that's
+[3647.38 --> 3647.84]  interesting.
+[3648.04 --> 3648.46]  Another thing
+[3648.46 --> 3649.26]  we are working
+[3649.26 --> 3650.58]  on is converging
+[3650.58 --> 3651.10]  our project
+[3651.10 --> 3651.96]  system so that
+[3651.96 --> 3652.76]  all the different
+[3652.76 --> 3654.04]  flavors of .NET
+[3654.04 --> 3654.66]  are talking the
+[3654.66 --> 3655.52]  same language in
+[3655.52 --> 3657.10]  terms of building,
+[3657.92 --> 3658.74]  but that's more
+[3658.74 --> 3659.72]  like a technicality.
+[3661.16 --> 3662.00]  It's a lot of
+[3662.00 --> 3662.66]  work for us,
+[3662.76 --> 3664.12]  but hopefully
+[3664.12 --> 3665.54]  lots of benefits
+[3665.54 --> 3666.54]  for our users
+[3666.54 --> 3667.16]  in the end.
+[3669.22 --> 3669.74]  Yeah,
+[3669.86 --> 3671.16]  so we are
+[3671.16 --> 3672.10]  working on
+[3672.10 --> 3673.36]  that and
+[3673.36 --> 3675.02]  it should
+[3675.02 --> 3677.16]  come out
+[3677.16 --> 3678.62]  probably at
+[3678.62 --> 3679.44]  pretty much the
+[3679.44 --> 3680.00]  same time as
+[3680.00 --> 3680.74]  the next version
+[3680.74 --> 3681.16]  of Visual
+[3681.16 --> 3681.46]  Studio.
+[3681.46 --> 3682.46]  I wish I
+[3682.46 --> 3683.12]  could give
+[3683.12 --> 3683.58]  you a date
+[3683.58 --> 3684.00]  for that,
+[3684.08 --> 3685.06]  but I can't.
+[3685.36 --> 3685.74]  Can I ask you
+[3685.74 --> 3686.12]  one more
+[3686.12 --> 3686.92]  personal question?
+[3687.24 --> 3687.80]  Do you use
+[3687.80 --> 3688.66]  Visual Studio
+[3688.66 --> 3689.84]  or Visual Studio
+[3689.84 --> 3690.38]  Code?
+[3691.38 --> 3692.32]  I use both.
+[3694.08 --> 3694.74]  Dodging me.
+[3695.84 --> 3696.02]  No,
+[3696.10 --> 3696.70]  it really
+[3696.70 --> 3697.22]  depends what
+[3697.22 --> 3697.60]  I'm doing.
+[3699.12 --> 3699.78]  So when
+[3699.78 --> 3700.34]  do you use
+[3700.34 --> 3700.90]  which one?
+[3702.72 --> 3703.48]  When I'm
+[3703.48 --> 3703.88]  building
+[3703.88 --> 3705.20]  something that
+[3705.20 --> 3706.04]  is,
+[3706.54 --> 3706.88]  well,
+[3707.06 --> 3707.26]  yeah,
+[3707.36 --> 3708.04]  basically when
+[3708.04 --> 3708.72]  I'm on Windows,
+[3708.72 --> 3709.44]  I mostly
+[3709.44 --> 3710.30]  use Visual
+[3710.30 --> 3710.78]  Studio,
+[3711.28 --> 3711.64]  mostly.
+[3713.72 --> 3714.58]  It depends.
+[3714.84 --> 3715.86]  I don't really
+[3715.86 --> 3716.70]  know why I
+[3716.70 --> 3717.26]  use one or
+[3717.26 --> 3717.54]  the other.
+[3718.06 --> 3718.96]  It's also a
+[3718.96 --> 3719.44]  question of
+[3719.44 --> 3720.28]  mood maybe.
+[3720.40 --> 3720.90]  I don't know.
+[3721.18 --> 3721.50]  That's an
+[3721.50 --> 3722.16]  interesting question.
+[3722.24 --> 3722.92]  I never actually
+[3722.92 --> 3723.62]  thought about it.
+[3723.68 --> 3724.44]  I just pick
+[3724.44 --> 3726.40]  one depending
+[3726.40 --> 3726.96]  on what I'm
+[3726.96 --> 3727.30]  doing.
+[3728.38 --> 3728.92]  I couldn't do
+[3728.92 --> 3729.10]  that.
+[3729.20 --> 3729.54]  I would have
+[3729.54 --> 3730.18]  to pick one.
+[3731.04 --> 3731.60]  How about
+[3731.60 --> 3731.74]  you,
+[3731.78 --> 3732.16]  there can be
+[3732.16 --> 3732.74]  only one.
+[3732.90 --> 3733.08]  Yeah.
+[3733.36 --> 3733.70]  Well,
+[3733.82 --> 3734.50]  I say that,
+[3734.58 --> 3734.94]  but I use
+[3734.94 --> 3735.48]  Vim and
+[3735.48 --> 3736.04]  Sublime.
+[3737.28 --> 3737.68]  Oh,
+[3737.82 --> 3738.26]  and by the
+[3738.26 --> 3738.46]  way,
+[3738.52 --> 3738.76]  you know
+[3738.76 --> 3739.14]  that you
+[3739.14 --> 3739.92]  can use
+[3739.92 --> 3743.02]  .NET code
+[3743.02 --> 3744.60]  on Vim
+[3744.60 --> 3745.28]  and Sublime
+[3745.28 --> 3745.68]  if you
+[3745.68 --> 3745.98]  want.
+[3746.26 --> 3746.68]  There is
+[3746.68 --> 3748.36]  the service
+[3748.36 --> 3749.06]  that powers
+[3749.06 --> 3750.22]  the code
+[3750.22 --> 3751.00]  completion on
+[3751.00 --> 3751.66]  VS Code
+[3751.66 --> 3752.90]  for .NET
+[3752.90 --> 3754.54]  also works
+[3754.54 --> 3755.84]  for Vim
+[3755.84 --> 3756.88]  and Sublime
+[3756.88 --> 3757.84]  and Emacs.
+[3759.46 --> 3760.06]  So,
+[3760.30 --> 3760.50]  yeah.
+[3760.76 --> 3761.08]  That's an
+[3761.08 --> 3761.58]  inception right
+[3761.58 --> 3761.86]  there.
+[3762.20 --> 3762.64]  You can even
+[3762.64 --> 3763.92]  have code
+[3763.92 --> 3764.42]  completion
+[3764.42 --> 3765.36]  on your
+[3765.36 --> 3766.00]  favorite editor.
+[3766.50 --> 3766.78]  Nice.
+[3767.66 --> 3768.00]  Pleasant.
+[3768.82 --> 3769.30]  2016,
+[3769.62 --> 3769.78]  man.
+[3769.84 --> 3770.24]  It's great.
+[3770.52 --> 3771.22]  Good year.
+[3771.32 --> 3771.64]  It's a good
+[3771.64 --> 3772.38]  year for .NET.
+[3772.72 --> 3772.90]  So,
+[3772.98 --> 3773.28]  we mentioned
+[3773.28 --> 3773.62]  earlier in
+[3773.62 --> 3774.06]  the show
+[3774.06 --> 3776.28]  that article
+[3776.28 --> 3777.08]  for Microsoft
+[3777.08 --> 3777.50]  being the
+[3777.50 --> 3778.68]  most or
+[3778.68 --> 3778.98]  one of the
+[3778.98 --> 3779.34]  biggest
+[3779.34 --> 3780.02]  contributors
+[3780.02 --> 3780.34]  to open
+[3780.34 --> 3780.66]  source.
+[3781.12 --> 3781.52]  We have
+[3781.52 --> 3781.82]  a weekly
+[3781.82 --> 3782.68]  email we
+[3782.68 --> 3783.18]  ship called
+[3783.18 --> 3783.52]  ChangeLaw
+[3783.52 --> 3783.78]  Weekly.
+[3784.32 --> 3784.78]  I'm not
+[3784.78 --> 3785.12]  sure if you
+[3785.12 --> 3785.42]  know about
+[3785.42 --> 3785.82]  this email,
+[3785.94 --> 3786.22]  but if you
+[3786.22 --> 3786.42]  don't,
+[3786.48 --> 3786.80]  you got to
+[3786.80 --> 3787.16]  subscribe.
+[3787.46 --> 3787.86]  Go to
+[3787.86 --> 3788.58]  changelaw.com
+[3788.58 --> 3789.06]  weekly.
+[3789.72 --> 3790.40]  We put a
+[3790.40 --> 3790.72]  lot of love
+[3790.72 --> 3792.84]  into that email
+[3792.84 --> 3793.36]  every single
+[3793.36 --> 3793.78]  week.
+[3794.42 --> 3794.88]  Headlines,
+[3795.02 --> 3795.32]  links,
+[3795.42 --> 3795.80]  the latest
+[3795.80 --> 3796.26]  that's happening
+[3796.26 --> 3796.60]  in open
+[3796.60 --> 3797.04]  source,
+[3797.04 --> 3797.54]  software
+[3797.54 --> 3798.04]  development,
+[3798.64 --> 3799.08]  our latest
+[3799.08 --> 3799.86]  episodes,
+[3800.42 --> 3800.90]  projects and
+[3800.90 --> 3801.48]  repos.
+[3801.82 --> 3802.12]  We also
+[3802.12 --> 3803.34]  have an
+[3803.34 --> 3804.32]  open inbox,
+[3804.42 --> 3804.72]  we like to
+[3804.72 --> 3805.10]  call it,
+[3805.18 --> 3805.72]  on GitHub.
+[3806.28 --> 3806.88]  Go to
+[3806.88 --> 3807.52]  github.com
+[3807.52 --> 3807.94]  slash
+[3807.94 --> 3808.76]  the changelaw
+[3808.76 --> 3809.62]  slash ping.
+[3809.62 --> 3810.58]  you can
+[3810.58 --> 3810.90]  submit an
+[3810.90 --> 3811.42]  issue there
+[3811.42 --> 3812.20]  and share
+[3812.20 --> 3812.86]  your latest
+[3812.86 --> 3813.42]  open source
+[3813.42 --> 3813.66]  there.
+[3813.74 --> 3814.12]  We have a
+[3814.12 --> 3814.58]  section in
+[3814.58 --> 3815.22]  our email
+[3815.22 --> 3815.60]  just for
+[3815.60 --> 3816.26]  that called
+[3816.26 --> 3816.48]  ping.
+[3816.78 --> 3817.16]  That's pretty
+[3817.16 --> 3817.52]  interesting.
+[3818.16 --> 3818.46]  Excellent.
+[3819.04 --> 3819.34]  Do you
+[3819.34 --> 3820.06]  subscribe to
+[3820.06 --> 3820.28]  the email
+[3820.28 --> 3821.00]  by any chance?
+[3821.58 --> 3822.06]  Not yet,
+[3822.14 --> 3822.66]  but I will.
+[3822.80 --> 3823.14]  You will.
+[3823.38 --> 3823.66]  Great.
+[3824.50 --> 3824.98]  That's my
+[3824.98 --> 3825.48]  goal, Jared.
+[3825.94 --> 3826.56]  This is a
+[3826.56 --> 3827.22]  subscriber per
+[3827.22 --> 3827.52]  show.
+[3828.04 --> 3828.50]  That's how we
+[3828.50 --> 3828.80]  do it.
+[3828.86 --> 3830.28]  We shame
+[3830.28 --> 3831.04]  people into
+[3831.04 --> 3832.50]  subscribing at
+[3832.50 --> 3832.76]  the end of
+[3832.76 --> 3833.08]  the show.
+[3833.14 --> 3833.44]  That's right.
+[3833.64 --> 3834.54]  I like that.
+[3834.64 --> 3834.86]  We're going to
+[3834.86 --> 3835.44]  start doing that.
+[3835.62 --> 3836.12]  I like that.
+[3836.12 --> 3837.12]  That's not
+[3837.12 --> 3837.64]  good stuff
+[3837.64 --> 3838.04]  right there.
+[3838.84 --> 3839.24]  Yeah, and
+[3839.24 --> 3839.72]  you go to
+[3839.72 --> 3840.22]  one.net,
+[3840.30 --> 3841.18]  download the
+[3841.18 --> 3842.08]  github.com
+[3842.08 --> 3844.58]  I'm already
+[3844.58 --> 3845.34]  doing it.
+[3846.06 --> 3846.46]  I'm subscribed
+[3846.46 --> 3847.02]  on YouTube
+[3847.02 --> 3847.32]  now.
+[3847.38 --> 3847.56]  I'm a
+[3847.56 --> 3847.96]  subscriber.
+[3848.68 --> 3849.08]  Excellent.
+[3849.42 --> 3849.68]  That's the
+[3849.68 --> 3849.90]  way you got
+[3849.90 --> 3850.16]  to do it.
+[3850.20 --> 3850.58]  I love the
+[3850.58 --> 3850.98]  fact that
+[3850.98 --> 3851.32]  the show is
+[3851.32 --> 3851.68]  live.
+[3851.90 --> 3852.72]  It just
+[3852.72 --> 3853.20]  kind of gives
+[3853.20 --> 3853.62]  it that
+[3853.62 --> 3854.50]  extra perspective
+[3854.50 --> 3855.10]  that it
+[3855.10 --> 3856.32]  doesn't need
+[3856.32 --> 3857.00]  to be overly
+[3857.00 --> 3857.50]  produced.
+[3858.02 --> 3858.32]  Plus, you
+[3858.32 --> 3858.64]  never know
+[3858.64 --> 3858.90]  what's going
+[3858.90 --> 3859.24]  to happen.
+[3859.34 --> 3859.64]  That's right.
+[3860.64 --> 3861.36]  With Bertrand,
+[3861.52 --> 3862.46]  it's a lot
+[3862.46 --> 3862.80]  of fun.
+[3864.18 --> 3864.90]  Yeah, we
+[3864.90 --> 3865.76]  got in
+[3865.76 --> 3866.00]  trouble.
+[3866.12 --> 3867.12]  I've heard
+[3867.12 --> 3868.54]  a couple of
+[3868.54 --> 3868.98]  times.
+[3870.44 --> 3871.36]  Oh, well,
+[3871.48 --> 3872.08]  I'm not going
+[3872.08 --> 3872.50]  to get in
+[3872.50 --> 3872.98]  trouble this
+[3872.98 --> 3873.34]  time, so
+[3873.34 --> 3873.64]  I'm not
+[3873.64 --> 3874.08]  telling you.
+[3876.18 --> 3876.78]  You have
+[3876.78 --> 3877.42]  to go watch
+[3877.42 --> 3877.56]  it.
+[3877.80 --> 3878.12]  You have to
+[3878.12 --> 3878.54]  go watch
+[3878.54 --> 3878.74]  it.
+[3880.72 --> 3881.24]  We'll leave
+[3881.24 --> 3881.76]  it there then.
+[3882.02 --> 3882.74]  Bertrand, if
+[3882.74 --> 3883.12]  there's nothing
+[3883.12 --> 3883.56]  else you got
+[3883.56 --> 3884.00]  to say, we're
+[3884.00 --> 3884.32]  going to close
+[3884.32 --> 3884.66]  this show
+[3884.66 --> 3885.04]  out.
+[3886.10 --> 3886.40]  It was
+[3886.40 --> 3886.82]  definitely a
+[3886.82 --> 3887.26]  blast having
+[3887.26 --> 3887.90]  you on the
+[3887.90 --> 3888.18]  show.
+[3888.88 --> 3889.54]  I appreciate
+[3889.54 --> 3891.24]  now my
+[3891.24 --> 3892.06]  knowledge of
+[3892.06 --> 3892.78]  .NET, only
+[3892.78 --> 3893.22]  that, but
+[3893.22 --> 3893.72]  also Visual
+[3893.72 --> 3894.04]  Studio.
+[3894.66 --> 3895.18]  I don't know
+[3895.18 --> 3895.64]  how I gapped
+[3895.64 --> 3896.12]  that, Jared.
+[3896.40 --> 3896.74]  I feel like
+[3896.74 --> 3897.46]  an idiot, but
+[3897.46 --> 3898.22]  I'll be an
+[3898.22 --> 3899.02]  idiot on air, and
+[3899.02 --> 3899.40]  that's just how
+[3899.40 --> 3899.74]  it'll be.
+[3900.54 --> 3900.94]  Yep.
+[3901.76 --> 3902.68]  But that's it
+[3902.68 --> 3903.52]  for this show, so
+[3903.52 --> 3904.52]  let's say
+[3904.52 --> 3904.76]  goodbye.
+[3905.36 --> 3905.84]  Thanks for
+[3905.84 --> 3906.30]  having me.
+[3906.38 --> 3906.74]  It's been
+[3906.74 --> 3907.54]  very fun.
+[3908.06 --> 3908.42]  Thank you.
+[3908.86 --> 3909.46]  Thanks, Bertrand.
+[3909.64 --> 3909.92]  Bye.
+[3910.36 --> 3910.78]  Thank you.
+[3910.88 --> 3911.22]  Bye-bye.
+[3911.22 --> 3911.32]  Bye-bye.
+[3911.32 --> 3911.36]  Bye-bye.
+[3911.36 --> 3913.36]  Bye-bye.
+[3913.36 --> 3915.36]  Bye-bye.
+[3915.36 --> 3917.36]  Bye-bye.
+[3917.36 --> 3919.36]  Bye-bye.
+[3919.36 --> 3923.36]  Bye-bye.
+[3923.36 --> 3925.36]  Bye-bye.
+[3925.82 --> 3927.32]  Bye-bye.
+[3931.44 --> 3932.66]  Bye-bye.
+[3940.58 --> 3941.28]  Bye-bye.
+[3941.80 --> 3942.60]  Bye-bye.
+[3942.84 --> 3943.30]  Bye-bye.
+[3953.40 --> 3953.42]  Bye-bye.
+[3953.44 --> 3954.38]  Bye-bye.
+[3954.40 --> 3954.62]  Bye-bye.
+[3954.62 --> 3954.88]  Bye-bye.
