@@ -101,11 +101,12 @@ foreach ($Year in $YearFolders) {
     
     # Check if any matching files exist
     $HasTranscript = @(Get-ChildItem -Path $YearPath -Filter "*_transcript.*" -ErrorAction SilentlyContinue).Count -gt 0
+    $HasNote = @(Get-ChildItem -Path $YearPath -Filter "*_notes.*" -ErrorAction SilentlyContinue).Count -gt 0
     $HasSummary = @(Get-ChildItem -Path $YearPath -Filter "*_summary.*" -ErrorAction SilentlyContinue).Count -gt 0
     $HasCorrected = @(Get-ChildItem -Path $YearPath -Filter "*_corrected.*" -ErrorAction SilentlyContinue).Count -gt 0
     
-    if (-not ($HasTranscript -or $HasSummary -or $HasCorrected)) {
-        Write-ColoredOutput "  [SKIP] No matching files found (*_transcript.*, *_summary.*, *_corrected.*)" -Color $WarningColor
+    if (-not ($HasTranscript -or $HasNote -or $HasSummary -or $HasCorrected)) {
+        Write-ColoredOutput "  [SKIP] No matching files found (*_transcript.*, *_notes.*, *_summary.*, *_corrected.*)" -Color $WarningColor
         $SkippedCount++
         continue
     }
@@ -118,7 +119,7 @@ foreach ($Year in $YearFolders) {
         
         # Step 1: Add and commit transcripts
         if ($HasTranscript) {
-            Write-ColoredOutput "`n  [1/3] TRANSCRIPTS:" -Color $InfoColor
+            Write-ColoredOutput "`n  [1/4] TRANSCRIPTS:" -Color $InfoColor
             if (Invoke-GitCommand "add", "*_transcript.*") {
                 # Check if there are actually changes to commit
                 $stagedChanges = git diff --cached --name-only 2>$null
@@ -132,12 +133,31 @@ foreach ($Year in $YearFolders) {
                 }
             }
         } else {
-            Write-ColoredOutput "`n  [1/3] TRANSCRIPTS: Skipped (no files)" -Color $WarningColor
+            Write-ColoredOutput "`n  [1/4] TRANSCRIPTS: Skipped (no files)" -Color $WarningColor
+        }
+
+        # Step 2: Add and commit notes
+        if ($HasNote) {
+            Write-ColoredOutput "`n  [2/4] NOTES:" -Color $InfoColor
+            if (Invoke-GitCommand "add", "*_notes.*") {
+                # Check if there are actually changes to commit
+                $stagedChanges = git diff --cached --name-only 2>$null
+                if ($stagedChanges) {
+                    if (Invoke-GitCommand "commit", "-m", "add all $Year notes") {
+                        Write-ColoredOutput "  [OK] Notes committed" -Color $SuccessColor
+                        $YearHasChanges = $true
+                    }
+                } else {
+                    Write-ColoredOutput "  [SKIP] No changes to commit for notes" -Color $WarningColor
+                }
+            }
+        } else {
+            Write-ColoredOutput "`n  [2/4] NOTES: Skipped (no files)" -Color $WarningColor
         }
         
-        # Step 2: Add and commit summaries
+        # Step 3: Add and commit summaries
         if ($HasSummary) {
-            Write-ColoredOutput "`n  [2/3] SUMMARIES:" -Color $InfoColor
+            Write-ColoredOutput "`n  [3/4] SUMMARIES:" -Color $InfoColor
             if (Invoke-GitCommand "add", "*_summary.*") {
                 $stagedChanges = git diff --cached --name-only 2>$null
                 if ($stagedChanges) {
@@ -150,12 +170,12 @@ foreach ($Year in $YearFolders) {
                 }
             }
         } else {
-            Write-ColoredOutput "`n  [2/3] SUMMARIES: Skipped (no files)" -Color $WarningColor
+            Write-ColoredOutput "`n  [3/4] SUMMARIES: Skipped (no files)" -Color $WarningColor
         }
         
-        # Step 3: Add and commit corrections
+        # Step 4: Add and commit corrections
         if ($HasCorrected) {
-            Write-ColoredOutput "`n  [3/3] CORRECTIONS:" -Color $InfoColor
+            Write-ColoredOutput "`n  [4/4] CORRECTIONS:" -Color $InfoColor
             if (Invoke-GitCommand "add", "*_corrected.*") {
                 $stagedChanges = git diff --cached --name-only 2>$null
                 if ($stagedChanges) {
