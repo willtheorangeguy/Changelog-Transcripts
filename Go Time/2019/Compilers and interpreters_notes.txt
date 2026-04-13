@@ -1,0 +1,3 @@
+- [Writing an Interpreter in Go](https://interpreterbook.com/)
+- [Writing a Compiler in Go](https://compilerbook.com/)
+- [Plush](https://github.com/gobuffalo/plush)
