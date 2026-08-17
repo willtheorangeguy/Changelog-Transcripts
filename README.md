@@ -51,7 +51,7 @@ That runs the whole pipeline end to end. It covers `Away from Keyboard`, `Backst
 ## Documentation
 
 Full documentation lives in [`docs/`](docs/README.md):
-[Usage](docs/usage.md) · [Pipeline](docs/pipeline.md)
+[Quickstart](docs/quickstart.md) · [Installation](docs/installation.md) · [Configuration](docs/configuration.md) · [Architecture](docs/architecture.md) · [Pipeline](docs/pipeline.md) · [FAQ](docs/faq.md) · [Troubleshooting](docs/troubleshooting.md)
 
 ## Support
 
